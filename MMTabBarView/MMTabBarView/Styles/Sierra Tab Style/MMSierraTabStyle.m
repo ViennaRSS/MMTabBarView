@@ -136,6 +136,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -
 #pragma mark Close Button Drawing
 
+//TODO: implement "updateCloseButton" to support close button hiding.
+//TODO: probably other methods missing, too.
+
 - (NSSize)closeButtonSizeForBounds:(NSRect)theRect ofTabCell:(MMTabBarButtonCell *)cell {
     CGFloat width = 16.0f;
     CGFloat height = 16.0f;

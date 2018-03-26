@@ -147,12 +147,17 @@ static NSInteger potentialMinimumForArray(NSArray *array, NSInteger minimum){
 
         BOOL displayCloseButton = [_tabBarView allowsBackgroundTabClosing] || ([currentButton state] == NSOnState);
 
+		BOOL suppressCloseButton = (   (buttonCount == 1
+									    && [_tabBarView canCloseOnlyTab] == NO)
+									|| [_tabBarView disableTabClose]
+									|| !displayCloseButton
+									|| ([[_tabBarView delegate]
+										 respondsToSelector:@selector(tabView:disableTabCloseForTabViewItem:)]
+										&& [[_tabBarView delegate] tabView:[_tabBarView tabView]
+											 disableTabCloseForTabViewItem:[currentButton tabViewItem]]));
+
 		// supress close button?
-		[currentButton setSuppressCloseButton:
-            ((buttonCount == 1 && [_tabBarView canCloseOnlyTab] == NO) ||
-            [_tabBarView disableTabClose] ||
-            !displayCloseButton ||
-            ([[_tabBarView delegate] respondsToSelector:@selector(tabView:disableTabCloseForTabViewItem:)] && [[_tabBarView delegate] tabView:[_tabBarView tabView] disableTabCloseForTabViewItem:[currentButton tabViewItem]]))];
+		[currentButton setSuppressCloseButton:suppressCloseButton];
 
 		if ([_tabBarView orientation] == MMTabBarHorizontalOrientation) {
 			// Determine button width
@@ -386,7 +391,7 @@ static NSInteger potentialMinimumForArray(NSArray *array, NSInteger minimum){
                             // here we distribute the remainder among the tabs.
                             // we'll use the same mechanism as above for consistancy
                             // this will create the least jitter of the separators
-                            while (availableWidth > totalOccupiedWidth) {
+                            while (0 < [newWidths count] && availableWidth > totalOccupiedWidth) {
                                 for (q=0; ((q < [newWidths count]) && (availableWidth > totalOccupiedWidth)); q++) {
                                     [newWidths replaceObjectAtIndex:q withObject:[NSNumber numberWithDouble:revisedWidth+1]];
                                     totalOccupiedWidth ++;
