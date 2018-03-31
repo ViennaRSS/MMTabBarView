@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (BOOL)supportsOrientation:(MMTabBarOrientation)orientation forTabBarView:(MMTabBarView *)tabBarView {
-    return NO;
+    return orientation == MMTabBarHorizontalOrientation;
 }
 
 #pragma mark -
@@ -117,7 +117,6 @@ NS_ASSUME_NONNULL_BEGIN
 	NSRect dragRect = [aButton stackingFrame];
 	dragRect.size.width++;
 	return dragRect;
-    
 }
 
 #pragma mark -
@@ -136,9 +135,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -
 #pragma mark Close Button Drawing
 
-//TODO: implement "updateCloseButton" to support close button hiding.
-//TODO: probably other methods missing, too.
-
 - (NSSize)closeButtonSizeForBounds:(NSRect)theRect ofTabCell:(MMTabBarButtonCell *)cell {
     CGFloat width = 16.0f;
     CGFloat height = 16.0f;
@@ -146,6 +142,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (NSRect)closeButtonRectForBounds:(NSRect)theRect ofTabCell:(MMTabBarButtonCell *)cell {
+
+	if (![cell shouldDisplayCloseButton]) {
+		return NSZeroRect;
+	}
+
     CGFloat marginX = 4.0f;
     CGFloat marginY = 4.0f;
     NSSize size = [self closeButtonSizeForBounds:theRect ofTabCell:cell];
@@ -180,9 +181,20 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)drawTitleOfTabCell:(MMTabBarButtonCell *)cell withFrame:(NSRect)frame inView:(NSView *)controlView {
-    NSRect rect = [cell titleRectForBounds:frame];
+    NSRect rect = [self _titleRectForBounds:frame ofTabCell:cell];
     NSAttributedString *attrString = [cell attributedStringValue];
     [attrString drawInRect:rect];
+}
+
+-(NSRect)_titleRectForBounds:(NSRect)theRect ofTabCell:(MMTabBarButtonCell *)cell {
+	NSRect titleRect = [cell titleRectForBounds:theRect];
+	NSRect closeButtonRect = [cell closeButtonRectForBounds:theRect];
+	if (!NSEqualRects(closeButtonRect, NSZeroRect)) {
+		titleRect.size.width -= NSWidth(closeButtonRect);
+	}
+	titleRect.origin.x -= MARGIN_X;
+	titleRect.size.width += 2*MARGIN_X;
+	return titleRect;
 }
 
 - (void)drawBezelOfTabBarView:(MMTabBarView *)tabBarView inRect:(NSRect)rect {

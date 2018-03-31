@@ -1528,7 +1528,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 
     _needsUpdate = NO;
 
-    if (![[self window] isVisible] || [self isHidden])
+    if (![[self window] isVisible])
         [self update:NO];
     else
         [self update:_automaticallyAnimates];
@@ -1540,9 +1540,9 @@ static NSMutableDictionary *registeredStyleClasses = nil;
     if ([[MMTabDragAssistant sharedDragAssistant] isDragging] == NO) {
 
             // hide/show? (these return if already in desired state)
-        if (_isHidden && [self _shouldDisplayTabBar])
+        if ([self _shouldDisplayTabBar])
             [self hideTabBar:NO animate:animate];
-        else if (!_isHidden && ![self _shouldDisplayTabBar]) {
+        else if (![self _shouldDisplayTabBar]) {
             [self hideTabBar:YES animate:animate];
             [self setNeedsUpdate:NO];
             return;
