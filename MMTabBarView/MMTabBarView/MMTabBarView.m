@@ -92,8 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
     // animation
     MMSlideButtonsAnimation         *_slideButtonsAnimation;
     
-    // animation for hide/show
-    NSViewAnimation                 *_hideShowTabBarAnimation;
+    // properties for hide/show
     BOOL                            _isHidden;
     NSInteger                       _tabBarWidth;   // stored width of vertical tab bar
         
@@ -144,10 +143,6 @@ static NSMutableDictionary *registeredStyleClasses = nil;
         [_slideButtonsAnimation stopAnimation];
         _slideButtonsAnimation = nil;
     }
-    if (_hideShowTabBarAnimation) {
-        [_hideShowTabBarAnimation stopAnimation];
-        _hideShowTabBarAnimation = nil;
-    }
 
 	//Also unwind the spring, if it's wound.
 	[_springTimer invalidate];
@@ -165,11 +160,6 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 
 - (void)viewWillMoveToWindow:(nullable NSWindow *)aWindow {
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-
-	if (_hideShowTabBarAnimation) {
-		[_hideShowTabBarAnimation stopAnimation];
-		 _hideShowTabBarAnimation = nil;
-	}
     
     if (_slideButtonsAnimation) {
 		[_slideButtonsAnimation stopAnimation];
@@ -1195,13 +1185,28 @@ static NSMutableDictionary *registeredStyleClasses = nil;
     
     _isHidden = hide;
 
-    CGFloat partnerOriginalSize, partnerOriginalOrigin, myOriginalSize, myOriginalOrigin, partnerTargetSize, partnerTargetOrigin;
+	CGFloat partnerTargetSize;
+	CGFloat partnerTargetOrigin;
 
-        // target values for partner
+	[self calculatePartnerViewChange:&partnerTargetOrigin partnerTargetSize:&partnerTargetSize];
+	[self applyFrameChangesAnimated:animate hide:hide partnerTargetOrigin:partnerTargetOrigin partnerTargetSize:partnerTargetSize];
+    
+    if (!animate) {
+        if (!_isHidden)
+            [self setHidden:NO];
+
+		[self sendTabBarShowHideCompletionCalls:_isHidden];
+    }   
+}
+
+- (void)calculatePartnerViewChange:(CGFloat *)partnerTargetOrigin partnerTargetSize:(CGFloat *)partnerTargetSize {
+	CGFloat partnerOriginalSize; CGFloat partnerOriginalOrigin; CGFloat myOriginalSize; CGFloat myOriginalOrigin;
+
+	// target values for partner
 	if ([self orientation] == MMTabBarHorizontalOrientation) {
-            // current (original) values
+		// current (original) values
 		myOriginalSize = [self frame].size.height;
-        #pragma unused(myOriginalSize)
+#pragma unused(myOriginalSize)
 		myOriginalOrigin = [self frame].origin.y;
 		if (_partnerView) {
 			partnerOriginalSize = [_partnerView frame].size.height;
@@ -1212,44 +1217,44 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 		}
 
 		if (_partnerView) {
-                // above or below me?
+			// above or below me?
 			if ((myOriginalOrigin - kMMTabBarViewHeight) > partnerOriginalOrigin) {
-                    // partner is below me
+				// partner is below me
 				if (_isHidden) {
-                        // I'm shrinking
-					partnerTargetOrigin = partnerOriginalOrigin;
-					partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+					// I'm shrinking
+					*partnerTargetOrigin = partnerOriginalOrigin;
+					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
 				} else {
-                        // I'm growing
-					partnerTargetOrigin = partnerOriginalOrigin;
-					partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+					// I'm growing
+					*partnerTargetOrigin = partnerOriginalOrigin;
+					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
 				}
 			} else {
-                    // partner is above me
+				// partner is above me
 				if (_isHidden) {
-                        // I'm shrinking
-					partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-					partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+					// I'm shrinking
+					*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
 				} else {
-                        // I'm growing
-					partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-					partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+					// I'm growing
+					*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
 				}
 			}
 		} else {
-                // for window movement
+			// for window movement
 			if (_isHidden) {
-                    // I'm shrinking
-				partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-				partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+				// I'm shrinking
+				*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
+				*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
 			} else {
-                    // I'm growing
-				partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-				partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+				// I'm growing
+				*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
+				*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
 			}
 		}
-	} else {   // vertical 
-            // current (original) values
+	} else {   // vertical
+		// current (original) values
 		myOriginalSize = [self frame].size.width;
 		myOriginalOrigin = [self frame].origin.x;
 		if (_partnerView) {
@@ -1261,111 +1266,112 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 		}
 
 		if (_partnerView) {
-                //to the left or right?
+			//to the left or right?
 			if (myOriginalOrigin < partnerOriginalOrigin + partnerOriginalSize) {
-                    // partner is to the left
+				// partner is to the left
 				if (_isHidden) {
-                        // I'm shrinking
-					partnerTargetOrigin = partnerOriginalOrigin - myOriginalSize;
-					partnerTargetSize = partnerOriginalSize + myOriginalSize;
+					// I'm shrinking
+					*partnerTargetOrigin = partnerOriginalOrigin - myOriginalSize;
+					*partnerTargetSize = partnerOriginalSize + myOriginalSize;
 					_tabBarWidth = myOriginalSize;
 				} else {
-                        // I'm growing
-					partnerTargetOrigin = partnerOriginalOrigin + _tabBarWidth;
-					partnerTargetSize = partnerOriginalSize - _tabBarWidth;
+					// I'm growing
+					*partnerTargetOrigin = partnerOriginalOrigin + _tabBarWidth;
+					*partnerTargetSize = partnerOriginalSize - _tabBarWidth;
 				}
 			} else {
-                    // partner is to the right
+				// partner is to the right
 				if (_isHidden) {
-                        // I'm shrinking
-					partnerTargetOrigin = partnerOriginalOrigin;
-					partnerTargetSize = partnerOriginalSize + myOriginalSize;
+					// I'm shrinking
+					*partnerTargetOrigin = partnerOriginalOrigin;
+					*partnerTargetSize = partnerOriginalSize + myOriginalSize;
 					_tabBarWidth = myOriginalSize;
 				} else {
-                        // I'm growing
-					partnerTargetOrigin = partnerOriginalOrigin;
-					partnerTargetSize = partnerOriginalSize - _tabBarWidth;
+					// I'm growing
+					*partnerTargetOrigin = partnerOriginalOrigin;
+					*partnerTargetSize = partnerOriginalSize - _tabBarWidth;
 				}
 			}
 		} else {
-                // for window movement
+			// for window movement
 			if (_isHidden) {
-                    // I'm shrinking
-				partnerTargetOrigin = partnerOriginalOrigin + myOriginalSize;
-				partnerTargetSize = partnerOriginalSize - myOriginalSize;
+				// I'm shrinking
+				*partnerTargetOrigin = partnerOriginalOrigin + myOriginalSize;
+				*partnerTargetSize = partnerOriginalSize - myOriginalSize;
 				_tabBarWidth = myOriginalSize;
 			} else {
-                    // I'm growing
-				partnerTargetOrigin = partnerOriginalOrigin - _tabBarWidth;
-				partnerTargetSize = partnerOriginalSize + _tabBarWidth;
+				// I'm growing
+				*partnerTargetOrigin = partnerOriginalOrigin - _tabBarWidth;
+				*partnerTargetSize = partnerOriginalSize + _tabBarWidth;
 			}
 		}
 	}
+}
+
+- (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize {
 
 	if (hide)
-        [self setHidden:YES];
-        
+		[self setHidden:YES];
+
 	if (_partnerView) {
-            // resize self and view
-		NSRect resizeRect;
+		// resize self and view
+		NSRect newPartnerViewFrame;
 		if ([self orientation] == MMTabBarHorizontalOrientation) {
-			resizeRect = NSMakeRect([_partnerView frame].origin.x, partnerTargetOrigin, [_partnerView frame].size.width, partnerTargetSize);
+			newPartnerViewFrame = NSMakeRect([_partnerView frame].origin.x, partnerTargetOrigin, [_partnerView frame].size.width, partnerTargetSize);
 		} else {
-			resizeRect = NSMakeRect(partnerTargetOrigin, [_partnerView frame].origin.y, partnerTargetSize, [_partnerView frame].size.height);
+			newPartnerViewFrame = NSMakeRect(partnerTargetOrigin, [_partnerView frame].origin.y, partnerTargetSize, [_partnerView frame].size.height);
 		}
 
-        if (animate) {
-        
-                // stop running animation
-            if (_hideShowTabBarAnimation) {
-                [_hideShowTabBarAnimation stopAnimation];
-                _hideShowTabBarAnimation = nil;
-            }
-                
-                // start animated update of partner view
-            NSDictionary *partnerAnimDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                _partnerView, NSViewAnimationTargetKey,
-                [NSValue valueWithRect:[_partnerView frame]], NSViewAnimationStartFrameKey,
-                [NSValue valueWithRect:resizeRect], NSViewAnimationEndFrameKey,
-                [NSNumber numberWithBool:hide], @"hide",
-                nil];
+		if (animate) {
 
-            NSArray *animDictArray = [NSArray arrayWithObjects:partnerAnimDict,nil];
-                
-            _hideShowTabBarAnimation = [[NSViewAnimation alloc] initWithViewAnimations:animDictArray    ];
-            [_hideShowTabBarAnimation setDuration:0.1];
-            [_hideShowTabBarAnimation setDelegate:self];
-            [_hideShowTabBarAnimation startAnimation];
-        } else {
-            [_partnerView setFrame:resizeRect];
-        }
+			void (^animateAlongside)();
+			if (hide && [_delegate respondsToSelector:@selector(animateAlongsideTabBarHide)]) {
+				animateAlongside = [_delegate animateAlongsideTabBarHide];
+			}
+			else if (!hide && [_delegate respondsToSelector:@selector(animateAlongsideTabBarShow)]) {
+				animateAlongside = [_delegate animateAlongsideTabBarShow];
+			}
+
+			[NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+				context.duration = 0.2;
+				_partnerView.animator.frame = newPartnerViewFrame;
+				if (animateAlongside) {
+					animateAlongside();
+				}
+			} completionHandler:^{
+				if (!hide)
+					[self setHidden:NO];
+
+				[self updateTrackingAreas];
+
+				//send the delegate messages
+				[self sendTabBarShowHideCompletionCalls:hide];
+			}];
+		} else {
+			[_partnerView setFrame:newPartnerViewFrame];
+		}
 	} else {
-            // resize self and window
-		NSRect resizeRect;
+		// resize self and window
+		NSRect newWindowFrame;
 		if ([self orientation] == MMTabBarHorizontalOrientation) {
-			resizeRect = NSMakeRect([[self window] frame].origin.x, partnerTargetOrigin, [[self window] frame].size.width, partnerTargetSize);
+			newWindowFrame = NSMakeRect([[self window] frame].origin.x, partnerTargetOrigin, [[self window] frame].size.width, partnerTargetSize);
 		} else {
-			resizeRect = NSMakeRect(partnerTargetOrigin, [[self window] frame].origin.y, partnerTargetSize, [[self window] frame].size.height);
+			newWindowFrame = NSMakeRect(partnerTargetOrigin, [[self window] frame].origin.y, partnerTargetSize, [[self window] frame].size.height);
 		}
-		[[self window] setFrame:resizeRect display:YES];
+		[[self window] setFrame:newWindowFrame display:YES];
 	}
-    
-    
-    if (!animate) {
-        if (!_isHidden)
-            [self setHidden:NO];
-        
-            //send the delegate messages
-		if (_isHidden) {
-			if ([_delegate respondsToSelector:@selector(tabView:tabBarViewDidHide:)]) {
-				[_delegate tabView:[self tabView] tabBarViewDidHide:self];
-			}
-		} else {
-			if ([_delegate respondsToSelector:@selector(tabView:tabBarViewDidUnhide:)]) {
-				[_delegate tabView:[self tabView] tabBarViewDidUnhide:self];
-			}
-        }
-    }   
+}
+
+- (void) sendTabBarShowHideCompletionCalls:(BOOL)isHidden {
+	if (isHidden) {
+		if ([[self delegate] respondsToSelector:@selector(tabView:tabBarViewDidHide:)]) {
+			[[self delegate] tabView:[self tabView] tabBarViewDidHide:self];
+		}
+	} else {
+		if ([[self delegate] respondsToSelector:@selector(tabView:tabBarViewDidUnhide:)]) {
+			[[self delegate] tabView:[self tabView] tabBarViewDidUnhide:self];
+		}
+	}
 }
 
 - (BOOL)isTabBarHidden {
@@ -1373,7 +1379,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 }
 
 - (BOOL)isAnimating {
-	return _slideButtonsAnimation != nil || _hideShowTabBarAnimation != nil;
+	return _slideButtonsAnimation != nil;
 }
 
 #pragma mark -
@@ -2029,29 +2035,6 @@ static NSMutableDictionary *registeredStyleClasses = nil;
         
         [self updateTrackingAreas];
         [self setNeedsDisplay:YES];
-    }
-
-    if (animation == _hideShowTabBarAnimation) {
-        NSArray *animations = [(NSViewAnimation*)animation viewAnimations];
-        NSDictionary *animDict = [animations lastObject];
-        
-        BOOL isHidden = [[animDict objectForKey:@"hide"] boolValue];
-        if (!isHidden)
-            [self setHidden:NO];
-            
-        _hideShowTabBarAnimation = nil;
-        [self updateTrackingAreas];
-        
-            //send the delegate messages
-		if (isHidden) {
-			if ([[self delegate] respondsToSelector:@selector(tabView:tabBarViewDidHide:)]) {
-				[[self delegate] tabView:[self tabView] tabBarViewDidHide:self];
-			}
-		} else {
-			if ([[self delegate] respondsToSelector:@selector(tabView:tabBarViewDidUnhide:)]) {
-				[[self delegate] tabView:[self tabView] tabBarViewDidUnhide:self];
-			}
-        }        
     }
 }
 
