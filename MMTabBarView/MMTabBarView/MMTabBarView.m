@@ -220,10 +220,16 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 	return YES;
 }
 
+//Height auto-adjusts based on if we are hidden or not.  This lets autolayout adjust for when we hide/show the tab bar.
 - (NSSize)intrinsicContentSize
 {
     if ([_style respondsToSelector:@selector(intrinsicContentSizeOfTabBarView:)])
-        return [_style intrinsicContentSizeOfTabBarView:self];
+	{
+		if(_isHidden)
+				return NSMakeSize(NSViewNoIntrinsicMetric, 0);
+		else
+				return [_style intrinsicContentSizeOfTabBarView:self];
+	}
 
     return NSMakeSize(NSViewNoInstrinsicMetric, NSViewNoInstrinsicMetric);
 }
@@ -1334,6 +1340,9 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 
 			[NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
 				context.duration = 0.2;
+				context.allowsImplicitAnimation = YES;
+				[self invalidateIntrinsicContentSize];
+				[self.superview layoutSubtreeIfNeeded];
 				_partnerView.animator.frame = newPartnerViewFrame;
 				if (animateAlongside) {
 					animateAlongside();
@@ -1349,6 +1358,8 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 			}];
 		} else {
 			[_partnerView setFrame:newPartnerViewFrame];
+			[self invalidateIntrinsicContentSize];
+			[self.superview setNeedsLayout: YES];
 		}
 	} else {
 		// resize self and window
