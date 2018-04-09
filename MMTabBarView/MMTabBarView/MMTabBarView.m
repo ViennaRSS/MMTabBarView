@@ -1195,14 +1195,15 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 	CGFloat partnerTargetOrigin;
 
 	[self calculatePartnerViewChange:&partnerTargetOrigin partnerTargetSize:&partnerTargetSize];
-	[self applyFrameChangesAnimated:animate hide:hide partnerTargetOrigin:partnerTargetOrigin partnerTargetSize:partnerTargetSize];
-    
-    if (!animate) {
-        if (!_isHidden)
-            [self setHidden:NO];
+	[self applyFrameChangesAnimated:animate hide:hide partnerTargetOrigin:partnerTargetOrigin partnerTargetSize:partnerTargetSize completion:^{
+		if (!hide)
+			[self setHidden:NO];
+		[self updateTrackingAreas];
+		[self sendTabBarShowHideCompletionCalls:hide];
+	}];
 
-		[self sendTabBarShowHideCompletionCalls:_isHidden];
-    }   
+	if (hide)
+		[self setHidden:YES];
 }
 
 - (void)calculatePartnerViewChange:(CGFloat *)partnerTargetOrigin partnerTargetSize:(CGFloat *)partnerTargetSize {
@@ -1314,10 +1315,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 	}
 }
 
-- (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize {
-
-	if (hide)
-		[self setHidden:YES];
+- (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize completion:(void(^)())completion {
 
 	if (_partnerView) {
 		// resize self and view
@@ -1339,7 +1337,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 			}
 
 			[NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
-				context.duration = 0.2;
+				context.duration = 0.1;
 				context.allowsImplicitAnimation = YES;
 				[self invalidateIntrinsicContentSize];
 				[self.superview layoutSubtreeIfNeeded];
@@ -1347,19 +1345,12 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 				if (animateAlongside) {
 					animateAlongside();
 				}
-			} completionHandler:^{
-				if (!hide)
-					[self setHidden:NO];
-
-				[self updateTrackingAreas];
-
-				//send the delegate messages
-				[self sendTabBarShowHideCompletionCalls:hide];
-			}];
+			} completionHandler:completion];
 		} else {
 			[_partnerView setFrame:newPartnerViewFrame];
 			[self invalidateIntrinsicContentSize];
 			[self.superview setNeedsLayout: YES];
+			completion();
 		}
 	} else {
 		// resize self and window
@@ -1370,6 +1361,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 			newWindowFrame = NSMakeRect(partnerTargetOrigin, [[self window] frame].origin.y, partnerTargetSize, [[self window] frame].size.height);
 		}
 		[[self window] setFrame:newWindowFrame display:YES];
+		completion();
 	}
 }
 

@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSSize)intrinsicContentSizeOfTabBarView:(MMTabBarView *)tabBarView
 {
-    return NSMakeSize(-1/* NSViewNoInstrinsicMetric */, 24);
+    return NSMakeSize(NSViewNoInstrinsicMetric, 24);
 }
 
 - (CGFloat)leftMarginForTabBarView:(MMTabBarView *)tabBarView {
