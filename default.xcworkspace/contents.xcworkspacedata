@@ -32,19 +32,6 @@
          location = "group:Release.xcconfig">
       </FileRef>
    </Group>
-   <Group
-      location = "group:OriginalGraphics"
-      name = "OriginalGraphics">
-      <FileRef
-         location = "group:AquaTabNew.psd">
-      </FileRef>
-      <FileRef
-         location = "group:AquaTabNewPressed.psd">
-      </FileRef>
-      <FileRef
-         location = "group:AquaTabNewRollover.psd">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:MMTabBarView Demo/MMTabBarView Demo.xcodeproj">
    </FileRef>
