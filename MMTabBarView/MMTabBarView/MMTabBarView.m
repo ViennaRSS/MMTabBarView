@@ -14,14 +14,6 @@
 #import "MMOverflowPopUpButtonCell.h"
 #import "MMRolloverButton.h"
 #import "MMTabStyle.h"
-#import "MMMetalTabStyle.h"
-#import "MMAquaTabStyle.h"
-#import "MMUnifiedTabStyle.h"
-#import "MMAdiumTabStyle.h"
-#import "MMLiveChatTabStyle.h"
-#import "MMCardTabStyle.h"
-#import "MMSafariTabStyle.h"
-#import "MMYosemiteTabStyle.h"
 #import "MMSierraTabStyle.h"
 #import "MMTabDragAssistant.h"
 #import "MMTabBarController.h"
@@ -122,7 +114,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 		// Initialization
 		[self _commonInit];
 
-		_style = [[MMMetalTabStyle alloc] init];
+		_style = [[MMSierraTabStyle alloc] init];
 
 		[self registerForDraggedTypes:[NSArray arrayWithObjects:AttachedTabBarButtonUTI, nil]];
 
@@ -352,15 +344,6 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 #pragma mark Style Class Registry
 
 + (void)registerDefaultTabStyleClasses {
-
-    [self registerTabStyleClass:[MMAquaTabStyle class]];
-    [self registerTabStyleClass:[MMUnifiedTabStyle class]];
-    [self registerTabStyleClass:[MMAdiumTabStyle class]];
-    [self registerTabStyleClass:[MMMetalTabStyle class]];
-    [self registerTabStyleClass:[MMCardTabStyle class]];
-    [self registerTabStyleClass:[MMLiveChatTabStyle class]];
-    [self registerTabStyleClass:[MMSafariTabStyle class]];
-    [self registerTabStyleClass:[MMYosemiteTabStyle class]];
     [self registerTabStyleClass:[MMSierraTabStyle class]];
 }
 
@@ -2127,7 +2110,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 		}
 
 		if (_style == nil) {
-			_style = [[MMMetalTabStyle alloc] init];
+			_style = [[MMSierraTabStyle alloc] init];
 		}
 	}
 

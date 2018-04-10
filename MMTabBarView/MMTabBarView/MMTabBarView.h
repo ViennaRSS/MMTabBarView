@@ -37,14 +37,6 @@ FOUNDATION_EXPORT const unsigned char MMTabBarViewVersionString[];
 #import <MMTabBarView/MMOverflowPopUpButton.h>
 #import <MMTabBarView/MMOverflowPopUpButtonCell.h>
 
-#import <MMTabBarView/MMAdiumTabStyle.h>
-#import <MMTabBarView/MMAquaTabStyle.h>
-#import <MMTabBarView/MMCardTabStyle.h>
-#import <MMTabBarView/MMLiveChatTabStyle.h>
-#import <MMTabBarView/MMMetalTabStyle.h>
-#import <MMTabBarView/MMSafariTabStyle.h>
-#import <MMTabBarView/MMUnifiedTabStyle.h>
-#import <MMTabBarView/MMYosemiteTabStyle.h>
 #import <MMTabBarView/MMSierraTabStyle.h>
 #import <MMTabBarView/MMSierraRolloverButton.h>
 #import <MMTabBarView/MMSierraRolloverButtonCell.h>
