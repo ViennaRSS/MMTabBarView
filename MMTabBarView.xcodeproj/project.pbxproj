@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0048004E1EA80D480003E9A8 /* MMSierraRolloverButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0048004A1EA80D480003E9A8 /* MMSierraRolloverButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0048004F1EA80D480003E9A8 /* MMSierraRolloverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048004B1EA80D480003E9A8 /* MMSierraRolloverButton.m */; };
+		004800501EA80D480003E9A8 /* MMSierraRolloverButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0048004C1EA80D480003E9A8 /* MMSierraRolloverButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		004800521EA80EE50003E9A8 /* MMSierraRolloverButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048004D1EA80D480003E9A8 /* MMSierraRolloverButtonCell.m */; };
+		005DE6271EA419350010F9CE /* MMSierraTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		005DE6281EA419350010F9CE /* MMSierraTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */; };
+		00ADF41C1EAFE9F400C3565C /* MMSierraTabEdited.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */; };
+		00ADF41D1EAFE9F400C3565C /* MMSierraTabEdited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */; };
+		00B950BD1EAEBC9E00243F2D /* MMSierraOverflow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */; };
+		00FB622D1EAD6A5800EF54E7 /* MMSierraCloseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FB622B1EAD6A5800EF54E7 /* MMSierraCloseButton.h */; };
+		00FB622E1EAD6A5800EF54E7 /* MMSierraCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB622C1EAD6A5800EF54E7 /* MMSierraCloseButton.m */; };
+		00FB62311EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FB622F1EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h */; };
+		00FB62321EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */; };
+		00FB62341EADB33D00EF54E7 /* MMSierraTabClose.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */; };
+		0634EFD91609FC4C00A6C86A /* MMAttachedTabBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFD81609FC4C00A6C86A /* MMAttachedTabBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634EFDC1609FC6300A6C86A /* MMAttachedTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFDB1609FC6300A6C86A /* MMAttachedTabBarButton.m */; };
+		0634F0031609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFDF1609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0041609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFE01609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.m */; };
+		0634F0051609FC7F00A6C86A /* MMAttachedTabBarButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFE11609FC7F00A6C86A /* MMAttachedTabBarButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F0061609FC7F00A6C86A /* MMAttachedTabBarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFE21609FC7F00A6C86A /* MMAttachedTabBarButtonCell.m */; };
+		0634F0071609FC7F00A6C86A /* MMOverflowPopUpButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFE31609FC7F00A6C86A /* MMOverflowPopUpButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F0081609FC7F00A6C86A /* MMOverflowPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFE41609FC7F00A6C86A /* MMOverflowPopUpButton.m */; };
+		0634F0091609FC7F00A6C86A /* MMProgressIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFE51609FC7F00A6C86A /* MMProgressIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F00A1609FC7F00A6C86A /* MMProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFE61609FC7F00A6C86A /* MMProgressIndicator.m */; };
+		0634F00B1609FC7F00A6C86A /* MMRolloverButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFE71609FC7F00A6C86A /* MMRolloverButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F00C1609FC7F00A6C86A /* MMRolloverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFE81609FC7F00A6C86A /* MMRolloverButton.m */; };
+		0634F00D1609FC7F00A6C86A /* MMRolloverButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFE91609FC7F00A6C86A /* MMRolloverButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F00E1609FC7F00A6C86A /* MMRolloverButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFEA1609FC7F00A6C86A /* MMRolloverButtonCell.m */; };
+		0634F00F1609FC7F00A6C86A /* MMSlideButtonsAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFEB1609FC7F00A6C86A /* MMSlideButtonsAnimation.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0101609FC7F00A6C86A /* MMSlideButtonsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFEC1609FC7F00A6C86A /* MMSlideButtonsAnimation.m */; };
+		0634F0111609FC7F00A6C86A /* MMTabBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFED1609FC7F00A6C86A /* MMTabBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F0121609FC7F00A6C86A /* MMTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFEE1609FC7F00A6C86A /* MMTabBarButton.m */; };
+		0634F0131609FC7F00A6C86A /* MMTabBarButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFEF1609FC7F00A6C86A /* MMTabBarButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F0141609FC7F00A6C86A /* MMTabBarButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFF01609FC7F00A6C86A /* MMTabBarButtonCell.m */; };
+		0634F0181609FC7F00A6C86A /* MMTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFF41609FC7F00A6C86A /* MMTabBarController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0191609FC7F00A6C86A /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFF51609FC7F00A6C86A /* MMTabBarController.m */; };
+		0634F01A1609FC7F00A6C86A /* MMTabDragAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFF61609FC7F00A6C86A /* MMTabDragAssistant.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F01B1609FC7F00A6C86A /* MMTabDragAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFF71609FC7F00A6C86A /* MMTabDragAssistant.m */; };
+		0634F01C1609FC7F00A6C86A /* MMTabDragView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFF81609FC7F00A6C86A /* MMTabDragView.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F01D1609FC7F00A6C86A /* MMTabDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFF91609FC7F00A6C86A /* MMTabDragView.m */; };
+		0634F01E1609FC7F00A6C86A /* MMTabDragWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFFA1609FC7F00A6C86A /* MMTabDragWindow.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F01F1609FC7F00A6C86A /* MMTabDragWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFFB1609FC7F00A6C86A /* MMTabDragWindow.m */; };
+		0634F0201609FC7F00A6C86A /* MMTabDragWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFFC1609FC7F00A6C86A /* MMTabDragWindowController.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0211609FC7F00A6C86A /* MMTabDragWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFFD1609FC7F00A6C86A /* MMTabDragWindowController.m */; };
+		0634F0221609FC7F00A6C86A /* MMTabPasteboardItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFFE1609FC7F00A6C86A /* MMTabPasteboardItem.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0231609FC7F00A6C86A /* MMTabPasteboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFFF1609FC7F00A6C86A /* MMTabPasteboardItem.m */; };
+		0634F0241609FC7F00A6C86A /* MMTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634F0001609FC7F00A6C86A /* MMTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F09A160A0CDB00A6C86A /* MMTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 06DB23B61609F5830071BDA0 /* MMTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0634F0B2160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634F0B0160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0634F0B3160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634F0B1160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m */; };
+		066375A216171EFC004A1128 /* MMTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 066375A116171EEF004A1128 /* MMTabBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		066375A516172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 066375A316172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		066375A616172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 066375A416172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m */; };
+		06789D731611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 06789D711611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		06789D741611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06789D721611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.m */; };
+		06789DB6161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 06789DB4161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		06789DB7161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06789DB5161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.m */; };
+		06789DBE161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 06789DBC161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06789DBF161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 06789DBD161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.m */; };
+		0684D7821CC7738800322A0C /* MMTabBarView.Globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 0684D7811CC7738800322A0C /* MMTabBarView.Globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		069789581610A9E8009BB894 /* MMOverflowPopUpButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 069789561610A9E8009BB894 /* MMOverflowPopUpButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		069789591610A9E8009BB894 /* MMOverflowPopUpButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 069789571610A9E8009BB894 /* MMOverflowPopUpButtonCell.m */; };
+		06AE02301B10A21000C65A84 /* MMTabBarButton.Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE022F1B10A19000C65A84 /* MMTabBarButton.Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06AE02321B10A50200C65A84 /* MMTabBarButtonCell.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02311B10A50200C65A84 /* MMTabBarButtonCell.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		06AE02341B10A6F500C65A84 /* MMTabBarView.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02331B10A6F500C65A84 /* MMTabBarView.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		06AE02361B10AD5500C65A84 /* MMTabBarButton.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02351B10AD5500C65A84 /* MMTabBarButton.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		06DB23B81609F5830071BDA0 /* MMTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DB23B71609F5830071BDA0 /* MMTabBarView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0048004A1EA80D480003E9A8 /* MMSierraRolloverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraRolloverButton.h; sourceTree = "<group>"; };
+		0048004B1EA80D480003E9A8 /* MMSierraRolloverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraRolloverButton.m; sourceTree = "<group>"; };
+		0048004C1EA80D480003E9A8 /* MMSierraRolloverButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraRolloverButtonCell.h; sourceTree = "<group>"; };
+		0048004D1EA80D480003E9A8 /* MMSierraRolloverButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraRolloverButtonCell.m; sourceTree = "<group>"; };
+		005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraTabStyle.h; sourceTree = "<group>"; };
+		005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraTabStyle.m; sourceTree = "<group>"; };
+		00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MMSierraTabEdited.png; sourceTree = "<group>"; };
+		00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMSierraTabEdited@2x.png"; sourceTree = "<group>"; };
+		00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MMSierraOverflow.pdf; sourceTree = "<group>"; };
+		00FB622B1EAD6A5800EF54E7 /* MMSierraCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraCloseButton.h; sourceTree = "<group>"; };
+		00FB622C1EAD6A5800EF54E7 /* MMSierraCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraCloseButton.m; sourceTree = "<group>"; };
+		00FB622F1EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraCloseButtonCell.h; sourceTree = "<group>"; };
+		00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraCloseButtonCell.m; sourceTree = "<group>"; };
+		00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MMSierraTabClose.pdf; sourceTree = "<group>"; };
+		0634EFD81609FC4C00A6C86A /* MMAttachedTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAttachedTabBarButton.h; sourceTree = "<group>"; };
+		0634EFDB1609FC6300A6C86A /* MMAttachedTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAttachedTabBarButton.m; sourceTree = "<group>"; };
+		0634EFDF1609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		0634EFE01609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		0634EFE11609FC7F00A6C86A /* MMAttachedTabBarButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAttachedTabBarButtonCell.h; sourceTree = "<group>"; };
+		0634EFE21609FC7F00A6C86A /* MMAttachedTabBarButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAttachedTabBarButtonCell.m; sourceTree = "<group>"; };
+		0634EFE31609FC7F00A6C86A /* MMOverflowPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMOverflowPopUpButton.h; sourceTree = "<group>"; };
+		0634EFE41609FC7F00A6C86A /* MMOverflowPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMOverflowPopUpButton.m; sourceTree = "<group>"; };
+		0634EFE51609FC7F00A6C86A /* MMProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMProgressIndicator.h; sourceTree = "<group>"; };
+		0634EFE61609FC7F00A6C86A /* MMProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProgressIndicator.m; sourceTree = "<group>"; };
+		0634EFE71609FC7F00A6C86A /* MMRolloverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRolloverButton.h; sourceTree = "<group>"; };
+		0634EFE81609FC7F00A6C86A /* MMRolloverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRolloverButton.m; sourceTree = "<group>"; };
+		0634EFE91609FC7F00A6C86A /* MMRolloverButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRolloverButtonCell.h; sourceTree = "<group>"; };
+		0634EFEA1609FC7F00A6C86A /* MMRolloverButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRolloverButtonCell.m; sourceTree = "<group>"; };
+		0634EFEB1609FC7F00A6C86A /* MMSlideButtonsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSlideButtonsAnimation.h; sourceTree = "<group>"; };
+		0634EFEC1609FC7F00A6C86A /* MMSlideButtonsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSlideButtonsAnimation.m; sourceTree = "<group>"; };
+		0634EFED1609FC7F00A6C86A /* MMTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarButton.h; sourceTree = "<group>"; };
+		0634EFEE1609FC7F00A6C86A /* MMTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarButton.m; sourceTree = "<group>"; };
+		0634EFEF1609FC7F00A6C86A /* MMTabBarButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarButtonCell.h; sourceTree = "<group>"; };
+		0634EFF01609FC7F00A6C86A /* MMTabBarButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarButtonCell.m; sourceTree = "<group>"; };
+		0634EFF41609FC7F00A6C86A /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
+		0634EFF51609FC7F00A6C86A /* MMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
+		0634EFF61609FC7F00A6C86A /* MMTabDragAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabDragAssistant.h; sourceTree = "<group>"; };
+		0634EFF71609FC7F00A6C86A /* MMTabDragAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabDragAssistant.m; sourceTree = "<group>"; };
+		0634EFF81609FC7F00A6C86A /* MMTabDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabDragView.h; sourceTree = "<group>"; };
+		0634EFF91609FC7F00A6C86A /* MMTabDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabDragView.m; sourceTree = "<group>"; };
+		0634EFFA1609FC7F00A6C86A /* MMTabDragWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabDragWindow.h; sourceTree = "<group>"; };
+		0634EFFB1609FC7F00A6C86A /* MMTabDragWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabDragWindow.m; sourceTree = "<group>"; };
+		0634EFFC1609FC7F00A6C86A /* MMTabDragWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabDragWindowController.h; sourceTree = "<group>"; };
+		0634EFFD1609FC7F00A6C86A /* MMTabDragWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabDragWindowController.m; sourceTree = "<group>"; };
+		0634EFFE1609FC7F00A6C86A /* MMTabPasteboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabPasteboardItem.h; sourceTree = "<group>"; };
+		0634EFFF1609FC7F00A6C86A /* MMTabPasteboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabPasteboardItem.m; sourceTree = "<group>"; };
+		0634F0001609FC7F00A6C86A /* MMTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabStyle.h; sourceTree = "<group>"; };
+		0634F0B0160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		0634F0B1160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		0634F0C5160A1F8100A6C86A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		0634F0C6160A1F8100A6C86A /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		0634F0C7160A1F8100A6C86A /* MMTabBarViewFramework-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Base.xcconfig"; sourceTree = "<group>"; };
+		0634F0C8160A1F8100A6C86A /* MMTabBarViewFramework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Debug.xcconfig"; sourceTree = "<group>"; };
+		0634F0C9160A1F8100A6C86A /* MMTabBarViewFramework-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Release.xcconfig"; sourceTree = "<group>"; };
+		0634F0CA160A1F8100A6C86A /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		066375A116171EEF004A1128 /* MMTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarItem.h; sourceTree = "<group>"; };
+		066375A316172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTabViewItem+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		066375A416172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTabViewItem+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		06789D711611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCell+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		06789D721611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCell+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		06789DB4161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAffineTransform+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		06789DB5161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAffineTransform+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		06789DBC161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
+		06789DBD161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
+		0684D7811CC7738800322A0C /* MMTabBarView.Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarView.Globals.h; sourceTree = "<group>"; };
+		069789561610A9E8009BB894 /* MMOverflowPopUpButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMOverflowPopUpButtonCell.h; sourceTree = "<group>"; };
+		069789571610A9E8009BB894 /* MMOverflowPopUpButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMOverflowPopUpButtonCell.m; sourceTree = "<group>"; };
+		06AE022F1B10A19000C65A84 /* MMTabBarButton.Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarButton.Common.h; sourceTree = "<group>"; };
+		06AE02311B10A50200C65A84 /* MMTabBarButtonCell.Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarButtonCell.Private.h; sourceTree = "<group>"; };
+		06AE02331B10A6F500C65A84 /* MMTabBarView.Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarView.Private.h; sourceTree = "<group>"; };
+		06AE02351B10AD5500C65A84 /* MMTabBarButton.Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarButton.Private.h; sourceTree = "<group>"; };
+		06DB23A61609F5830071BDA0 /* MMTabBarView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMTabBarView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06DB23B11609F5830071BDA0 /* MMTabBarView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MMTabBarView-Info.plist"; sourceTree = "<group>"; };
+		06DB23B51609F5830071BDA0 /* MMTabBarView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMTabBarView-Prefix.pch"; sourceTree = "<group>"; };
+		06DB23B61609F5830071BDA0 /* MMTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarView.h; sourceTree = "<group>"; };
+		06DB23B71609F5830071BDA0 /* MMTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		005DE60F1EA419350010F9CE /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				005DE6101EA419350010F9CE /* Images */,
+				005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */,
+				005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */,
+				0048004A1EA80D480003E9A8 /* MMSierraRolloverButton.h */,
+				0048004B1EA80D480003E9A8 /* MMSierraRolloverButton.m */,
+				0048004C1EA80D480003E9A8 /* MMSierraRolloverButtonCell.h */,
+				0048004D1EA80D480003E9A8 /* MMSierraRolloverButtonCell.m */,
+				00FB622B1EAD6A5800EF54E7 /* MMSierraCloseButton.h */,
+				00FB622C1EAD6A5800EF54E7 /* MMSierraCloseButton.m */,
+				00FB622F1EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h */,
+				00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		005DE6101EA419350010F9CE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */,
+				00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */,
+				00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */,
+				00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0634F0251609FCBE00A6C86A /* Drag Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				0634EFF61609FC7F00A6C86A /* MMTabDragAssistant.h */,
+				0634EFF71609FC7F00A6C86A /* MMTabDragAssistant.m */,
+				0634EFF81609FC7F00A6C86A /* MMTabDragView.h */,
+				0634EFF91609FC7F00A6C86A /* MMTabDragView.m */,
+				0634EFFA1609FC7F00A6C86A /* MMTabDragWindow.h */,
+				0634EFFB1609FC7F00A6C86A /* MMTabDragWindow.m */,
+				0634EFFC1609FC7F00A6C86A /* MMTabDragWindowController.h */,
+				0634EFFD1609FC7F00A6C86A /* MMTabDragWindowController.m */,
+				0634EFFE1609FC7F00A6C86A /* MMTabPasteboardItem.h */,
+				0634EFFF1609FC7F00A6C86A /* MMTabPasteboardItem.m */,
+			);
+			name = "Drag Assistant";
+			sourceTree = "<group>";
+		};
+		0634F0261609FD4400A6C86A /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				0634EFEB1609FC7F00A6C86A /* MMSlideButtonsAnimation.h */,
+				0634EFEC1609FC7F00A6C86A /* MMSlideButtonsAnimation.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		0634F0271609FD6000A6C86A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				06789DB4161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.h */,
+				06789DB5161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.m */,
+				06789DBC161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.h */,
+				06789DBD161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.m */,
+				06789D711611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.h */,
+				06789D721611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.m */,
+				0634F0B0160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h */,
+				0634F0B1160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m */,
+				066375A316172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h */,
+				066375A416172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m */,
+				0634EFDF1609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h */,
+				0634EFE01609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		0634F0411609FDA400A6C86A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				0634EFE31609FC7F00A6C86A /* MMOverflowPopUpButton.h */,
+				0634EFE41609FC7F00A6C86A /* MMOverflowPopUpButton.m */,
+				069789561610A9E8009BB894 /* MMOverflowPopUpButtonCell.h */,
+				069789571610A9E8009BB894 /* MMOverflowPopUpButtonCell.m */,
+				0634EFE51609FC7F00A6C86A /* MMProgressIndicator.h */,
+				0634EFE61609FC7F00A6C86A /* MMProgressIndicator.m */,
+				0634EFE71609FC7F00A6C86A /* MMRolloverButton.h */,
+				0634EFE81609FC7F00A6C86A /* MMRolloverButton.m */,
+				0634EFE91609FC7F00A6C86A /* MMRolloverButtonCell.h */,
+				0634EFEA1609FC7F00A6C86A /* MMRolloverButtonCell.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		0634F0421609FDED00A6C86A /* Tab Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0634EFD81609FC4C00A6C86A /* MMAttachedTabBarButton.h */,
+				0634EFDB1609FC6300A6C86A /* MMAttachedTabBarButton.m */,
+				0634EFE11609FC7F00A6C86A /* MMAttachedTabBarButtonCell.h */,
+				0634EFE21609FC7F00A6C86A /* MMAttachedTabBarButtonCell.m */,
+				0634EFED1609FC7F00A6C86A /* MMTabBarButton.h */,
+				06AE02351B10AD5500C65A84 /* MMTabBarButton.Private.h */,
+				06AE022F1B10A19000C65A84 /* MMTabBarButton.Common.h */,
+				0634EFEE1609FC7F00A6C86A /* MMTabBarButton.m */,
+				0634EFEF1609FC7F00A6C86A /* MMTabBarButtonCell.h */,
+				06AE02311B10A50200C65A84 /* MMTabBarButtonCell.Private.h */,
+				0634EFF01609FC7F00A6C86A /* MMTabBarButtonCell.m */,
+			);
+			name = "Tab Buttons";
+			sourceTree = "<group>";
+		};
+		0634F0431609FEB200A6C86A /* Button Layout */ = {
+			isa = PBXGroup;
+			children = (
+				0634EFF41609FC7F00A6C86A /* MMTabBarController.h */,
+				0634EFF51609FC7F00A6C86A /* MMTabBarController.m */,
+			);
+			name = "Button Layout";
+			sourceTree = "<group>";
+		};
+		0634F0C4160A1F7100A6C86A /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				0634F0C5160A1F8100A6C86A /* Base.xcconfig */,
+				0634F0C6160A1F8100A6C86A /* Debug.xcconfig */,
+				0634F0C7160A1F8100A6C86A /* MMTabBarViewFramework-Base.xcconfig */,
+				0634F0C8160A1F8100A6C86A /* MMTabBarViewFramework-Debug.xcconfig */,
+				0634F0C9160A1F8100A6C86A /* MMTabBarViewFramework-Release.xcconfig */,
+				0634F0CA160A1F8100A6C86A /* Release.xcconfig */,
+			);
+			name = Configurations;
+			path = MMTabBarView/Configurations;
+			sourceTree = "<group>";
+		};
+		06DB239A1609F5820071BDA0 = {
+			isa = PBXGroup;
+			children = (
+				0634F0C4160A1F7100A6C86A /* Configurations */,
+				06DB23AF1609F5830071BDA0 /* MMTabBarView */,
+				06DB23A71609F5830071BDA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06DB23A71609F5830071BDA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06DB23A61609F5830071BDA0 /* MMTabBarView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06DB23AF1609F5830071BDA0 /* MMTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				066375A116171EEF004A1128 /* MMTabBarItem.h */,
+				0634F0001609FC7F00A6C86A /* MMTabStyle.h */,
+				06DB23B61609F5830071BDA0 /* MMTabBarView.h */,
+				06AE02331B10A6F500C65A84 /* MMTabBarView.Private.h */,
+				0684D7811CC7738800322A0C /* MMTabBarView.Globals.h */,
+				06DB23B71609F5830071BDA0 /* MMTabBarView.m */,
+				0634F0261609FD4400A6C86A /* Animations */,
+				0634F0431609FEB200A6C86A /* Button Layout */,
+				0634F0271609FD6000A6C86A /* Categories */,
+				0634F0411609FDA400A6C86A /* Controls */,
+				0634F0251609FCBE00A6C86A /* Drag Assistant */,
+				005DE60F1EA419350010F9CE /* Style */,
+				06DB23B01609F5830071BDA0 /* Supporting Files */,
+				0634F0421609FDED00A6C86A /* Tab Buttons */,
+			);
+			path = MMTabBarView;
+			sourceTree = "<group>";
+		};
+		06DB23B01609F5830071BDA0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06DB23B11609F5830071BDA0 /* MMTabBarView-Info.plist */,
+				06DB23B51609F5830071BDA0 /* MMTabBarView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		06DB23A31609F5820071BDA0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0634EFD91609FC4C00A6C86A /* MMAttachedTabBarButton.h in Headers */,
+				06AE02361B10AD5500C65A84 /* MMTabBarButton.Private.h in Headers */,
+				0634F0031609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h in Headers */,
+				0634F0051609FC7F00A6C86A /* MMAttachedTabBarButtonCell.h in Headers */,
+				0634F0071609FC7F00A6C86A /* MMOverflowPopUpButton.h in Headers */,
+				0634F0091609FC7F00A6C86A /* MMProgressIndicator.h in Headers */,
+				0048004E1EA80D480003E9A8 /* MMSierraRolloverButton.h in Headers */,
+				004800501EA80D480003E9A8 /* MMSierraRolloverButtonCell.h in Headers */,
+				0634F00B1609FC7F00A6C86A /* MMRolloverButton.h in Headers */,
+				0634F00D1609FC7F00A6C86A /* MMRolloverButtonCell.h in Headers */,
+				06AE02301B10A21000C65A84 /* MMTabBarButton.Common.h in Headers */,
+				0634F00F1609FC7F00A6C86A /* MMSlideButtonsAnimation.h in Headers */,
+				0634F0111609FC7F00A6C86A /* MMTabBarButton.h in Headers */,
+				0684D7821CC7738800322A0C /* MMTabBarView.Globals.h in Headers */,
+				0634F0131609FC7F00A6C86A /* MMTabBarButtonCell.h in Headers */,
+				0634F0181609FC7F00A6C86A /* MMTabBarController.h in Headers */,
+				0634F01A1609FC7F00A6C86A /* MMTabDragAssistant.h in Headers */,
+				06AE02341B10A6F500C65A84 /* MMTabBarView.Private.h in Headers */,
+				0634F01C1609FC7F00A6C86A /* MMTabDragView.h in Headers */,
+				0634F01E1609FC7F00A6C86A /* MMTabDragWindow.h in Headers */,
+				00FB622D1EAD6A5800EF54E7 /* MMSierraCloseButton.h in Headers */,
+				0634F0201609FC7F00A6C86A /* MMTabDragWindowController.h in Headers */,
+				005DE6271EA419350010F9CE /* MMSierraTabStyle.h in Headers */,
+				0634F0221609FC7F00A6C86A /* MMTabPasteboardItem.h in Headers */,
+				0634F0241609FC7F00A6C86A /* MMTabStyle.h in Headers */,
+				00FB62311EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h in Headers */,
+				0634F09A160A0CDB00A6C86A /* MMTabBarView.h in Headers */,
+				0634F0B2160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h in Headers */,
+				06AE02321B10A50200C65A84 /* MMTabBarButtonCell.Private.h in Headers */,
+				069789581610A9E8009BB894 /* MMOverflowPopUpButtonCell.h in Headers */,
+				06789D731611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.h in Headers */,
+				06789DB6161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.h in Headers */,
+				06789DBE161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.h in Headers */,
+				066375A216171EFC004A1128 /* MMTabBarItem.h in Headers */,
+				066375A516172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		06DB23A51609F5820071BDA0 /* MMTabBarView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06DB23BB1609F5830071BDA0 /* Build configuration list for PBXNativeTarget "MMTabBarView" */;
+			buildPhases = (
+				06DB23A11609F5820071BDA0 /* Sources */,
+				06DB23A31609F5820071BDA0 /* Headers */,
+				06DB23A41609F5820071BDA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MMTabBarView;
+			productName = MMTabBarView;
+			productReference = 06DB23A61609F5830071BDA0 /* MMTabBarView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06DB239C1609F5820071BDA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Michael Monscheuer";
+			};
+			buildConfigurationList = 06DB239F1609F5820071BDA0 /* Build configuration list for PBXProject "MMTabBarView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 06DB239A1609F5820071BDA0;
+			productRefGroup = 06DB23A71609F5830071BDA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06DB23A51609F5820071BDA0 /* MMTabBarView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06DB23A41609F5820071BDA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00B950BD1EAEBC9E00243F2D /* MMSierraOverflow.pdf in Resources */,
+				00ADF41D1EAFE9F400C3565C /* MMSierraTabEdited@2x.png in Resources */,
+				00ADF41C1EAFE9F400C3565C /* MMSierraTabEdited.png in Resources */,
+				00FB62341EADB33D00EF54E7 /* MMSierraTabClose.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06DB23A11609F5820071BDA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06DB23B81609F5830071BDA0 /* MMTabBarView.m in Sources */,
+				0634EFDC1609FC6300A6C86A /* MMAttachedTabBarButton.m in Sources */,
+				004800521EA80EE50003E9A8 /* MMSierraRolloverButtonCell.m in Sources */,
+				0634F0041609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.m in Sources */,
+				0634F0061609FC7F00A6C86A /* MMAttachedTabBarButtonCell.m in Sources */,
+				0634F0081609FC7F00A6C86A /* MMOverflowPopUpButton.m in Sources */,
+				0634F00A1609FC7F00A6C86A /* MMProgressIndicator.m in Sources */,
+				0634F00C1609FC7F00A6C86A /* MMRolloverButton.m in Sources */,
+				0634F00E1609FC7F00A6C86A /* MMRolloverButtonCell.m in Sources */,
+				0634F0101609FC7F00A6C86A /* MMSlideButtonsAnimation.m in Sources */,
+				0634F0121609FC7F00A6C86A /* MMTabBarButton.m in Sources */,
+				0634F0141609FC7F00A6C86A /* MMTabBarButtonCell.m in Sources */,
+				0634F0191609FC7F00A6C86A /* MMTabBarController.m in Sources */,
+				0634F01B1609FC7F00A6C86A /* MMTabDragAssistant.m in Sources */,
+				0634F01D1609FC7F00A6C86A /* MMTabDragView.m in Sources */,
+				0634F01F1609FC7F00A6C86A /* MMTabDragWindow.m in Sources */,
+				0634F0211609FC7F00A6C86A /* MMTabDragWindowController.m in Sources */,
+				0634F0231609FC7F00A6C86A /* MMTabPasteboardItem.m in Sources */,
+				00FB62321EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m in Sources */,
+				005DE6281EA419350010F9CE /* MMSierraTabStyle.m in Sources */,
+				0634F0B3160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m in Sources */,
+				069789591610A9E8009BB894 /* MMOverflowPopUpButtonCell.m in Sources */,
+				06789D741611FE1E0080FCFE /* NSCell+MMTabBarViewExtensions.m in Sources */,
+				0048004F1EA80D480003E9A8 /* MMSierraRolloverButton.m in Sources */,
+				00FB622E1EAD6A5800EF54E7 /* MMSierraCloseButton.m in Sources */,
+				06789DB7161324D50080FCFE /* NSAffineTransform+MMTabBarViewExtensions.m in Sources */,
+				06789DBF161337770080FCFE /* NSBezierPath+MMTabBarViewExtensions.m in Sources */,
+				066375A616172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		06DB23B91609F5830071BDA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		06DB23BA1609F5830071BDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		06DB23BC1609F5830071BDA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0634F0C8160A1F8100A6C86A /* MMTabBarViewFramework-Debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "MMTabBarView/MMTabBarView-Prefix.pch";
+				INFOPLIST_FILE = "MMTabBarView/MMTabBarView-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.monscheuer.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		06DB23BD1609F5830071BDA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0634F0C9160A1F8100A6C86A /* MMTabBarViewFramework-Release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PREFIX_HEADER = "MMTabBarView/MMTabBarView-Prefix.pch";
+				INFOPLIST_FILE = "MMTabBarView/MMTabBarView-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.monscheuer.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06DB239F1609F5820071BDA0 /* Build configuration list for PBXProject "MMTabBarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06DB23B91609F5830071BDA0 /* Debug */,
+				06DB23BA1609F5830071BDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06DB23BB1609F5830071BDA0 /* Build configuration list for PBXNativeTarget "MMTabBarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06DB23BC1609F5830071BDA0 /* Debug */,
+				06DB23BD1609F5830071BDA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06DB239C1609F5820071BDA0 /* Project object */;
+}
