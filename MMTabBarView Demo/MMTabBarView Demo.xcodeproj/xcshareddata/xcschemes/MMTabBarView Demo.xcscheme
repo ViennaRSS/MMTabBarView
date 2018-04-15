@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06DB23A51609F5820071BDA0"
-               BuildableName = "MMTabBarView.framework"
-               BlueprintName = "MMTabBarView"
-               ReferencedContainer = "container:MMTabBarView/MMTabBarView.xcodeproj">
+               BlueprintIdentifier = "06DB23C81609F5B90071BDA0"
+               BuildableName = "MMTabBarView Demo.app"
+               BlueprintName = "MMTabBarView Demo"
+               ReferencedContainer = "container:MMTabBarView Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "06DB23C81609F5B90071BDA0"
+            BuildableName = "MMTabBarView Demo.app"
+            BlueprintName = "MMTabBarView Demo"
+            ReferencedContainer = "container:MMTabBarView Demo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06DB23A51609F5820071BDA0"
-            BuildableName = "MMTabBarView.framework"
-            BlueprintName = "MMTabBarView"
-            ReferencedContainer = "container:MMTabBarView/MMTabBarView.xcodeproj">
+            BlueprintIdentifier = "06DB23C81609F5B90071BDA0"
+            BuildableName = "MMTabBarView Demo.app"
+            BlueprintName = "MMTabBarView Demo"
+            ReferencedContainer = "container:MMTabBarView Demo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,6 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "06DB23C81609F5B90071BDA0"
+            BuildableName = "MMTabBarView Demo.app"
+            BlueprintName = "MMTabBarView Demo"
+            ReferencedContainer = "container:MMTabBarView Demo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
