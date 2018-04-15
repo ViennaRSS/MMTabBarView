@@ -73,7 +73,6 @@
 		06AE02321B10A50200C65A84 /* MMTabBarButtonCell.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02311B10A50200C65A84 /* MMTabBarButtonCell.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		06AE02341B10A6F500C65A84 /* MMTabBarView.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02331B10A6F500C65A84 /* MMTabBarView.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		06AE02361B10AD5500C65A84 /* MMTabBarButton.Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 06AE02351B10AD5500C65A84 /* MMTabBarButton.Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		06DB23B41609F5830071BDA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06DB23B21609F5830071BDA0 /* InfoPlist.strings */; };
 		06DB23B81609F5830071BDA0 /* MMTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DB23B71609F5830071BDA0 /* MMTabBarView.m */; };
 /* End PBXBuildFile section */
 
@@ -127,12 +126,12 @@
 		0634F0001609FC7F00A6C86A /* MMTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabStyle.h; sourceTree = "<group>"; };
 		0634F0B0160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
 		0634F0B1160A1B6600A6C86A /* NSString+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
-		0634F0C5160A1F8100A6C86A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = ../Configurations/Base.xcconfig; sourceTree = "<group>"; };
-		0634F0C6160A1F8100A6C86A /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../Configurations/Debug.xcconfig; sourceTree = "<group>"; };
-		0634F0C7160A1F8100A6C86A /* MMTabBarViewFramework-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "MMTabBarViewFramework-Base.xcconfig"; path = "../Configurations/MMTabBarViewFramework-Base.xcconfig"; sourceTree = "<group>"; };
-		0634F0C8160A1F8100A6C86A /* MMTabBarViewFramework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "MMTabBarViewFramework-Debug.xcconfig"; path = "../Configurations/MMTabBarViewFramework-Debug.xcconfig"; sourceTree = "<group>"; };
-		0634F0C9160A1F8100A6C86A /* MMTabBarViewFramework-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "MMTabBarViewFramework-Release.xcconfig"; path = "../Configurations/MMTabBarViewFramework-Release.xcconfig"; sourceTree = "<group>"; };
-		0634F0CA160A1F8100A6C86A /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../Configurations/Release.xcconfig; sourceTree = "<group>"; };
+		0634F0C5160A1F8100A6C86A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		0634F0C6160A1F8100A6C86A /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		0634F0C7160A1F8100A6C86A /* MMTabBarViewFramework-Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Base.xcconfig"; sourceTree = "<group>"; };
+		0634F0C8160A1F8100A6C86A /* MMTabBarViewFramework-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Debug.xcconfig"; sourceTree = "<group>"; };
+		0634F0C9160A1F8100A6C86A /* MMTabBarViewFramework-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "MMTabBarViewFramework-Release.xcconfig"; sourceTree = "<group>"; };
+		0634F0CA160A1F8100A6C86A /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		066375A116171EEF004A1128 /* MMTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarItem.h; sourceTree = "<group>"; };
 		066375A316172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTabViewItem+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
 		066375A416172608004A1128 /* NSTabViewItem+MMTabBarViewExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTabViewItem+MMTabBarViewExtensions.m"; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 		06AE02351B10AD5500C65A84 /* MMTabBarButton.Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarButton.Private.h; sourceTree = "<group>"; };
 		06DB23A61609F5830071BDA0 /* MMTabBarView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMTabBarView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DB23B11609F5830071BDA0 /* MMTabBarView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MMTabBarView-Info.plist"; sourceTree = "<group>"; };
-		06DB23B31609F5830071BDA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		06DB23B51609F5830071BDA0 /* MMTabBarView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMTabBarView-Prefix.pch"; sourceTree = "<group>"; };
 		06DB23B61609F5830071BDA0 /* MMTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTabBarView.h; sourceTree = "<group>"; };
 		06DB23B71609F5830071BDA0 /* MMTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTabBarView.m; sourceTree = "<group>"; };
@@ -287,6 +285,7 @@
 				0634F0CA160A1F8100A6C86A /* Release.xcconfig */,
 			);
 			name = Configurations;
+			path = MMTabBarView/Configurations;
 			sourceTree = "<group>";
 		};
 		06DB239A1609F5820071BDA0 = {
@@ -331,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				06DB23B11609F5830071BDA0 /* MMTabBarView-Info.plist */,
-				06DB23B21609F5830071BDA0 /* InfoPlist.strings */,
 				06DB23B51609F5830071BDA0 /* MMTabBarView-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -433,7 +431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06DB23B41609F5830071BDA0 /* InfoPlist.strings in Resources */,
 				00B950BD1EAEBC9E00243F2D /* MMSierraOverflow.pdf in Resources */,
 				00ADF41D1EAFE9F400C3565C /* MMSierraTabEdited@2x.png in Resources */,
 				00ADF41C1EAFE9F400C3565C /* MMSierraTabEdited.png in Resources */,
@@ -480,17 +477,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		06DB23B21609F5830071BDA0 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06DB23B31609F5830071BDA0 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		06DB23B91609F5830071BDA0 /* Debug */ = {
