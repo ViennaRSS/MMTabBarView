@@ -6,7 +6,7 @@
 //  Created by Jim Derry on 2018/07/31.
 //  Changes released in accordance with MMTabBarView license.
 //
-//  Because MMTabBarView supports back to 10.10 (this fork), we cannot use 
+//  Because MMTabBarView supports back to 10.9 (this fork), we cannot use 
 //  named colors in asset catalogues. The MMMojaveTabStyle should work 
 //  transparently pre-10.14, and so we will build our own catalogue of assets.
 //

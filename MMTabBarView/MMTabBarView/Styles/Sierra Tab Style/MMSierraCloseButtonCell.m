@@ -16,11 +16,11 @@
     static NSImage *editedImage = nil;
 
     if (!closeImage) {
-        closeImage = [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"MMSierraTabClose"]];
+        closeImage = [[MMTabBarView bundle] imageForResource:@"MMSierraTabClose"];
     }
 
     if (!editedImage) {
-        editedImage = [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"MMSierraTabEdited"]];
+        editedImage = [[MMTabBarView bundle] imageForResource:@"MMSierraTabEdited"];
     }
 
     NSView *tabButtonView = controlView.superview;

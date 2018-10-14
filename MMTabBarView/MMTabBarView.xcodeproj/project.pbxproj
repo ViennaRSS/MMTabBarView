@@ -13,14 +13,10 @@
 		004800521EA80EE50003E9A8 /* MMSierraRolloverButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048004D1EA80D480003E9A8 /* MMSierraRolloverButtonCell.m */; };
 		005DE6271EA419350010F9CE /* MMSierraTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		005DE6281EA419350010F9CE /* MMSierraTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */; };
-		00ADF41C1EAFE9F400C3565C /* MMSierraTabEdited.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */; };
-		00ADF41D1EAFE9F400C3565C /* MMSierraTabEdited@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */; };
-		00B950BD1EAEBC9E00243F2D /* MMSierraOverflow.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */; };
 		00FB622D1EAD6A5800EF54E7 /* MMSierraCloseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FB622B1EAD6A5800EF54E7 /* MMSierraCloseButton.h */; };
 		00FB622E1EAD6A5800EF54E7 /* MMSierraCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB622C1EAD6A5800EF54E7 /* MMSierraCloseButton.m */; };
 		00FB62311EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FB622F1EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h */; };
 		00FB62321EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */; };
-		00FB62341EADB33D00EF54E7 /* MMSierraTabClose.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */; };
 		0634EFD91609FC4C00A6C86A /* MMAttachedTabBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFD81609FC4C00A6C86A /* MMAttachedTabBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0634EFDC1609FC6300A6C86A /* MMAttachedTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0634EFDB1609FC6300A6C86A /* MMAttachedTabBarButton.m */; };
 		0634F0031609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0634EFDF1609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -96,6 +92,7 @@
 		0AED2B9F20D8056F0049C786 /* Safari.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AED2B9E20D8056F0049C786 /* Safari.xcassets */; };
 		0AED2BA120D805D60049C786 /* Yosemite.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AED2BA020D805D60049C786 /* Yosemite.xcassets */; };
 		0AED2BA520D806700049C786 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AED2BA420D806700049C786 /* Images.xcassets */; };
+		2F6C762821738A0100573820 /* Sierra.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6C762721738A0100573820 /* Sierra.xcassets */; };
 		D0103C8E210FE7C8001D2CC6 /* MMMojaveTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D0103C8C210FE7C8001D2CC6 /* MMMojaveTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0103C8F210FE7C8001D2CC6 /* MMMojaveTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0103C8D210FE7C8001D2CC6 /* MMMojaveTabStyle.m */; };
 		D09FB6CC2110923D008C3E23 /* MMMojaveTabStyle+Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = D09FB6CA2110923D008C3E23 /* MMMojaveTabStyle+Assets.m */; };
@@ -108,14 +105,10 @@
 		0048004D1EA80D480003E9A8 /* MMSierraRolloverButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraRolloverButtonCell.m; sourceTree = "<group>"; };
 		005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraTabStyle.h; sourceTree = "<group>"; };
 		005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraTabStyle.m; sourceTree = "<group>"; };
-		00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MMSierraTabEdited.png; sourceTree = "<group>"; };
-		00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMSierraTabEdited@2x.png"; sourceTree = "<group>"; };
-		00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MMSierraOverflow.pdf; sourceTree = "<group>"; };
 		00FB622B1EAD6A5800EF54E7 /* MMSierraCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraCloseButton.h; sourceTree = "<group>"; };
 		00FB622C1EAD6A5800EF54E7 /* MMSierraCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraCloseButton.m; sourceTree = "<group>"; };
 		00FB622F1EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSierraCloseButtonCell.h; sourceTree = "<group>"; };
 		00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSierraCloseButtonCell.m; sourceTree = "<group>"; };
-		00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = MMSierraTabClose.pdf; sourceTree = "<group>"; };
 		0634EFD81609FC4C00A6C86A /* MMAttachedTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAttachedTabBarButton.h; sourceTree = "<group>"; };
 		0634EFDB1609FC6300A6C86A /* MMAttachedTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAttachedTabBarButton.m; sourceTree = "<group>"; };
 		0634EFDF1609FC7F00A6C86A /* NSView+MMTabBarViewExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+MMTabBarViewExtensions.h"; sourceTree = "<group>"; };
@@ -203,6 +196,7 @@
 		0AED2B9E20D8056F0049C786 /* Safari.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Safari.xcassets; sourceTree = "<group>"; };
 		0AED2BA020D805D60049C786 /* Yosemite.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Yosemite.xcassets; sourceTree = "<group>"; };
 		0AED2BA420D806700049C786 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MMTabBarView/Images.xcassets; sourceTree = "<group>"; };
+		2F6C762721738A0100573820 /* Sierra.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sierra.xcassets; sourceTree = "<group>"; };
 		D0103C8C210FE7C8001D2CC6 /* MMMojaveTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMojaveTabStyle.h; sourceTree = "<group>"; };
 		D0103C8D210FE7C8001D2CC6 /* MMMojaveTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMojaveTabStyle.m; sourceTree = "<group>"; };
 		D09FB6C821108F4C008C3E23 /* MMMojaveTabStyle+Assets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMMojaveTabStyle+Assets.h"; sourceTree = "<group>"; };
@@ -225,7 +219,7 @@
 		005DE60F1EA419350010F9CE /* Sierra Tab Style */ = {
 			isa = PBXGroup;
 			children = (
-				005DE6101EA419350010F9CE /* Images */,
+				2F6C762721738A0100573820 /* Sierra.xcassets */,
 				005DE61B1EA419350010F9CE /* MMSierraTabStyle.h */,
 				005DE61C1EA419350010F9CE /* MMSierraTabStyle.m */,
 				0048004A1EA80D480003E9A8 /* MMSierraRolloverButton.h */,
@@ -238,17 +232,6 @@
 				00FB62301EAD6A6F00EF54E7 /* MMSierraCloseButtonCell.m */,
 			);
 			path = "Sierra Tab Style";
-			sourceTree = "<group>";
-		};
-		005DE6101EA419350010F9CE /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				00B950BC1EAEBC9E00243F2D /* MMSierraOverflow.pdf */,
-				00FB62331EADB33D00EF54E7 /* MMSierraTabClose.pdf */,
-				00ADF41A1EAFE9F400C3565C /* MMSierraTabEdited.png */,
-				00ADF41B1EAFE9F400C3565C /* MMSierraTabEdited@2x.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		0634F0251609FCBE00A6C86A /* Drag Assistant */ = {
@@ -366,19 +349,10 @@
 		0634F044160A0C8000A6C86A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0634F045160A0C8A00A6C86A /* Images */,
 				0AED2BA420D806700049C786 /* Images.xcassets */,
 			);
 			name = Resources;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		0634F045160A0C8A00A6C86A /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
-			path = MMTabBarView/Images;
 			sourceTree = "<group>";
 		};
 		0634F0C4160A1F7100A6C86A /* Configurations */ = {
@@ -601,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6C762821738A0100573820 /* Sierra.xcassets in Resources */,
 				06DB23B41609F5830071BDA0 /* InfoPlist.strings in Resources */,
 				0AED2BA520D806700049C786 /* Images.xcassets in Resources */,
 				0AED2BA120D805D60049C786 /* Yosemite.xcassets in Resources */,
@@ -711,6 +686,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -750,6 +726,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
 			name = Release;

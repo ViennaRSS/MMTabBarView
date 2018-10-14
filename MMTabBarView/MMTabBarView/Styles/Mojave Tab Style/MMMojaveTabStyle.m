@@ -53,14 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSSize)intrinsicContentSizeOfTabBarView:(MMTabBarView *)tabBarView
 {
-    if (@available(macos 10.11, *))
-    {
-        return NSMakeSize(NSViewNoIntrinsicMetric, 26);
-    }
-    else
-    {
-        return NSMakeSize(NSViewNoInstrinsicMetric, 26);
-    }
+    return NSMakeSize(NSViewNoInstrinsicMetric, 26);
 }
 
 

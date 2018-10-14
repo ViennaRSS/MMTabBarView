@@ -1321,7 +1321,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 	}
 }
 
-- (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize completion:(void(^)())completion {
+- (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize completion:(void(^)(void))completion {
 
 	if (_partnerView) {
 		// resize self and view
@@ -1334,7 +1334,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 
 		if (animate) {
 
-			void (^animateAlongside)();
+            void (^animateAlongside)(void);
 			if (hide && [_delegate respondsToSelector:@selector(animateAlongsideTabBarHide)]) {
 				animateAlongside = [_delegate animateAlongsideTabBarHide];
 			}
@@ -1347,7 +1347,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 				context.allowsImplicitAnimation = YES;
 				[self invalidateIntrinsicContentSize];
 				[self.superview layoutSubtreeIfNeeded];
-				_partnerView.animator.frame = newPartnerViewFrame;
+				self.partnerView.animator.frame = newPartnerViewFrame;
 				if (animateAlongside) {
 					animateAlongside();
 				}
