@@ -160,6 +160,8 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 
 - (void)viewWillMoveToWindow:(nullable NSWindow *)aWindow {
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+
+    [super viewWillMoveToWindow:aWindow];
     
     if (_slideButtonsAnimation) {
 		[_slideButtonsAnimation stopAnimation];
@@ -186,6 +188,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 }
 
 - (void)viewDidMoveToWindow {
+    [super viewDidMoveToWindow];
 	[self _checkWindowFrame];
 }
 
@@ -223,6 +226,8 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 //Height auto-adjusts based on if we are hidden or not.  This lets autolayout adjust for when we hide/show the tab bar.
 - (NSSize)intrinsicContentSize
 {
+	/*CMC EDITED*/
+	//Height auto-adjusts based on if we are hidden or not.  This lets autolayout adjust for when we hide/show the tab bar.
     if ([_style respondsToSelector:@selector(intrinsicContentSizeOfTabBarView:)])
 	{
 		if(_isHidden)
@@ -357,6 +362,7 @@ static NSMutableDictionary *registeredStyleClasses = nil;
     [self registerTabStyleClass:[MMUnifiedTabStyle class]];
     [self registerTabStyleClass:[MMAdiumTabStyle class]];
     [self registerTabStyleClass:[MMMetalTabStyle class]];
+    [self registerTabStyleClass:[MMMojaveTabStyle class]];
     [self registerTabStyleClass:[MMCardTabStyle class]];
     [self registerTabStyleClass:[MMLiveChatTabStyle class]];
     [self registerTabStyleClass:[MMSafariTabStyle class]];
@@ -2136,20 +2142,16 @@ static NSMutableDictionary *registeredStyleClasses = nil;
 #pragma mark -
 #pragma mark Accessibility
 
--(BOOL)accessibilityIsIgnored {
-	return NO;
+-(BOOL)accessibilityElement {
+	return YES;
 }
 
-- (nullable id)accessibilityAttributeValue:(NSString *)attribute {
-	id attributeValue = nil;
-	if ([attribute isEqualToString: NSAccessibilityRoleAttribute]) {
-		attributeValue = NSAccessibilityGroupRole;
-	} else if ([attribute isEqualToString: NSAccessibilityChildrenAttribute]) {
-		attributeValue = NSAccessibilityUnignoredChildren([[self attachedButtons] allObjects]);
-	} else {
-		attributeValue = [super accessibilityAttributeValue:attribute];
-	}
-	return attributeValue;
+- (nullable NSAccessibilityRole)accessibilityRole {
+    return NSAccessibilityGroupRole;
+}
+
+- (nullable NSArray *)accessibilityChildren {
+    return NSAccessibilityUnignoredChildren([[self attachedButtons] allObjects]);
 }
 
 - (nullable id)accessibilityHitTest:(NSPoint)point {
