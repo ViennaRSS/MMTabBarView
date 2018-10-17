@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateOverflowPopUpButton:(MMOverflowPopUpButton *)aButton ofTabBarView:(MMTabBarView *)tabBarView {
     static NSImage *overflowImage = nil;
     if (!overflowImage) {
-        overflowImage = [[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"MMSierraOverflow"]];
+        overflowImage = [[MMTabBarView bundle] imageForResource:@"MMSierraOverflow"];
         overflowImage.template = YES;
     }
 
