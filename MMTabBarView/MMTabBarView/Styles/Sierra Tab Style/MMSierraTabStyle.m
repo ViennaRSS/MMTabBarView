@@ -182,7 +182,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)drawTitleOfTabCell:(MMTabBarButtonCell *)cell withFrame:(NSRect)frame inView:(NSView *)controlView {
     NSRect rect = [self _titleRectForBounds:frame ofTabCell:cell];
-    NSAttributedString *attrString = [cell attributedStringValue];
+    NSMutableAttributedString *attrString = [[cell attributedStringValue] mutableCopy];
+	// Add font attribute
+	NSRange range = NSMakeRange(0, [attrString length]);
+	[attrString addAttribute:NSForegroundColorAttributeName value:[[NSColor textColor] colorWithAlphaComponent:0.75] range:range];
     [attrString drawInRect:rect];
 }
 
