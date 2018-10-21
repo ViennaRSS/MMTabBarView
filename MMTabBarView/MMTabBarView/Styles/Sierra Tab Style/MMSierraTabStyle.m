@@ -438,11 +438,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)selectedFillGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.808 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.792 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor unemphasizedSelectedTextBackgroundColor],
+                          [[NSColor controlBackgroundColor] colorWithAlphaComponent:0.60]
+                          ]];
+        } else { 
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.808 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.792 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -450,11 +458,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)idleFillGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.698 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.682 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor unemphasizedSelectedTextBackgroundColor],
+                          [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.50]
+                          ]];
+        } else { 
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.698 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.682 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -462,11 +478,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)hoverFillGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.663 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.647 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:1],
+                          [NSColor colorWithCalibratedWhite:0.647 alpha:1.0]
+                          ]];
+        } else { 
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.663 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.647 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -488,11 +512,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)selectedTopBorderGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.690 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.686 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor systemGrayColor],
+                          [NSColor colorWithCalibratedWhite:0.686 alpha:1.0]
+                          ]];
+        } else { 
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.690 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.686 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -500,11 +532,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)unselectedTopBorderGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor systemGrayColor],
+                          [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
+                          ]];
+        } else { 
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -514,25 +554,41 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSGradient *)edgeBorderGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.588 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor systemGrayColor],
+                          [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
+                          ]];
+        } else {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.588 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
 
-#pragma mark - left/right-border gradients
+#pragma mark - bottom gradients
 
 + (NSGradient *)bottomBorderGradient {
     static NSGradient *gradient = nil;
     if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
-                    @[
-                      [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
-                      [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
-                      ]];
+        if (@available(macos 10.14, *)) {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor systemGrayColor],
+                          [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
+                          ]];
+        } else {
+            gradient = [[NSGradient alloc] initWithColors:
+                        @[
+                          [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
+                          [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
+                          ]];
+        }
     }
     return gradient;
 }
@@ -542,7 +598,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSColor *)inactiveSelectedFillColor {
     static NSColor *color = nil;
     if (!color) {
-        color = [NSColor colorWithCalibratedWhite:0.957 alpha:1.0];
+        if (@available(macos 10.14, *)) {
+            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.10];
+        } else {
+            color = [NSColor colorWithCalibratedWhite:0.957 alpha:1.0];
+        }
     }
     return color;
 }
@@ -550,7 +610,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSColor *)inactiveIdleFillColor {
     static NSColor *color = nil;
     if (!color) {
-        color = [NSColor colorWithCalibratedWhite:0.906 alpha:1.0];
+        if (@available(macos 10.14, *)) {
+            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.50];
+        } else {
+            color = [NSColor colorWithCalibratedWhite:0.906 alpha:1.0];
+        }
     }
     return color;
 }
@@ -558,7 +622,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSColor *)inactiveHoverFillColor {
     static NSColor *color = nil;
     if (!color) {
-        color = [NSColor colorWithCalibratedWhite:0.871 alpha:1.0];
+        if (@available(macos 10.14, *)) {
+            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:1];
+        } else {
+            color = [NSColor colorWithCalibratedWhite:0.871 alpha:1.0];
+        }
     }
     return color;
 }
@@ -566,7 +634,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSColor *)inactiveBorderColor {
     static NSColor *color = nil;
     if (!color) {
-        color = [NSColor colorWithCalibratedWhite:0.827 alpha:1.0];
+        if (@available(macos 10.14, *)) {
+            color = [NSColor placeholderTextColor];
+        } else {
+            color = [NSColor colorWithCalibratedWhite:0.827 alpha:1.0];
+        }
     }
     return color;
 }
@@ -574,7 +646,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSColor *)inactiveBottomBorderColor {
     static NSColor *color = nil;
     if (!color) {
-        color = [NSColor colorWithCalibratedWhite:0.784 alpha:1.0];
+        if (@available(macos 10.14, *)) {
+            color = [NSColor placeholderTextColor];
+        } else {
+            color = [NSColor colorWithCalibratedWhite:0.784 alpha:1.0];
+        }
     }
     return color;
 }
