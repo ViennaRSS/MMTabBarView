@@ -45,11 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (id) init {
 	if ((self = [super init])) {
 		_leftMarginForTabBarView = 0.;
-        _hasBaseline = YES;
-        
-        _selectedTabColor = [NSColor colorWithDeviceWhite:0.955 alpha:1.000];
-        _unselectedTabColor = [NSColor colorWithDeviceWhite:0.875 alpha:1.000];
-        
         _needsResizeTabsToFitTotalWidth = YES;
 	}
     
