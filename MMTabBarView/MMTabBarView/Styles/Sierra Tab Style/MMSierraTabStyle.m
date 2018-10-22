@@ -128,8 +128,11 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)updateAddButton:(MMRolloverButton *)aButton ofTabBarView:(MMTabBarView *)tabBarView {
-
-    aButton.bordered = YES;
+    if (@available(macos 10.14, *)) {
+        aButton.bezelStyle = NSBezelStyleRegularSquare;
+    } else {
+        aButton.bordered = YES;
+    }
 }
 
 #pragma mark -
