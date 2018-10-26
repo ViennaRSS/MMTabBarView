@@ -53,17 +53,27 @@
     else
     {
 #endif
-        if ( [tabBarView isWindowActive ] )
+        if ( @available(macos 10.10, *) )
         {
-            if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
-                mode = MMMappearanceAquaLightHighContrast;
+            if ( [tabBarView isWindowActive ] )
+            {
+                if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
+                    mode = MMMappearanceAquaLightHighContrast;
+                else
+                    mode = MMMappearanceAquaLight;
+            }
             else
-                mode = MMMappearanceAquaLight;
+            {
+                if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
+                    mode = MMMappearanceAquaLightHighContrastInactive;
+                else
+                    mode = MMMappearanceAquaLightInactive;
+            }
         }
         else
         {
-            if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
-                mode = MMMappearanceAquaLightHighContrastInactive;
+            if ( [tabBarView isWindowActive ] )
+                mode = MMMappearanceAquaLight;
             else
                 mode = MMMappearanceAquaLightInactive;
         }
