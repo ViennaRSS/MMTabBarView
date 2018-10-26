@@ -11,3 +11,4 @@ GCC_PREFIX_HEADER = $(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/Ap
 GCC_PRECOMPILE_PREFIX_HEADER = YES
 CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
 CLANG_ENABLE_MODULES = YES
+WARNING_CFLAGS = -Weverything -Wno-custom-atomic-properties -Wno-direct-ivar-access -Wno-float-equal -Wno-gnu  -Wno-objc-missing-property-synthesis
