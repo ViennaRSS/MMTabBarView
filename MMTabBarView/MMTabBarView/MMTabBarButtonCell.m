@@ -572,7 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSAttributedString *)_attributedObjectCountStringValue {
 
-    static NSDictionary *objectCountStringAttributes = nil;
+    static NSDictionary<NSAttributedStringKey, id> *objectCountStringAttributes = nil;
     
     if (objectCountStringAttributes == nil) {
 		NSFont* const font = [NSFont fontWithName:@"Helvetica" size:11.0];
