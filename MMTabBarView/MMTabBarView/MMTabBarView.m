@@ -51,6 +51,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+CGFloat noIntrinsicMetric(void) {
+    if (@available(macos 10.11, *)) {
+        return NSViewNoIntrinsicMetric;
+    }
+    else {
+        return NSViewNoInstrinsicMetric;
+    }
+}
+
+
 @implementation MMTabBarView
 {
     // control basics
@@ -231,12 +242,12 @@ static NSMutableDictionary *registeredStyleClasses = nil;
     if ([_style respondsToSelector:@selector(intrinsicContentSizeOfTabBarView:)])
 	{
 		if(_isHidden)
-				return NSMakeSize(NSViewNoInstrinsicMetric, 0);
+				return NSMakeSize(noIntrinsicMetric(), 0);
 		else
 				return [_style intrinsicContentSizeOfTabBarView:self];
 	}
 
-    return NSMakeSize(NSViewNoInstrinsicMetric, NSViewNoInstrinsicMetric);
+    return NSMakeSize(noIntrinsicMetric(), noIntrinsicMetric());
 }
 
 #pragma mark -

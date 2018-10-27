@@ -53,17 +53,27 @@
     else
     {
 #endif
-        if ( [tabBarView isWindowActive ] )
+        if ( @available(macos 10.10, *) )
         {
-            if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
-                mode = MMMappearanceAquaLightHighContrast;
+            if ( [tabBarView isWindowActive ] )
+            {
+                if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
+                    mode = MMMappearanceAquaLightHighContrast;
+                else
+                    mode = MMMappearanceAquaLight;
+            }
             else
-                mode = MMMappearanceAquaLight;
+            {
+                if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
+                    mode = MMMappearanceAquaLightHighContrastInactive;
+                else
+                    mode = MMMappearanceAquaLightInactive;
+            }
         }
         else
         {
-            if ( [[NSWorkspace sharedWorkspace] accessibilityDisplayShouldIncreaseContrast] )
-                mode = MMMappearanceAquaLightHighContrastInactive;
+            if ( [tabBarView isWindowActive ] )
+                mode = MMMappearanceAquaLight;
             else
                 mode = MMMappearanceAquaLightInactive;
         }
@@ -72,6 +82,17 @@
 #endif
 
     return [self assets][@(mode)][@(part)] ? : [self assets][@(MMMappearanceAquaLight)][@(part)];
+}
+
+inline static NSColor* labelColor(void)
+{
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+	if ( @available(macos 10.10, *) )
+	{
+		return NSColor.labelColor;
+	}
+#endif
+	return NSColor.textColor;
 }
 
 - (NSDictionary *)assets
@@ -90,7 +111,7 @@
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.655 green:0.655 blue:0.655 alpha:1.0],
 
                      @(MMMtabSelectedFont)        : [NSColor textColor],
-                     @(MMMtabUnselectedFont)      : [NSColor labelColor],
+                     @(MMMtabUnselectedFont)      : labelColor(),
                      @(MMMtabUnselectedHoverFont) : [NSColor textColor],
                      
                      @(MMMtabBarBackground)       : [NSColor colorWithSRGBRed:0.710 green:0.706 blue:0.710 alpha:1.0],
@@ -146,7 +167,7 @@
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.667 green:0.667 blue:0.663 alpha:1.0],
                      
                      @(MMMtabSelectedFont)        : [NSColor textColor],
-                     @(MMMtabUnselectedFont)      : [NSColor labelColor],
+                     @(MMMtabUnselectedFont)      : labelColor(),
                      @(MMMtabUnselectedHoverFont) : [NSColor textColor],
                      
                      @(MMMtabBarBackground)   : [NSColor colorWithSRGBRed:0.741 green:0.741 blue:0.741 alpha:1.0],
