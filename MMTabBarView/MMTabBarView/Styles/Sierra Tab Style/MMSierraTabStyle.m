@@ -18,18 +18,45 @@
 #import "MMSierraRolloverButton.h"
 #import "MMSierraCloseButton.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@interface MMSierraTabStyle()
+// fill gradients
+@property (class, nonatomic) NSGradient * selectedFillGradient;
+@property (class, nonatomic) NSGradient * idleFillGradient;
+@property (class, nonatomic) NSGradient * hoverFillGradient;
+@property (class, nonatomic) NSGradient * mouseDownFillGradient;
+// top border gradients
+@property (class, nonatomic) NSGradient * selectedTopBorderGradient;
+@property (class, nonatomic) NSGradient * unselectedTopBorderGradient;
+// left/right-border gradients
+@property (class, nonatomic) NSGradient * edgeBorderGradient;
+// bottom gradients
+@property (class, nonatomic) NSGradient * bottomBorderGradient;
+// inactive windows
+@property (class, nonatomic) NSColor * inactiveSelectedFillColor;
+@property (class, nonatomic) NSColor * inactiveIdleFillColor;
+@property (class, nonatomic) NSColor * inactiveHoverFillColor;
+@property (class, nonatomic) NSColor * inactiveBorderColor;
+@property (class, nonatomic) NSColor * inactiveBottomBorderColor;
+
+@end
 
 @implementation MMSierraTabStyle
 
-//StaticImage(SierraTabClose_Front)
-//StaticImage(SierraTabClose_Front_Pressed)
-//StaticImage(SierraTabClose_Front_Rollover)
-//StaticImageWithFilename(SierraTabCloseDirty_Front, AquaTabCloseDirty_Front)
-//StaticImageWithFilename(SierraTabCloseDirty_Front_Pressed, AquaTabCloseDirty_Front_Pressed)
-//StaticImageWithFilename(SierraTabCloseDirty_Front_Rollover, AquaTabCloseDirty_Front_Rollover)
-//StaticImage(SierraTabNew)
-//StaticImage(SierraTabNewPressed)
+static NSGradient * _selectedFillGradient;
+static NSGradient * _idleFillGradient;
+static NSGradient * _hoverFillGradient;
+static NSGradient * _mouseDownFillGradient;
+static NSGradient * _selectedTopBorderGradient;
+static NSGradient * _unselectedTopBorderGradient;
+static NSGradient * _edgeBorderGradient;
+static NSGradient * _bottomBorderGradient;
+static NSColor * _inactiveSelectedFillColor;
+static NSColor * _inactiveIdleFillColor;
+static NSColor * _inactiveHoverFillColor;
+static NSColor * _inactiveBorderColor;
+static NSColor * _inactiveBottomBorderColor;
+
+NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)name {
     return @"Sierra";
@@ -434,225 +461,288 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - fill gradients
 
 + (NSGradient *)selectedFillGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_selectedFillGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _selectedFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor unemphasizedSelectedTextBackgroundColor],
                           [[NSColor controlBackgroundColor] colorWithAlphaComponent:0.60]
                           ]];
         } else { 
-            gradient = [[NSGradient alloc] initWithColors:
+            _selectedFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.808 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.792 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _selectedFillGradient;
+}
+
++ (void)setSelectedFillGradient:(NSGradient *)newGradient {
+    if (newGradient != _selectedFillGradient) {
+        _selectedFillGradient = newGradient;
+    }
 }
 
 + (NSGradient *)idleFillGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_idleFillGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _idleFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor unemphasizedSelectedTextBackgroundColor],
                           [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.50]
                           ]];
         } else { 
-            gradient = [[NSGradient alloc] initWithColors:
+            _idleFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.698 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.682 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _idleFillGradient;
+}
+
++ (void)setIdleFillGradient:(NSGradient *)newGradient {
+    if (newGradient != _idleFillGradient) {
+        _idleFillGradient = newGradient;
+    }
 }
 
 + (NSGradient *)hoverFillGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_hoverFillGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _hoverFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:1],
                           [NSColor colorWithCalibratedWhite:0.647 alpha:1.0]
                           ]];
         } else { 
-            gradient = [[NSGradient alloc] initWithColors:
+            _hoverFillGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.663 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.647 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _hoverFillGradient;
+}
+
++ (void)setHoverFillGradient:(NSGradient *)newGradient {
+    if (newGradient != _hoverFillGradient) {
+        _hoverFillGradient = newGradient;
+    }
 }
 
 + (NSGradient *)mouseDownFillGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
-        gradient = [[NSGradient alloc] initWithColors:
+    if (!_mouseDownFillGradient) {
+        _mouseDownFillGradient = [[NSGradient alloc] initWithColors:
                     @[
                       [NSColor colorWithCalibratedWhite:0.608 alpha:1.0],
                       [NSColor colorWithCalibratedWhite:0.557 alpha:1.0]
                       ]];
     }
-    return gradient;
+    return _mouseDownFillGradient;
+}
+
++ (void)setMouseDownFillGradient:(NSGradient *)newGradient {
+    if (newGradient != _mouseDownFillGradient) {
+        _mouseDownFillGradient = newGradient;
+    }
 }
 
 #pragma mark - top border gradients
-
 + (NSGradient *)selectedTopBorderGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_selectedTopBorderGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _selectedTopBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor systemGrayColor],
                           [NSColor colorWithCalibratedWhite:0.686 alpha:1.0]
                           ]];
         } else { 
-            gradient = [[NSGradient alloc] initWithColors:
+            _selectedTopBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.690 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.686 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _selectedTopBorderGradient;
+}
+
++ (void)setSelectedTopBorderGradient:(NSGradient *)newGradient {
+    if (newGradient != _selectedTopBorderGradient) {
+        _selectedTopBorderGradient = newGradient;
+    }
 }
 
 + (NSGradient *)unselectedTopBorderGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_unselectedTopBorderGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _unselectedTopBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor systemGrayColor],
                           [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
                           ]];
         } else { 
-            gradient = [[NSGradient alloc] initWithColors:
+            _unselectedTopBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _unselectedTopBorderGradient;
+}
+
++ (void)setUnselectedTopBorderGradient:(NSGradient *)newGradient {
+    if (newGradient != _unselectedTopBorderGradient) {
+        _unselectedTopBorderGradient = newGradient;
+    }
 }
 
 #pragma mark - left/right-border gradients
 
 + (NSGradient *)edgeBorderGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_edgeBorderGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _edgeBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor systemGrayColor],
                           [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
                           ]];
         } else {
-            gradient = [[NSGradient alloc] initWithColors:
+            _edgeBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.588 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _edgeBorderGradient;
+}
+
++ (void)setEdgeBorderGradient:(NSGradient *)newGradient {
+    if (newGradient != _edgeBorderGradient) {
+        _edgeBorderGradient = newGradient;
+    }
 }
 
 #pragma mark - bottom gradients
 
 + (NSGradient *)bottomBorderGradient {
-    static NSGradient *gradient = nil;
-    if (!gradient) {
+    if (!_bottomBorderGradient) {
         if (@available(macos 10.14, *)) {
-            gradient = [[NSGradient alloc] initWithColors:
+            _bottomBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor systemGrayColor],
                           [NSColor colorWithCalibratedWhite:0.573 alpha:1.0]
                           ]];
         } else {
-            gradient = [[NSGradient alloc] initWithColors:
+            _bottomBorderGradient = [[NSGradient alloc] initWithColors:
                         @[
                           [NSColor colorWithCalibratedWhite:0.592 alpha:1.0],
                           [NSColor colorWithCalibratedWhite:0.588 alpha:1.0]
                           ]];
         }
     }
-    return gradient;
+    return _bottomBorderGradient;
+}
+
++ (void)setBottomBorderGradient:(NSGradient *)newGradient {
+    if (newGradient != _bottomBorderGradient) {
+        _bottomBorderGradient = newGradient;
+    }
 }
 
 #pragma mark - inactive windows
 
 + (NSColor *)inactiveSelectedFillColor {
-    static NSColor *color = nil;
-    if (!color) {
+    if (!_inactiveSelectedFillColor) {
         if (@available(macos 10.14, *)) {
-            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.10];
+            _inactiveSelectedFillColor = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.10];
         } else {
-            color = [NSColor colorWithCalibratedWhite:0.957 alpha:1.0];
+            _inactiveSelectedFillColor = [NSColor colorWithCalibratedWhite:0.957 alpha:1.0];
         }
     }
-    return color;
+    return _inactiveSelectedFillColor;
+}
+
++ (void)setInactiveSelectedFillColor:(NSColor *)newColor {
+    if (newColor != _inactiveSelectedFillColor) {
+        _inactiveSelectedFillColor = newColor;
+    }
 }
 
 + (NSColor *)inactiveIdleFillColor {
-    static NSColor *color = nil;
-    if (!color) {
+    if (!_inactiveIdleFillColor) {
         if (@available(macos 10.14, *)) {
-            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.50];
+            _inactiveIdleFillColor = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:0.50];
         } else {
-            color = [NSColor colorWithCalibratedWhite:0.906 alpha:1.0];
+            _inactiveIdleFillColor = [NSColor colorWithCalibratedWhite:0.906 alpha:1.0];
         }
     }
-    return color;
+    return _inactiveIdleFillColor;
+}
+
++ (void)setInactiveIdleFillColor:(NSColor *)newColor {
+    if (newColor != _inactiveIdleFillColor) {
+        _inactiveIdleFillColor = newColor;
+    }
 }
 
 + (NSColor *)inactiveHoverFillColor {
-    static NSColor *color = nil;
-    if (!color) {
+    if (!_inactiveHoverFillColor) {
         if (@available(macos 10.14, *)) {
-            color = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:1];
+            _inactiveHoverFillColor = [[NSColor unemphasizedSelectedTextBackgroundColor] colorWithAlphaComponent:1];
         } else {
-            color = [NSColor colorWithCalibratedWhite:0.871 alpha:1.0];
+            _inactiveHoverFillColor = [NSColor colorWithCalibratedWhite:0.871 alpha:1.0];
         }
     }
-    return color;
+    return _inactiveHoverFillColor;
+}
+
++ (void)setInactiveHoverFillColor:(NSColor *)newColor {
+    if (newColor != _inactiveHoverFillColor) {
+        _inactiveHoverFillColor = newColor;
+    }
 }
 
 + (NSColor *)inactiveBorderColor {
-    static NSColor *color = nil;
-    if (!color) {
+    if (!_inactiveBorderColor) {
         if (@available(macos 10.14, *)) {
-            color = [NSColor placeholderTextColor];
+            _inactiveBorderColor = [NSColor placeholderTextColor];
         } else {
-            color = [NSColor colorWithCalibratedWhite:0.827 alpha:1.0];
+            _inactiveBorderColor = [NSColor colorWithCalibratedWhite:0.827 alpha:1.0];
         }
     }
-    return color;
+    return _inactiveBorderColor;
+}
+
++ (void)setInactiveBorderColor:(NSColor *)newColor {
+    if (newColor != _inactiveBorderColor) {
+        _inactiveBorderColor = newColor;
+    }
 }
 
 + (NSColor *)inactiveBottomBorderColor {
-    static NSColor *color = nil;
-    if (!color) {
+    if (!_inactiveBottomBorderColor) {
         if (@available(macos 10.14, *)) {
-            color = [NSColor placeholderTextColor];
+            _inactiveBottomBorderColor = [NSColor placeholderTextColor];
         } else {
-            color = [NSColor colorWithCalibratedWhite:0.784 alpha:1.0];
+            _inactiveBottomBorderColor = [NSColor colorWithCalibratedWhite:0.784 alpha:1.0];
         }
     }
-    return color;
+    return _inactiveBottomBorderColor;
 }
 
++ (void)setInactiveBottomBorderColor:(NSColor *)newColor {
+    if (newColor != _inactiveBottomBorderColor) {
+        _inactiveBottomBorderColor = newColor;
+    }
+}
 
 
 
