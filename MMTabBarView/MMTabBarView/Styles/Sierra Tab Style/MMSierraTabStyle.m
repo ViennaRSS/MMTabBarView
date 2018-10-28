@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id) init {
 	if ((self = [super init])) {
-		_leftMarginForTabBarView = 0.f;
+		_leftMarginForTabBarView = 0.;
         _hasBaseline = YES;
         
         _selectedTabColor = [NSColor colorWithDeviceWhite:0.955 alpha:1.000];
@@ -65,23 +65,23 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (CGFloat)leftMarginForTabBarView:(MMTabBarView *)tabBarView {
-    return 0.0f;
+    return 0.0;
 }
 
 - (CGFloat)rightMarginForTabBarView:(MMTabBarView *)tabBarView {
-    return 0.0f;
+    return 0.0;
 }
 
 - (CGFloat)topMarginForTabBarView:(MMTabBarView *)tabBarView {
-    return 0.0f;
+    return 0.0;
 }
 
 - (CGFloat)heightOfTabBarButtonsForTabBarView:(MMTabBarView *)tabBarView {
-    return 24.0f;
+    return 24.0;
 }
 
 - (NSSize)overflowButtonSizeForTabBarView:(MMTabBarView *)tabBarView {
-    return NSMakeSize(22.0f, [self heightOfTabBarButtonsForTabBarView:tabBarView]);
+    return NSMakeSize(22.0, [self heightOfTabBarButtonsForTabBarView:tabBarView]);
 }
 
 //- (NSSize)overflowButtonSizeForTabBarView:(MMTabBarView *)tabBarView {
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Drag Support
 
 - (NSRect)draggingRectForTabButton:(MMAttachedTabBarButton *)aButton ofTabBarView:(MMTabBarView *)tabBarView {
-	NSRect dragRect = [aButton stackingFrame];
+	NSRect dragRect = aButton.stackingFrame;
 	dragRect.size.width++;
 	return dragRect;
 }
@@ -136,8 +136,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Close Button Drawing
 
 - (NSSize)closeButtonSizeForBounds:(NSRect)theRect ofTabCell:(MMTabBarButtonCell *)cell {
-    CGFloat width = 16.0f;
-    CGFloat height = 16.0f;
+    CGFloat width = 16.0;
+    CGFloat height = 16.0;
     return NSMakeSize(width, height);
 }
 
@@ -147,8 +147,8 @@ NS_ASSUME_NONNULL_BEGIN
 		return NSZeroRect;
 	}
 
-    CGFloat marginX = 4.0f;
-    CGFloat marginY = 4.0f;
+    CGFloat marginX = 4.0;
+    CGFloat marginY = 4.0;
     NSSize size = [self closeButtonSizeForBounds:theRect ofTabCell:cell];
 
     CGFloat x = theRect.origin.x + marginX;
@@ -163,10 +163,10 @@ NS_ASSUME_NONNULL_BEGIN
     NSRect frame = [self closeButtonRectForBounds:theRect ofTabCell:cell];
     MMRolloverButton *closeButton = [[MMSierraCloseButton alloc] initWithFrame:frame];
 
-    [closeButton setTitle:@""];
-    [closeButton setImagePosition:NSImageOnly];
-    [closeButton setRolloverButtonType:MMRolloverActionButton];
-    [closeButton setBezelStyle:NSShadowlessSquareBezelStyle];
+    closeButton.title=@"";
+    closeButton.imagePosition = NSImageOnly;
+    closeButton.rolloverButtonType = MMRolloverActionButton;
+    closeButton.bezelStyle = NSShadowlessSquareBezelStyle;
 
     return closeButton;
 
@@ -410,23 +410,23 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - component frames
 
 - (NSRect)bottomBorderRectWithFrame:(NSRect)frame {
-    return NSMakeRect(frame.origin.x, frame.origin.y + frame.size.height - 1.0f, frame.size.width, 1.0f);
+    return NSMakeRect(frame.origin.x, frame.origin.y + frame.size.height - 1.0, frame.size.width, 1.0);
 }
 
 - (NSRect)topBorderRectWithFrame:(NSRect)frame {
-    return NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, 1.0f);
+    return NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, 1.0);
 }
 
 - (NSRect)leftRectWithFrame:(NSRect)frame {
-    return NSMakeRect(frame.origin.x, frame.origin.y, 1.0f, frame.size.height - 1.0f);
+    return NSMakeRect(frame.origin.x, frame.origin.y, 1.0, frame.size.height - 1.0);
 }
 
 - (NSRect)rightRectWithFrame:(NSRect)frame {
-    return NSMakeRect(frame.origin.x + frame.size.width - 1, frame.origin.y + 1, 1.0f, frame.size.height - 2.0f);
+    return NSMakeRect(frame.origin.x + frame.size.width - 1, frame.origin.y + 1, 1.0, frame.size.height - 2.0);
 }
 
 - (NSRect)fillRectWithFrame:(NSRect)frame {
-    return NSMakeRect(frame.origin.x, frame.origin.y + 1, frame.size.width, frame.size.height - 2.0f);
+    return NSMakeRect(frame.origin.x, frame.origin.y + 1, frame.size.width, frame.size.height - 2.0);
 }
 
 

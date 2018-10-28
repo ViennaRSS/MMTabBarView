@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A partner view
  */
-@property (strong) IBOutlet NSView *partnerView;
+@property (nullable, strong) IBOutlet NSView *partnerView;
 
 /**
  *  Delegate
@@ -174,7 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return Array of all registered classes
  */
-+ (NSArray *)registeredTabStyleClasses;
++ (NSArray<Class <MMTabStyle>> *)registeredTabStyleClasses;
 
 /**
  *  Get registered class for specified tab style name
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The matching tab style class
  */
-+ (Class <MMTabStyle>)registeredClassForStyleName:(NSString *)name;
++ (nullable Class <MMTabStyle>)registeredClassForStyleName:(NSString *)name;
 
 #pragma mark Tab View Item Management
 
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Get array of visible tab view items
  */
-@property (readonly) NSArray *visibleTabViewItems;
+@property (readonly) NSArray<NSTabViewItem*> *visibleTabViewItems;
 
 /**
  *  Get index of specified tab view item
@@ -214,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Get selected tab view item
  */
-@property (readonly) NSTabViewItem *selectedTabViewItem;
+@property (nullable, readonly) NSTabViewItem *selectedTabViewItem;
 
 /**
  *  Select specified tab view item
@@ -253,12 +253,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Get array of all attached tab bar buttons
  */
-@property (readonly) NSSet *attachedButtons;
+@property (readonly) NSSet<MMAttachedTabBarButton *> *attachedButtons;
 
 /**
  *  Get ordered array of attached tab bar buttons
  */
-@property (readonly) NSArray *orderedAttachedButtons;
+@property (readonly) NSArray<MMAttachedTabBarButton *> *orderedAttachedButtons;
 
 /**
  *  Get array of attached tab bar buttons sorted by using a comparator
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The sorted array
  */
-- (NSArray *)sortedAttachedButtonsUsingComparator:(NSComparator)cmptr;
+- (NSArray<MMAttachedTabBarButton *> *)sortedAttachedButtonsUsingComparator:(NSComparator)cmptr;
 
 /**
  *  INsert attached tab bar button for specified tab view item
@@ -327,7 +327,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *   Get last attached tab bar button
  */
-@property (readonly) MMAttachedTabBarButton *lastAttachedButton;
+@property (nullable, readonly) MMAttachedTabBarButton *lastAttachedButton;
 
 /**
  *  Get attached tab bar button at point
@@ -406,7 +406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param opts    Options (@see MMAttachedButtonsEnumerationOptions)
  *  @param block   Block to execute
  */
-- (void)enumerateAttachedButtons:(NSArray *)buttons inRange:(NSRange)range withOptions:(MMAttachedButtonsEnumerationOptions)opts usingBlock:(void (^)(MMAttachedTabBarButton *aButton, NSUInteger idx, MMAttachedTabBarButton *previousButton, MMAttachedTabBarButton *nextButton, BOOL *stop))block;
+- (void)enumerateAttachedButtons:(NSArray<MMAttachedTabBarButton *> *)buttons inRange:(NSRange)range withOptions:(MMAttachedButtonsEnumerationOptions)opts usingBlock:(void (^)(MMAttachedTabBarButton *aButton, NSUInteger idx, MMAttachedTabBarButton *previousButton, MMAttachedTabBarButton *nextButton, BOOL *stop))block;
 
 #pragma mark Find Tab Bar Buttons
 
@@ -582,7 +582,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)startDraggingAttachedTabBarButton:(MMAttachedTabBarButton *)aButton withMouseDownEvent:(NSEvent *)theEvent;
 
-- (MMAttachedTabBarButton *)attachedTabBarButtonForDraggedItems;
+- (nullable MMAttachedTabBarButton *)attachedTabBarButtonForDraggedItems;
 
 - (BOOL)isSliding;
 - (BOOL)isDragging;
@@ -644,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tabView:(NSTabView*)aTabView didDropTabViewItem:(NSTabViewItem *)tabViewItem inTabBarView:(MMTabBarView *)tabBarView;
 
     // "Spring-loaded" tabs methods
-- (NSArray *)allowedDraggedTypesForTabView:(NSTabView *)aTabView;
+- (NSArray<NSPasteboardType> *)allowedDraggedTypesForTabView:(NSTabView *)aTabView;
 - (BOOL)tabView:(NSTabView *)aTabView acceptedDraggingInfo:(id <NSDraggingInfo>) draggingInfo onTabViewItem:(NSTabViewItem *)tabViewItem;
 
     // Tear-off related methods
