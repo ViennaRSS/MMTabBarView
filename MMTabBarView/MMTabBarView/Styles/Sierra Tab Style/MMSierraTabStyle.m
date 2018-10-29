@@ -75,8 +75,26 @@ NS_ASSUME_NONNULL_BEGIN
         _needsResizeTabsToFitTotalWidth = YES;
 	}
     
+    [NSDistributedNotificationCenter.defaultCenter addObserver:self selector:@selector(resetColors) name:@"AppleInterfaceThemeChangedNotification" object:nil];
 	return self;
 }
+
+-(void)resetColors
+{
+    _selectedFillGradient = nil;
+    _idleFillGradient = nil;
+    _hoverFillGradient = nil;
+    _mouseDownFillGradient = nil;
+    _selectedTopBorderGradient = nil;
+    _unselectedTopBorderGradient = nil;
+    _edgeBorderGradient = nil;
+    _bottomBorderGradient = nil;
+    _inactiveSelectedFillColor = nil;
+    _inactiveIdleFillColor = nil;
+    _inactiveHoverFillColor = nil;
+    _inactiveBorderColor = nil;
+    _inactiveBottomBorderColor = nil;
+} // resetColors
 
 #pragma mark -
 #pragma mark Tab View Specific
