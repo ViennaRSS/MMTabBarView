@@ -18,6 +18,8 @@
 
 @implementation MMMojaveTabStyle (Assets)
 
+static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
+
 
 - (NSColor *)colorForPart:(MMMojaveTabStyleAsset)part ofTabBarView:(MMTabBarView *)tabBarView
 {
@@ -85,7 +87,6 @@ inline static NSColor* labelColor(void)
 
 - (NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *)assets
 {
-    static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
 
     if ( !assets )
         assets = @{
@@ -416,5 +417,9 @@ inline static NSColor* labelColor(void)
     return result;
 }
 
+-(void)resetColors
+{
+    assets = nil;
+}
 
 @end
