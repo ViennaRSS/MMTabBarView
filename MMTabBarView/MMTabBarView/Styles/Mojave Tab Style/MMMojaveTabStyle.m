@@ -43,10 +43,18 @@ NS_ASSUME_NONNULL_BEGIN
       _leftMarginForTabBarView = 0.0;
       _needsResizeTabsToFitTotalWidth = YES;
     }
-    
+
+    SEL selector = NSSelectorFromString(@"resetColors");
+    [NSDistributedNotificationCenter.defaultCenter addObserver:self selector:selector name:@"AppleInterfaceThemeChangedNotification" object:
+     nil];
+
     return self;
 }
 
+- (void) dealloc
+{
+    [NSDistributedNotificationCenter.defaultCenter removeObserver:self];
+}
 
 #pragma mark - Tab View Specific
 

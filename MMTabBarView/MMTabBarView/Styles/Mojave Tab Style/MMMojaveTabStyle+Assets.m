@@ -18,6 +18,8 @@
 
 @implementation MMMojaveTabStyle (Assets)
 
+static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
+
 
 - (NSColor *)colorForPart:(MMMojaveTabStyleAsset)part ofTabBarView:(MMTabBarView *)tabBarView
 {
@@ -85,7 +87,6 @@ inline static NSColor* labelColor(void)
 
 - (NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *)assets
 {
-    static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
 
     if ( !assets )
         assets = @{
@@ -211,8 +212,8 @@ inline static NSColor* labelColor(void)
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.110 green:0.110 blue:0.110 alpha:1.0],
 
                      @(MMMtabSelectedFont)        : NSColor.textColor,
-                     @(MMMtabUnselectedFont)      : NSColor.selectedTextBackgroundColor,
-                     @(MMMtabUnselectedHoverFont) : NSColor.selectedTextBackgroundColor,
+                     @(MMMtabUnselectedFont)      : NSColor.disabledControlTextColor,
+                     @(MMMtabUnselectedHoverFont) : NSColor.textColor,
                      
                      @(MMMtabBarBackground)   : [NSColor colorWithSRGBRed:0.112 green:0.112 blue:0.112 alpha:1.0],
 
@@ -267,8 +268,8 @@ inline static NSColor* labelColor(void)
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.110 green:0.110 blue:0.110 alpha:1.0],
 
                      @(MMMtabSelectedFont)        : NSColor.textColor,
-                     @(MMMtabUnselectedFont)      : NSColor.selectedTextBackgroundColor,
-                     @(MMMtabUnselectedHoverFont) : NSColor.selectedTextBackgroundColor,
+                     @(MMMtabUnselectedFont)      : NSColor.disabledControlTextColor,
+                     @(MMMtabUnselectedHoverFont) : NSColor.textColor,
                      
 					 @(MMMtabBarBackground)   : [NSColor colorWithSRGBRed:0.112 green:0.112 blue:0.112 alpha:1.0],
 
@@ -416,5 +417,9 @@ inline static NSColor* labelColor(void)
     return result;
 }
 
+-(void)resetColors
+{
+    assets = nil;
+}
 
 @end
