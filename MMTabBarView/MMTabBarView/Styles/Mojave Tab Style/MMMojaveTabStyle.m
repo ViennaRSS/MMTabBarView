@@ -44,8 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
       _needsResizeTabsToFitTotalWidth = YES;
     }
 
-    [NSDistributedNotificationCenter.defaultCenter addObserver:self selector:@selector(resetColors) name:
-     @"AppleInterfaceThemeChangedNotification"          object:nil];
+    SEL selector = NSSelectorFromString(@"resetColors");
+    [NSDistributedNotificationCenter.defaultCenter addObserver:self selector:selector name:@"AppleInterfaceThemeChangedNotification" object:
+     nil];
 
     return self;
 }
