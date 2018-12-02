@@ -79,6 +79,11 @@ NS_ASSUME_NONNULL_BEGIN
 	return self;
 }
 
+- (void) dealloc
+{
+    [NSDistributedNotificationCenter.defaultCenter removeObserver:self];
+}
+
 -(void)resetColors
 {
     _selectedFillGradient = nil;
