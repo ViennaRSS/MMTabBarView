@@ -277,21 +277,11 @@ NS_ASSUME_NONNULL_BEGIN
 
     NSGradient *gradient = nil;
     
-    if (tabBarView.isWindowActive) {
-        // gray bar gradient
         gradient = [[NSGradient alloc] initWithColorsAndLocations:
-                        [NSColor colorWithCalibratedWhite:0.678 alpha:1.000],0.0,
-                        [NSColor colorWithCalibratedWhite:0.821 alpha:1.000],1.0,
+                        [self gradientBottomColorActive:NO highlighted:NO], 0.0,
+                        [self gradientBottomColorActive:NO highlighted:NO] ,1.0,
                         nil];
 
-    } else {
-        // light gray bar gradient
-        gradient = [[NSGradient alloc] initWithColorsAndLocations:
-                [NSColor colorWithCalibratedWhite:0.821 alpha:1.000],0.0,
-                [NSColor colorWithCalibratedWhite:0.956 alpha:1.000],1.0,
-                nil];
-    }
-    
     if (gradient) {
         [gradient drawInRect:bounds angle:270];
     
@@ -368,19 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSGradient *gradient = nil;
 
     if (tabBarView.isWindowActive) {
-        if (button.state == NSOnState) {
-              gradient = [[NSGradient alloc] initWithStartingColor:NSColor.whiteColor endingColor:[NSColor colorWithDeviceWhite:0.929 alpha:1.000]];
-        } else if (button.mouseHovered) {
-        
-            gradient = [[NSGradient alloc] 
-                initWithStartingColor: [NSColor colorWithCalibratedWhite:0.80 alpha:1.0]
-                endingColor:[NSColor colorWithCalibratedWhite:0.80 alpha:1.0]];           
-        } else {
-
-            gradient = [[NSGradient alloc] 
-                initWithStartingColor:[NSColor colorWithCalibratedWhite:0.835 alpha:1.0] 
-                endingColor:[NSColor colorWithCalibratedWhite:0.843 alpha:1.0]];                                
-        }
+        gradient = [[NSGradient alloc] initWithStartingColor:[self gradientTopColorActive:(button.state == NSOnState) highlighted:(button.mouseHovered)] endingColor:[self gradientBottomColorActive:(button.state == NSOnState) highlighted:(button.mouseHovered)]];
 
         if (gradient != nil) {
             [gradient drawInBezierPath:fillPath angle:90.0];
