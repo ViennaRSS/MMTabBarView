@@ -1213,24 +1213,12 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 	CGFloat partnerTargetSize;
 	CGFloat partnerTargetOrigin;
 
-	[self calculatePartnerViewChange:&partnerTargetOrigin partnerTargetSize:&partnerTargetSize];
-	[self applyFrameChangesAnimated:animate hide:hide partnerTargetOrigin:partnerTargetOrigin partnerTargetSize:partnerTargetSize completion:^{
-		if (!hide)
-			[self setHidden:NO];
-		[self updateTrackingAreas];
-		[self sendTabBarShowHideCompletionCalls:hide];
-	}];
-
-	if (hide)
-		[self setHidden:YES];
-}
-
-- (void)calculatePartnerViewChange:(CGFloat *)partnerTargetOrigin partnerTargetSize:(CGFloat *)partnerTargetSize {
-	CGFloat partnerOriginalSize; CGFloat partnerOriginalOrigin; CGFloat myOriginalSize; CGFloat myOriginalOrigin;
-
-	// target values for partner
-	if ([self orientation] == MMTabBarHorizontalOrientation) {
-		// current (original) values
+        // target values for partner
+	if (self.orientation == MMTabBarHorizontalOrientation) {
+		CGFloat tabBarViewHeight = kMMTabBarViewHeight;
+		if ([_style respondsToSelector:@selector(intrinsicContentSizeOfTabBarView:)])	// don't call self.intrinsicContentSize, as it would return 0 when hidden
+			tabBarViewHeight=[_style intrinsicContentSizeOfTabBarView:self].height;
+            // current (original) values
 		myOriginalSize = self.frame.size.height;
 		myOriginalOrigin = self.frame.origin.y;
 		if (_partnerView) {
@@ -1242,40 +1230,40 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 		}
 
 		if (_partnerView) {
-			// above or below me?
-			if ((myOriginalOrigin - kMMTabBarViewHeight) > partnerOriginalOrigin) {
-				// partner is below me
+                // above or below me?
+			if ((myOriginalOrigin - tabBarViewHeight) > partnerOriginalOrigin) {
+                    // partner is below me
 				if (_isHidden) {
-					// I'm shrinking
-					*partnerTargetOrigin = partnerOriginalOrigin;
-					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+                        // I'm shrinking
+					partnerTargetOrigin = partnerOriginalOrigin;
+					partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 				} else {
-					// I'm growing
-					*partnerTargetOrigin = partnerOriginalOrigin;
-					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+                        // I'm growing
+					partnerTargetOrigin = partnerOriginalOrigin;
+					partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 				}
 			} else {
 				// partner is above me
 				if (_isHidden) {
-					// I'm shrinking
-					*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+                        // I'm shrinking
+					partnerTargetOrigin = partnerOriginalOrigin - tabBarViewHeight;
+					partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 				} else {
-					// I'm growing
-					*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+                        // I'm growing
+					partnerTargetOrigin = partnerOriginalOrigin + tabBarViewHeight;
+					partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 				}
 			}
 		} else {
 			// for window movement
 			if (_isHidden) {
-				// I'm shrinking
-				*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-				*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+                    // I'm shrinking
+				partnerTargetOrigin = partnerOriginalOrigin + tabBarViewHeight;
+				partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 			} else {
-				// I'm growing
-				*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-				*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+                    // I'm growing
+				partnerTargetOrigin = partnerOriginalOrigin - tabBarViewHeight;
+				partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 			}
 		}
 	} else {   // vertical 
