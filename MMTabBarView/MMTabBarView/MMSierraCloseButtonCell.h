@@ -6,7 +6,7 @@
 //  Copyright © 2017 Michael Monscheuer. All rights reserved.
 //
 
-#import <MMTabBarView/MMTabBarView.h>
+#import "MMTabBarView.h"
 
 @interface MMSierraCloseButtonCell : MMRolloverButtonCell
 
