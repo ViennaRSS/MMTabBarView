@@ -111,7 +111,7 @@ CGFloat noIntrinsicMetric(void) {
     BOOL                            _needsUpdate;
 
     // delegate
-    id <MMTabBarViewDelegate>       _delegate;
+    id <MMTabBarViewDelegate> __weak _delegate;
 }
 
 static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasses = nil;
@@ -211,6 +211,10 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 }
 
 -(void)viewDidEndLiveResize {
+    for (MMAttachedTabBarButton *aButton in self.attachedButtons) {
+		[aButton.indicator startAnimation:self];
+	}
+
 	[self _checkWindowFrame];
 	[self update:NO];
 }
@@ -272,7 +276,6 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     result -= _resizeAreaCompensation;
     
         //Don't let attached buttons overlap the add tab button if it is visible
-
 	if (self.showAddTabButton) {
 
         CGFloat padding = kMMTabBarCellPadding;
@@ -1228,9 +1231,12 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 - (void)calculatePartnerViewChange:(CGFloat *)partnerTargetOrigin partnerTargetSize:(CGFloat *)partnerTargetSize {
 	CGFloat partnerOriginalSize; CGFloat partnerOriginalOrigin; CGFloat myOriginalSize; CGFloat myOriginalOrigin;
 
-	// target values for partner
-	if ([self orientation] == MMTabBarHorizontalOrientation) {
-		// current (original) values
+        // target values for partner
+	if (self.orientation == MMTabBarHorizontalOrientation) {
+		CGFloat tabBarViewHeight = kMMTabBarViewHeight;
+		if ([_style respondsToSelector:@selector(intrinsicContentSizeOfTabBarView:)])	// don't call self.intrinsicContentSize, as it would return 0 when hidden
+			tabBarViewHeight=[_style intrinsicContentSizeOfTabBarView:self].height;
+            // current (original) values
 		myOriginalSize = self.frame.size.height;
 		myOriginalOrigin = self.frame.origin.y;
 		if (_partnerView) {
@@ -1242,40 +1248,40 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 		}
 
 		if (_partnerView) {
-			// above or below me?
-			if ((myOriginalOrigin - kMMTabBarViewHeight) > partnerOriginalOrigin) {
-				// partner is below me
+                // above or below me?
+			if ((myOriginalOrigin - tabBarViewHeight) > partnerOriginalOrigin) {
+                    // partner is below me
 				if (_isHidden) {
-					// I'm shrinking
+                        // I'm shrinking
 					*partnerTargetOrigin = partnerOriginalOrigin;
-					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 				} else {
-					// I'm growing
+                        // I'm growing
 					*partnerTargetOrigin = partnerOriginalOrigin;
-					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 				}
 			} else {
 				// partner is above me
 				if (_isHidden) {
-					// I'm shrinking
-					*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-					*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+                        // I'm shrinking
+					*partnerTargetOrigin = partnerOriginalOrigin - tabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 				} else {
-					// I'm growing
-					*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-					*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+                        // I'm growing
+					*partnerTargetOrigin = partnerOriginalOrigin + tabBarViewHeight;
+					*partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 				}
 			}
 		} else {
 			// for window movement
 			if (_isHidden) {
-				// I'm shrinking
-				*partnerTargetOrigin = partnerOriginalOrigin + kMMTabBarViewHeight;
-				*partnerTargetSize = partnerOriginalSize - kMMTabBarViewHeight;
+                    // I'm shrinking
+				*partnerTargetOrigin = partnerOriginalOrigin + tabBarViewHeight;
+				*partnerTargetSize = partnerOriginalSize - tabBarViewHeight;
 			} else {
-				// I'm growing
-				*partnerTargetOrigin = partnerOriginalOrigin - kMMTabBarViewHeight;
-				*partnerTargetSize = partnerOriginalSize + kMMTabBarViewHeight;
+                    // I'm growing
+				*partnerTargetOrigin = partnerOriginalOrigin - tabBarViewHeight;
+				*partnerTargetSize = partnerOriginalSize + tabBarViewHeight;
 			}
 		}
 	} else {   // vertical 
@@ -1555,7 +1561,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 
     _needsUpdate = NO;
 
-    if (!self.window.isVisible)
+    if (!self.window.isVisible || self.isHidden)
         [self update:NO];
     else
         [self update:_automaticallyAnimates];
