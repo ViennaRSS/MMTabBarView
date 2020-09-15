@@ -1318,6 +1318,13 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 			}
 		}
 	}
+	[self applyFrameChangesAnimated:animate hide:hide
+		partnerTargetOrigin:partnerTargetOrigin partnerTargetSize:partnerTargetSize
+		completion:^{
+			[self setHidden:hide];
+			[self updateTrackingAreas];
+			[self sendTabBarShowHideCompletionCalls:hide];
+	}];
 }
 
 - (void)applyFrameChangesAnimated:(BOOL)animate hide:(BOOL)hide partnerTargetOrigin:(CGFloat)partnerTargetOrigin partnerTargetSize:(CGFloat)partnerTargetSize completion:(void(^)(void))completion {
