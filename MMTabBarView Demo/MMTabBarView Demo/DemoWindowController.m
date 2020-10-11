@@ -750,13 +750,13 @@
 	[popUp_orientation selectItemWithTitle:orientation != nil ? orientation : @"Horizontal"];
 	NSString* const tearOff = [defaults stringForKey:@"Tear-Off"];
 	[popUp_tearOff selectItemWithTitle:tearOff != nil ? tearOff : @"Miniwindow"];
-    NSString* const selectAfterClosing = [defaults stringForKey:@"SelectAfterClosing"];
-    [popUp_selectAfterClosing selectItemWithTitle:selectAfterClosing != nil ? selectAfterClosing : @"Left"];
+	NSString* const selectAfterClosing = [defaults stringForKey:@"SelectAfterClosing"];
+	[popUp_selectAfterClosing selectItemWithTitle:selectAfterClosing != nil ? selectAfterClosing : @"Left"];
 
 	[button_onlyShowCloseOnHover setState:[defaults boolForKey:@"OnlyShowCloseOnHover"]];
 	[button_canCloseOnlyTab setState:[defaults boolForKey:@"CanCloseOnlyTab"]];
 	[button_disableTabClosing setState:[defaults boolForKey:@"DisableTabClosing"]];
-    [button_allowBackgroundClosing setState:[defaults boolForKey:@"AllowBackgroundClosing"]];
+	[button_allowBackgroundClosing setState:[defaults boolForKey:@"AllowBackgroundClosing"]];
 	[button_hideForSingleTab setState:[defaults boolForKey:@"HideForSingleTab"]];
 	[button_showAddTab setState:[defaults boolForKey:@"ShowAddTabButton"]];
 	[button_sizeToFit setState:[defaults boolForKey:@"SizeToFit"]];
@@ -765,9 +765,9 @@
 	[button_allowScrubbing setState:[defaults boolForKey:@"AllowScrubbing"]];
 
 	[self configStyle:popUp_style];
-    [tabBar setOrientation:popUp_orientation.selectedTag];
+	[tabBar setOrientation:popUp_orientation.selectedTag];
 
-    [self configOnlyShowCloseOnHover:button_onlyShowCloseOnHover];    
+	[self configOnlyShowCloseOnHover:button_onlyShowCloseOnHover];    
 	[self configCanCloseOnlyTab:button_canCloseOnlyTab];
 	[self configDisableTabClose:button_disableTabClosing];
 	[self configAllowBackgroundClosing:button_allowBackgroundClosing];
@@ -778,7 +778,7 @@
 	[self configTabOptimumWidth:textField_optimumWidth];
 	[self configTabSizeToFit:button_sizeToFit];
 	[self configTearOffStyle:popUp_tearOff];
-    [self configSelectAfterClosing:popUp_selectAfterClosing];
+	[self configSelectAfterClosing:popUp_selectAfterClosing];
 	[self configUseOverflowMenu:button_useOverflow];
 	[self configAutomaticallyAnimates:button_automaticallyAnimate];
 	[self configAllowsScrubbing:button_allowScrubbing];
