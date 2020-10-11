@@ -46,7 +46,7 @@
 		  @"Card", @"Style",
 		  @"Horizontal", @"Orientation",
 		  @"Miniwindow", @"Tear-Off",
-          @"Left", @"SelectAfterClosing",
+		  @"Left", @"SelectAfterClosing",
 		  @"100", @"TabMinWidth",
 		  @"280", @"TabMaxWidth",
 		  @"130", @"TabOptimalWidth",
