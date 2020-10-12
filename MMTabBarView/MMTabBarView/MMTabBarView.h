@@ -629,6 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     // Closing behavior
 - (BOOL)tabView:(NSTabView *)aTabView disableTabCloseForTabViewItem:(NSTabViewItem *)tabViewItem;
+- (NSTabViewItem *)tabView:(NSTabView *)aTabView selectOnClosingTabViewItem:(NSTabViewItem *)tabViewItem;
 
     // Adding tabs
 - (void)addNewTabToTabView:(NSTabView *)aTabView;

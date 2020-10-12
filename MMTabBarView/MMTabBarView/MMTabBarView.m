@@ -2243,7 +2243,14 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     if ((self.delegate) && ([self.delegate respondsToSelector:@selector(tabView:willCloseTabViewItem:)])) {
          [self.delegate tabView:_tabView willCloseTabViewItem:tabViewItem];
     }
-     
+
+    if ((self.delegate) && ([self.delegate respondsToSelector:@selector(tabView:selectOnClosingTabViewItem:)])) {
+        NSTabViewItem *toSelect = [self.delegate tabView:_tabView selectOnClosingTabViewItem:tabViewItem];
+        if (toSelect) {
+            [self selectTabViewItem:toSelect];
+        }
+    }
+
     [_tabView removeTabViewItem:tabViewItem];
      
     if ((self.delegate) && ([self.delegate respondsToSelector:@selector(tabView:didCloseTabViewItem:)])) {
