@@ -42,7 +42,7 @@
 #else
 #import <Cocoa/Cocoa.h>
 #endif
-#import "MMTabStyle.h"
+#import <MMTabBarView/MMTabStyle.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
