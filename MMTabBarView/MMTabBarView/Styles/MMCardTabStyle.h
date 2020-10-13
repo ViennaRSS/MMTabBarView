@@ -11,8 +11,8 @@
 #else
 #import <Cocoa/Cocoa.h>
 #endif
-#import "MMTabStyle.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
