@@ -12,7 +12,7 @@
 #import <Cocoa/Cocoa.h>
 #endif
 
-#import "MMTabBarItem.h"
+#import <MMTabBarView/MMTabBarItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
