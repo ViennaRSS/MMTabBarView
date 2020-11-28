@@ -11,8 +11,11 @@ We currently try to limit widening of divergences with [Michael Monscheuer's ver
 
 - while the original version requires 10.10+, Vienna's version is able to run on OS X 10.9
 - Vienna's version adds support of macOS Sierra style tabs (contributed by @yourhead)
-- we implement MMTabBarView's delegate property as weak, in order to avoid retain cycles
+- we implement MMTabBarView's `delegate` property as weak, in order to avoid retain cycles
 - animations differ
+- we add a delegate method `-tabView:selectOnClosingTabViewItem:` for choice of next tab to be selected on closing a tab
+- we add a method `-closeTabViewItem:` for closing a tab view item, with due execution of all delegate methods
+- we add support of Swift Packet Manager (Cocoapod and Carthage remain supported)
 
 Note that to limit risks of confusion with the original version, we use a `v/x.x.x` scheme for version numbering.  
 Ex: our `v/1.4.7` can be compared to Mimo's `v1.4.1`
