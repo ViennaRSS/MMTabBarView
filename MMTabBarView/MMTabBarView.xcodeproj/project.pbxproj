@@ -260,6 +260,7 @@
 		D0103C8D210FE7C8001D2CC6 /* MMMojaveTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMojaveTabStyle.m; sourceTree = "<group>"; };
 		D09FB6C821108F4C008C3E23 /* MMMojaveTabStyle+Assets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMMojaveTabStyle+Assets.h"; sourceTree = "<group>"; };
 		D09FB6CA2110923D008C3E23 /* MMMojaveTabStyle+Assets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MMMojaveTabStyle+Assets.m"; sourceTree = "<group>"; };
+		F69255EC2572ABF100D387D8 /* MMTarBarStyle-SPM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MMTarBarStyle-SPM.h"; path = "include/MMTarBarStyle-SPM.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +516,7 @@
 				06DB23B11609F5830071BDA0 /* MMTabBarView-Info.plist */,
 				06DB23B21609F5830071BDA0 /* InfoPlist.strings */,
 				06DB23B51609F5830071BDA0 /* MMTabBarView-Prefix.pch */,
+				F69255EC2572ABF100D387D8 /* MMTarBarStyle-SPM.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
