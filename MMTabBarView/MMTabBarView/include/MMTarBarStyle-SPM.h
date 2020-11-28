@@ -1,4 +1,5 @@
-// These headers exposed to the Swift Package Manager.
+// These headers are exposed to Swift Package Manager. This header should not be
+// a part of the framework target.
 
 #import "../MMAdiumTabStyle.h"
 #import "../MMAquaTabStyle.h"
