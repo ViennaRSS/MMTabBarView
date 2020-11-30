@@ -258,7 +258,11 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 {
 	static NSBundle *bundle = nil;
 	if (!bundle) {
-		bundle = [NSBundle bundleForClass:MMTabBarView.class];
+#ifdef SWIFTPM_MODULE_BUNDLE
+        bundle = SWIFTPM_MODULE_BUNDLE;
+#else
+        bundle = [NSBundle bundleForClass:MMTabBarView.class];
+#endif
 	}
 	return bundle;
 }
