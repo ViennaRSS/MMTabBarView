@@ -9,18 +9,9 @@
 #import "MMOverflowPopUpButton.h"
 
 #import "MMOverflowPopUpButtonCell.h"
-// #import "MMTabBarView.h"
+#import "MMTabBarView.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-#define StaticImage(name) \
-static NSImage* _static##name##Image() \
-{ \
-    static NSImage* image = nil; \
-    if (!image) \
-		image = [[NSBundle bundleForClass:MMOverflowPopUpButtonCell.class] imageForResource:@#name]; \
-    return image; \
-}
 
 @interface MMOverflowPopUpButton ()
 
