@@ -25,6 +25,7 @@
 #import "../MMTabBarButtonCell.h"
 #import "../MMTabBarItem.h"
 #import "../MMTabBarView.Globals.h"
+#import "../MMTabBarView.h"
 #import "../MMTabStyle.h"
 #import "../MMUnifiedTabStyle.h"
 #import "../MMYosemiteTabStyle.h"
