@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Delegate
  */
-@property (nullable, strong)   IBOutlet id <MMTabBarViewDelegate> delegate;
+@property (nullable, weak) IBOutlet id <MMTabBarViewDelegate> delegate;
 
 #pragma mark Working with View's current state
 
