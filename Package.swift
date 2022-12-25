@@ -6,7 +6,7 @@ let package = Package(
     name: "MMTabBarView",
     defaultLocalization: LanguageTag("en"),
     platforms: [
-        .macOS(.v10_10),
+        .macOS(.v10_13),
     ],
     products: [
         .library(name: "MMTabBarView", targets: ["MMTabBarView"]),
