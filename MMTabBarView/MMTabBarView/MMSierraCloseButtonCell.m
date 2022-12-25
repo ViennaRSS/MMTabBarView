@@ -53,7 +53,7 @@
         }
     }
 
-    [customImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+    [customImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:opacity respectFlipped:YES hints:nil];
 }
 
 - (NSRect)topBorderRectWithFrame:(NSRect)frame {
@@ -75,7 +75,7 @@
     if (![tabButtonView isKindOfClass:NSButton.class]) return;
     NSButton *tabButton = (NSButton *)tabButtonView;
 
-    if (tabButton.state == NSOnState) {
+    if (tabButton.state == NSControlStateValueOn) {
         if (self.isHighlighted) {
             fillGradient = [MMSierraCloseButtonCell selectedMouseDownFillGradient];
         } else {

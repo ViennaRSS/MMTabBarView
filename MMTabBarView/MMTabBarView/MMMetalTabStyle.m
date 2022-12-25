@@ -113,7 +113,7 @@ StaticImage(TabNewMetalRollover)
 
     MMTabBarOrientation orientation = tabBarView.orientation;
 
-	if (aButton.state == NSOnState) {
+	if (aButton.state == NSControlStateValueOn) {
 		if (orientation == MMTabBarHorizontalOrientation) {
 			dragRect.size.height -= 2.0;
 		} else {
@@ -177,7 +177,7 @@ StaticImage(TabNewMetalRollover)
 	NSShadow* shadow;
 	shadow = [[NSShadow alloc] init];
 	CGFloat shadowAlpha;
-	if ((cell.state == NSOnState) || cell.mouseHovered) {
+	if ((cell.state == NSControlStateValueOn) || cell.mouseHovered) {
 		shadowAlpha = 0.8;
 	} else {
 		shadowAlpha = 0.5;
@@ -192,7 +192,7 @@ StaticImage(TabNewMetalRollover)
 	if (!TruncatingTailParagraphStyle) {
 		TruncatingTailParagraphStyle = [NSParagraphStyle.defaultParagraphStyle mutableCopy];
 		[TruncatingTailParagraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
-		[TruncatingTailParagraphStyle setAlignment:NSCenterTextAlignment];
+		[TruncatingTailParagraphStyle setAlignment:NSTextAlignmentCenter];
 	}
 	[attrStr addAttribute:NSParagraphStyleAttributeName value:TruncatingTailParagraphStyle range:range];
 
@@ -208,7 +208,7 @@ StaticImage(TabNewMetalRollover)
 
     MMTabBarView *tabBarView = cell.tabBarView;
 
-    if (tabBarView.orientation == MMTabBarHorizontalOrientation && cell.state == NSOnState) {
+    if (tabBarView.orientation == MMTabBarHorizontalOrientation && cell.state == NSControlStateValueOn) {
         resultRect = NSInsetRect(theRect,MARGIN_X,0.0);
         resultRect.origin.y += 1;
         resultRect.size.height -= MARGIN_Y + 2;
@@ -241,7 +241,7 @@ StaticImage(TabNewMetalRollover)
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
     else
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-	NSRectFillUsingOperation(rect, NSCompositeSourceAtop);
+	NSRectFillUsingOperation(rect, NSCompositingOperationSourceAtop);
 	[NSColor.darkGrayColor set];
 
 	if (orientation == MMTabBarHorizontalOrientation) {
@@ -273,7 +273,7 @@ StaticImage(TabNewMetalRollover)
     
 	[NSGraphicsContext saveGraphicsState];
 
-	if (cell.state == NSOnState) {
+	if (cell.state == NSControlStateValueOn) {
 		// selected tab
 		if (orientation == MMTabBarHorizontalOrientation) {
 			NSRect aRect = NSMakeRect(cellFrame.origin.x+0.5, cellFrame.origin.y, cellFrame.size.width-1.0, cellFrame.size.height - 2.5);
@@ -324,7 +324,7 @@ StaticImage(TabNewMetalRollover)
     
     if (orientation == MMTabBarHorizontalOrientation) {
             // Draw selected
-        if (lastAttachedButtonCell.state == NSOnState) {
+        if (lastAttachedButtonCell.state == NSControlStateValueOn) {
             NSRect aRect = NSMakeRect(cellFrame.origin.x, cellFrame.origin.y, cellFrame.size.width-0.5, cellFrame.size.height-2.5);
             aRect.size.width += 5.0;
 
@@ -337,7 +337,7 @@ StaticImage(TabNewMetalRollover)
             // rollover
             if (lastAttachedButtonCell.mouseHovered) {
                 [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-                NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+                NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
             }
             
             if (tabBarView.showAddTabButton) {
@@ -377,7 +377,7 @@ StaticImage(TabNewMetalRollover)
     if (orientation == MMTabBarHorizontalOrientation) {
 
             // selected button
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
         
                 // fill
             NSBezierPath *bezier = [NSBezierPath bezierPathWithCardInRect:aRect radius:3.0 capMask:capMask|MMBezierShapeFillPath];
@@ -399,7 +399,7 @@ StaticImage(TabNewMetalRollover)
                 // rollover
             if (button.mouseHovered) {
                 [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-                NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+                NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
             }
             
             // frame
@@ -429,7 +429,7 @@ StaticImage(TabNewMetalRollover)
         }
     } else {
             // selected button
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
 
                 // fill
             NSBezierPath *fillPath = [NSBezierPath bezierPathWithRoundedRect:aRect radius:5.0 capMask:capMask|MMBezierShapeFillPath];
@@ -449,7 +449,7 @@ StaticImage(TabNewMetalRollover)
                 // rollover
             if (button.mouseHovered) {
                 [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-                NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+                NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
             }
             
                 // stroke

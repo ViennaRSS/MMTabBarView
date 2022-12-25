@@ -150,7 +150,7 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
 	for(i = 0; i < buttonCount; i++) {
 		currentButton = buttons[i];
 
-        BOOL displayCloseButton = _tabBarView.allowsBackgroundTabClosing || (currentButton.state == NSOnState);
+        BOOL displayCloseButton = _tabBarView.allowsBackgroundTabClosing || (currentButton.state == NSControlStateValueOn);
 
 		BOOL suppressCloseButton = (   (buttonCount == 1
 									    && [_tabBarView canCloseOnlyTab] == NO)
@@ -586,16 +586,16 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
             [aButton setStackingFrame:buttonRect];
 
 			if ([[aButton tabViewItem] isEqualTo:selectedTabViewItem]) {
-				[aButton setState:NSOnState];
+				[aButton setState:NSControlStateValueOn];
 				// previous button
 				if (i > 0) {
 					[[buttons objectAtIndex:i - 1] setTabState:([(MMAttachedTabBarButton *)[buttons objectAtIndex:i - 1] tabState] | MMTab_RightIsSelectedMask)];
 				}
 				// next button - see below
 			} else {
-				[aButton setState:NSOffState];
+				[aButton setState:NSControlStateValueOff];
 				// see if prev button was selected
-				if ((i > 0) && ([[buttons objectAtIndex:i - 1] state] == NSOnState)) {
+				if ((i > 0) && ([[buttons objectAtIndex:i - 1] state] == NSControlStateValueOn)) {
 					tabState |= MMTab_LeftIsSelectedMask;
 				}
 			}

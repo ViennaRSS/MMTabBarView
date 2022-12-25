@@ -129,7 +129,7 @@ StaticImage(SafariIWITRightCap)
 	NSRect dragRect = aButton.stackingFrame;
 	dragRect.size.width++;
 
-	if(aButton.state == NSOnState) {
+	if(aButton.state == NSControlStateValueOn) {
 		if(tabBarView.orientation == MMTabBarHorizontalOrientation) {
 			dragRect.size.height -= 2.0;
 		} else {
@@ -151,7 +151,7 @@ StaticImage(SafariIWITRightCap)
 - (NSImage *)closeButtonImageOfType:(MMCloseButtonImageType)type forTabCell:(MMTabBarButtonCell *)cell
 {
     BOOL activeWindow = cell.controlView.enclosingTabBarView.isWindowActive;
-    BOOL activeTab = (cell.state == NSOnState);
+    BOOL activeTab = (cell.state == NSControlStateValueOn);
 
     if (activeWindow) {
         switch (type) {
@@ -251,10 +251,10 @@ StaticImage(SafariIWITRightCap)
     // special case of hidden control; need line across top of cell
     if (rect.size.height < 2) {
         [NSColor.darkGrayColor set];
-        NSRectFillUsingOperation(rect, NSCompositeSourceOver);
+        NSRectFillUsingOperation(rect, NSCompositingOperationSourceOver);
     } else {
         NSImage *bg = tabBarView.isWindowActive ? _staticSafariAWBGImage() : _staticSafariIWBGImage();
-        NSDrawThreePartImage(rect, nil, bg, nil, NO, NSCompositeCopy, 1, tabBarView.isFlipped);
+        NSDrawThreePartImage(rect, nil, bg, nil, NO, NSCompositingOperationCopy, 1, tabBarView.isFlipped);
     }
     
 	[NSGraphicsContext restoreGraphicsState];
@@ -287,7 +287,7 @@ StaticImage(SafariIWITRightCap)
         right = _staticSafariAWITRightCapImage();
         
         // draw selected button
-    } else if (button.state == NSOnState) {
+    } else if (button.state == NSControlStateValueOn) {
     
         if (tabBarView.isWindowActive) {
             left = _staticSafariAWATLeftCapImage();
@@ -334,7 +334,7 @@ StaticImage(SafariIWITRightCap)
     }
 
     if (center != nil || left != nil || right != nil)
-        NSDrawThreePartImage(buttonFrame, left, center, right, NO, NSCompositeSourceOver, 1.0, tabBarView.isFlipped);
+        NSDrawThreePartImage(buttonFrame, left, center, right, NO, NSCompositingOperationSourceOver, 1.0, tabBarView.isFlipped);
 }
 
 -(void)drawBezelOfOverflowButton:(MMOverflowPopUpButton *)overflowButton ofTabBarView:(MMTabBarView *)tabBarView inRect:(NSRect)rect {
@@ -351,7 +351,7 @@ StaticImage(SafariIWITRightCap)
     
     MMAttachedTabBarButton *lastAttachedButton = tabBarView.lastAttachedButton;
     
-    BOOL displaySelected = lastAttachedButton.state == NSOnState;
+    BOOL displaySelected = lastAttachedButton.state == NSControlStateValueOn;
     if (lastAttachedButton.isSliding)
         displaySelected = NO;
     
@@ -362,7 +362,7 @@ StaticImage(SafariIWITRightCap)
     } else {
         right = isWindowActive?_staticSafariAWITRightCapImage():_staticSafariIWITRightCapImage();
     }
-    NSDrawThreePartImage(bezelRect, left, center, right, NO, NSCompositeSourceOver, 1.0, tabBarView.isFlipped);
+    NSDrawThreePartImage(bezelRect, left, center, right, NO, NSCompositingOperationSourceOver, 1.0, tabBarView.isFlipped);
 }
 
 -(void)drawBezelOfTabCell:(MMTabBarButtonCell *)cell withFrame:(NSRect)frame inView:(NSView *)controlView {
@@ -385,7 +385,7 @@ StaticImage(SafariIWITRightCap)
     NSImage *right = nil;
 
     if (tabBarView.isWindowActive) {
-        if (cell.state == NSOnState) {
+        if (cell.state == NSControlStateValueOn) {
             left = _staticSafariAWATLeftCapImage();
             center = _staticSafariAWATFillImage();
             if (![(MMAttachedTabBarButtonCell *)cell isOverflowButton] || button.isSliding)
@@ -393,7 +393,7 @@ StaticImage(SafariIWITRightCap)
         }
     } else {
     
-        if (cell.state == NSOnState) {
+        if (cell.state == NSControlStateValueOn) {
             left = _staticSafariIWATLeftCapImage();
             center = _staticSafariIWATFillImage();
             if (![(MMAttachedTabBarButtonCell *)cell isOverflowButton] || button.isSliding)
@@ -402,7 +402,7 @@ StaticImage(SafariIWITRightCap)
     }
 
     if (center != nil || left != nil || right != nil)
-        NSDrawThreePartImage(cellFrame, left, center, right, NO, NSCompositeSourceOver, 1, controlView.isFlipped);
+        NSDrawThreePartImage(cellFrame, left, center, right, NO, NSCompositingOperationSourceOver, 1, controlView.isFlipped);
 }
 
 @end

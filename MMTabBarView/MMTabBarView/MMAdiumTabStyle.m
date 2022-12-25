@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     MMTabBarOrientation orientation = tabBarView.orientation;
 
-	if (aButton.state == NSOnState) {
+	if (aButton.state == NSControlStateValueOn) {
 		if (orientation == MMTabBarHorizontalOrientation) {
 			dragRect.size.width++;
 			dragRect.size.height -= 2.0;
@@ -137,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     MMTabBarView *tabBarView = cell.tabBarView;
 
-    if (tabBarView.orientation == MMTabBarHorizontalOrientation && cell.state == NSOnState) {
+    if (tabBarView.orientation == MMTabBarHorizontalOrientation && cell.state == NSControlStateValueOn) {
         resultRect = NSInsetRect(theRect,Adium_MARGIN_X,0.0);
         resultRect.origin.y += 1;
         resultRect.size.height -= MARGIN_Y + 2;
@@ -505,7 +505,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     if (orientation == MMTabBarHorizontalOrientation) {
             // Draw selected
-        if (lastAttachedButtonCell.state == NSOnState) {
+        if (lastAttachedButtonCell.state == NSControlStateValueOn) {
             NSRect aRect = NSMakeRect(buttonFrame.origin.x, buttonFrame.origin.y, buttonFrame.size.width-0.5, buttonFrame.size.height-2.5);
             aRect.size.width += 5.0;
 
@@ -518,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
             // rollover
             if (lastAttachedButtonCell.mouseHovered) {
                 [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-                NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+                NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
             }
             
             if (tabBarView.showAddTabButton) {
@@ -621,7 +621,7 @@ NS_ASSUME_NONNULL_BEGIN
     if (orientation == MMTabBarHorizontalOrientation) {
 
             // selected button
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
 
                 // fill
 			if (_drawsUnified) {
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
 					NSRectFill(aRect);
 				}
 			} else {
-				[_gradientImage drawInRect:NSMakeRect(NSMinX(aRect), NSMinY(aRect), NSWidth(aRect), NSHeight(aRect)) fromRect:NSMakeRect(0, 0, _gradientImage.size.width, _gradientImage.size.height) operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+				[_gradientImage drawInRect:NSMakeRect(NSMinX(aRect), NSMinY(aRect), NSWidth(aRect), NSHeight(aRect)) fromRect:NSMakeRect(0, 0, _gradientImage.size.width, _gradientImage.size.height) operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 			}
 
                 // stroke
@@ -679,7 +679,7 @@ NS_ASSUME_NONNULL_BEGIN
                 // rollover
             if (drawRollovers && button.mouseHovered) {
                 [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-                NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+                NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
             }
 
                 // stroke
@@ -711,7 +711,7 @@ NS_ASSUME_NONNULL_BEGIN
     } else {
     
             // selected button
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
 
 			// background
 			if (_drawsUnified) {
@@ -798,7 +798,7 @@ NS_ASSUME_NONNULL_BEGIN
 	[shadow setShadowBlurRadius:2];
 	[shadow setShadowColor:[NSColor colorWithCalibratedWhite:0.65 alpha:1.0]];
 
-	if (button.state == NSOnState) {
+	if (button.state == NSControlStateValueOn) {
 		// selected tab
 		if (orientation == MMTabBarHorizontalOrientation) {
 			NSRect aRect = NSMakeRect(frame.origin.x, frame.origin.y, NSWidth(frame), frame.size.height - 2.5);

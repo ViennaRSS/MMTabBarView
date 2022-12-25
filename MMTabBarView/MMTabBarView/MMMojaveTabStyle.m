@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 	 // Figure out correct text color
     
-    if ( cell.tabBarButton.state == NSOnState )
+    if ( cell.tabBarButton.state == NSControlStateValueOn )
     {
         textColor = [self colorForPart:MMMtabSelectedFont ofTabBarView:cell.tabBarView];
     }
@@ -185,7 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
 	{
 		TruncatingTailParagraphStyle = [NSParagraphStyle.defaultParagraphStyle mutableCopy];
 		[TruncatingTailParagraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
-		[TruncatingTailParagraphStyle setAlignment:NSCenterTextAlignment];
+		[TruncatingTailParagraphStyle setAlignment:NSTextAlignmentCenter];
 	}
 	[attrStr addAttribute:NSParagraphStyleAttributeName value:TruncatingTailParagraphStyle range:range];
 
@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSBezierPath *fillPath = [NSBezierPath bezierPathWithCardInRect:aRect radius:radius capMask:capMask|MMBezierShapeFillPath];
 
-    if (button.state == NSOnState)
+    if (button.state == NSControlStateValueOn)
     {
         [NSGraphicsContext.currentContext setShouldAntialias:NO];
         [[self colorForPart:MMMtabSelected ofTabBarView:tabBarView] set];

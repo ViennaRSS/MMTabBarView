@@ -214,7 +214,7 @@ NS_ASSUME_NONNULL_BEGIN
     closeButton.title=@"";
     closeButton.imagePosition = NSImageOnly;
     closeButton.rolloverButtonType = MMRolloverActionButton;
-    closeButton.bezelStyle = NSShadowlessSquareBezelStyle;
+    closeButton.bezelStyle = NSBezelStyleShadowlessSquare;
 
     return closeButton;
 
@@ -310,7 +310,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSRect rect = [self fillRectWithFrame:button.frame];
     if ([tabBarView isWindowActive]) {
         NSGradient *gradient = nil;
-        if (lastAttachedButton.state == NSOnState) {
+        if (lastAttachedButton.state == NSControlStateValueOn) {
             gradient = [MMSierraTabStyle selectedFillGradient];
         } else if (lastAttachedButton.mouseHovered) {
             gradient = [MMSierraTabStyle hoverFillGradient];
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
         [gradient drawInRect:rect angle:90];
     } else {
         NSColor *color = nil;
-        if (lastAttachedButton.state == NSOnState) {
+        if (lastAttachedButton.state == NSControlStateValueOn) {
             color = [MMSierraTabStyle inactiveSelectedFillColor];
         } else if (lastAttachedButton.mouseHovered) {
             color = [MMSierraTabStyle inactiveHoverFillColor];
@@ -335,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
     rect = [self topBorderRectWithFrame:button.frame];
     if ([tabBarView isWindowActive]) {
         NSGradient *gradient = nil;
-        if (lastAttachedButton.state == NSOnState) {
+        if (lastAttachedButton.state == NSControlStateValueOn) {
             gradient = [MMSierraTabStyle selectedTopBorderGradient];
         } else {
             gradient = [MMSierraTabStyle unselectedTopBorderGradient];

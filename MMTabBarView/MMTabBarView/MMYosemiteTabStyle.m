@@ -260,7 +260,7 @@ StaticImage(YosemiteTabNewPressed)
     NSBezierPath *fillPath = [NSBezierPath bezierPathWithCardInRect:aRect radius:radius capMask:capMask|MMBezierShapeFillPath];
 
     if (tabBarView.isWindowActive) {
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             [NSGraphicsContext.currentContext setShouldAntialias:NO];
             [self.selectedTabColor set];
             [fillPath fill];
@@ -271,7 +271,7 @@ StaticImage(YosemiteTabNewPressed)
         }
     } else {
         
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             [NSGraphicsContext.currentContext setShouldAntialias:NO];
             [[self.selectedTabColor blendedColorWithFraction:0.4 ofColor:NSColor.whiteColor] set];
             [fillPath fill];
@@ -307,12 +307,12 @@ StaticImage(YosemiteTabNewPressed)
     capMask &= ~MMBezierShapeFillPath;
     
         // fill
-    if (button.state == NSOnState) {
+    if (button.state == NSControlStateValueOn) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);            
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     } else if (button.mouseHovered) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     }
 }
 

@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 		{
 			if ([NSApp isActive])
 			{
-				if ([cell state] == NSOnState)
+				if ([cell state] == NSControlStateValueOn)
 	    			textColor=[NSColor controlTextColor];
 				else
 	    			textColor=[NSColor disabledControlTextColor];
@@ -358,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSGradient *gradient = nil;
 
     if (tabBarView.isWindowActive) {
-        gradient = [[NSGradient alloc] initWithStartingColor:[self gradientTopColorActive:(button.state == NSOnState) highlighted:(button.mouseHovered)] endingColor:[self gradientBottomColorActive:(button.state == NSOnState) highlighted:(button.mouseHovered)]];
+        gradient = [[NSGradient alloc] initWithStartingColor:[self gradientTopColorActive:(button.state == NSControlStateValueOn) highlighted:(button.mouseHovered)] endingColor:[self gradientBottomColorActive:(button.state == NSControlStateValueOn) highlighted:(button.mouseHovered)]];
 
         if (gradient != nil) {
             [gradient drawInBezierPath:fillPath angle:90.0];
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
     [lineColor set];
     [outlinePath stroke];
 
-    if (button.state == NSOffState) {
+    if (button.state == NSControlStateValueOff) {
     
             // draw additional separator line
         [[self lineColor] set];

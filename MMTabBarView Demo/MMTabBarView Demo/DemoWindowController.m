@@ -145,7 +145,7 @@
 - (IBAction)hasLargeImageAction:(id)sender {
     
 	DemoFakeModel* const tabBarItem = tabView.selectedTabViewItem.identifier;
-    if ([(NSButton*) sender state] == NSOnState) {
+    if ([(NSButton*) sender state] == NSControlStateValueOn) {
          [tabBarItem setValue:[NSImage imageNamed:@"largeImage"] forKeyPath:@"largeImage"];
     } else {
         [tabBarItem setValue:nil forKeyPath:@"largeImage"];
@@ -211,7 +211,7 @@
     NSSize intrinsicTabBarContentSize = tabBar.intrinsicContentSize;
 
 	if (newOrientation == MMTabBarHorizontalOrientation) {
-        if (intrinsicTabBarContentSize.height == NSViewNoInstrinsicMetric)
+        if (intrinsicTabBarContentSize.height == NSViewNoIntrinsicMetric)
             intrinsicTabBarContentSize.height = 22;
 		tabBarFrame.size.height = tabBar.isTabBarHidden ? 1 : intrinsicTabBarContentSize.height;
 		tabBarFrame.size.width = totalFrame.size.width;
@@ -534,7 +534,7 @@
 }
 
 - (NSArray<NSPasteboardType> *)allowedDraggedTypesForTabView:(NSTabView *)aTabView {
-	return @[NSFilenamesPboardType, NSStringPboardType];
+	return @[NSFilenamesPboardType, NSPasteboardTypeString];
 }
 
 - (BOOL)tabView:(NSTabView *)aTabView acceptedDraggingInfo:(id <NSDraggingInfo>)draggingInfo onTabViewItem:(NSTabViewItem *)tabViewItem {
@@ -603,8 +603,8 @@
 	NSPoint tabOrigin = tabView.frame.origin;
 	tabOrigin.x += 10;
 	tabOrigin.y += 13;
-    [tabViewImage drawAtPoint:tabOrigin fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
-//	[tabViewImage compositeToPoint:tabOrigin operation:NSCompositeSourceOver];
+    [tabViewImage drawAtPoint:tabOrigin fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+//	[tabViewImage compositeToPoint:tabOrigin operation:NSCompositingOperationSourceOver];
 	[viewImage unlockFocus];
 
     MMTabBarView *tabBarView = (MMTabBarView *)aTabView.delegate;
@@ -634,7 +634,7 @@
 	}
 
 	if (styleMask) {
-		*styleMask = NSTitledWindowMask | NSTexturedBackgroundWindowMask;
+		*styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskTexturedBackground;
 	}
 
 	return viewImage;

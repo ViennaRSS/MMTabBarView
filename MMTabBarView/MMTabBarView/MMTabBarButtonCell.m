@@ -565,7 +565,7 @@ NS_ASSUME_NONNULL_BEGIN
 	if (!truncatingTailParagraphStyle) {
 		truncatingTailParagraphStyle = [NSParagraphStyle.defaultParagraphStyle mutableCopy];
 		[truncatingTailParagraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
-		[truncatingTailParagraphStyle setAlignment:NSCenterTextAlignment];
+		[truncatingTailParagraphStyle setAlignment:NSTextAlignmentCenter];
 	}
 	[attrStr addAttribute:NSParagraphStyleAttributeName value:truncatingTailParagraphStyle range:range];
 
@@ -897,7 +897,7 @@ NS_ASSUME_NONNULL_BEGIN
     [closeButton setImagePosition:NSImageOnly];
     [closeButton setRolloverButtonType:MMRolloverActionButton];
     [closeButton setBordered:NO];
-    [closeButton setBezelStyle:NSShadowlessSquareBezelStyle];
+    [closeButton setBezelStyle:NSBezelStyleShadowlessSquare];
 
     return closeButton;
 }
@@ -1052,7 +1052,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSBezierPath *clipPath = [NSBezierPath bezierPathWithRoundedRect:imageDrawingRect xRadius:userIconRoundingRadius yRadius:userIconRoundingRadius];
     [clipPath addClip];        
 
-    [image drawInRect:imageDrawingRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:imageDrawingRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 
     [NSGraphicsContext restoreGraphicsState];
 }
@@ -1062,7 +1062,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSImage *icon = self.icon;
 
-    [icon drawInRect:iconRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [icon drawInRect:iconRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 }
 
 inline static bool useShadow(NSView* const inView) {

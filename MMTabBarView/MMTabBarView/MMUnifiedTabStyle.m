@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
             aRect = NSMakeRect(frame.origin.x+0.5, frame.origin.y - 0.5, frame.size.width-1.0, frame.size.height-1.0);
         }
         
-        if (cell.mouseHovered && cell.state == NSOffState)
+        if (cell.mouseHovered && cell.state == NSControlStateValueOff)
             {
             aRect.origin.y += 1.5;
             aRect.size.height -= 1.5;
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
         NSRect aRect = NSMakeRect(frame.origin.x, frame.origin.y - 0.5, frame.size.width-0.5, frame.size.height-1.0);
         aRect.size.width += 5.0;
         
-        if (lastAttachedButton.mouseHovered && lastAttachedButton.state == NSOffState)
+        if (lastAttachedButton.mouseHovered && lastAttachedButton.state == NSControlStateValueOff)
             {
             aRect.origin.y += 1.5;
             aRect.size.height -= 1.5;
@@ -291,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSBezierPath *fillPath = [NSBezierPath bezierPathWithCardInRect:aRect radius:radius capMask:capMask|MMBezierShapeFillPath];
 
     if (tabBarView.isWindowActive) {
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             NSColor *startColor = [NSColor colorWithDeviceWhite:0.698 alpha:1.000];
             NSColor *endColor = [NSColor colorWithDeviceWhite:0.663 alpha:1.000];
             NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:startColor endingColor:endColor];
@@ -304,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
     } else {
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             NSColor *startColor = [NSColor colorWithDeviceWhite:0.875 alpha:1.000];
             NSColor *endColor = [NSColor colorWithDeviceWhite:0.902 alpha:1.000];
             NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:startColor endingColor:endColor];
@@ -325,12 +325,12 @@ NS_ASSUME_NONNULL_BEGIN
     capMask &= ~MMBezierShapeFillPath;
     
         // fill
-    if (button.state == NSOnState) {
+    if (button.state == NSControlStateValueOn) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);            
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     } else if (button.mouseHovered) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     }
 }
 
