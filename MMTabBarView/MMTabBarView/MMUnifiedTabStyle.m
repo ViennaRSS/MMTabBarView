@@ -322,8 +322,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)_drawBoxBezelInRect:(NSRect)aRect withCapMask:(MMBezierShapeCapMask)capMask usingStatesOfAttachedButton:(MMAttachedTabBarButton *)button ofTabBarView:(MMTabBarView *)tabBarView {
 
-    capMask &= ~MMBezierShapeFillPath;
-    
         // fill
     if (button.state == NSControlStateValueOn) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];

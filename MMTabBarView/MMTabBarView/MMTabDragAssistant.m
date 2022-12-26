@@ -653,8 +653,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 
     NSEvent *nextEvent = nil,
             *firstEvent = nil,
-            *dragEvent = nil,
-            *mouseUp = nil;
+            *dragEvent = nil;
     NSDate *expiration = NSDate.distantFuture;
     BOOL   continueDetached = NO;
 
@@ -742,8 +741,6 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
             }
                                     
         } else if (nextEvent.type == NSEventTypeLeftMouseUp) {
-        
-            mouseUp = nextEvent;
 
             [self setIsSliding:NO];
             [aButton setIsInDraggedSlide:NO];

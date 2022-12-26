@@ -331,11 +331,6 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
                                 q ++;
                             }
 
-                            NSInteger tot = 0;
-                            for (NSNumber *newWidth in newWidths) {
-                                tot += newWidth.integerValue;
-                            }
-
                         }
 
                     // couldn't fit that last one...
@@ -403,11 +398,6 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
                                 }
                             }
 
-                            NSInteger tot = 0;
-                            for (NSNumber *newWidth in newWidths) {
-                                tot += newWidth.integerValue;
-                            }
-                            
                         }
 
                                             
