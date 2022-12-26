@@ -7,13 +7,13 @@
 //  Copyright 2014 Ajin Man Tuladhar. All rights reserved.
 //
 
-#import "MMYosemiteTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabBarView.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMTabBarView.Private.h"
+#import <MMTabBarView/MMYosemiteTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

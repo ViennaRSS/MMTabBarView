@@ -7,16 +7,16 @@
 //  Copyright 2017 Isaiah Carew. All rights reserved.
 //
 
-#import "MMSierraTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabBarView.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMOverflowPopUpButtonCell.h"
-#import "MMTabBarView.Private.h"
-#import "MMSierraRolloverButton.h"
-#import "MMSierraCloseButton.h"
+#import <MMTabBarView/MMSierraTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
+#import <MMTabBarView/MMSierraRolloverButton.h>
+#import <MMTabBarView/MMSierraCloseButton.h>
 
 @interface MMSierraTabStyle()
 // fill gradients

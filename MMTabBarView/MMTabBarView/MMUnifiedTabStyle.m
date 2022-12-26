@@ -6,13 +6,13 @@
 //  Copyright 2006 Keith Blount. All rights reserved.
 //
 
-#import "MMUnifiedTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabBarView.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMTabBarButtonCell.h"
-#import "MMOverflowPopUpButton.h"
+#import <MMTabBarView/MMUnifiedTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

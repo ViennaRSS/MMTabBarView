@@ -6,7 +6,7 @@
 //  Copyright 2007 Kent Sutherland. All rights reserved.
 //
 
-#import "MMTabDragView.h"
+#import <MMTabBarView/MMTabDragView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

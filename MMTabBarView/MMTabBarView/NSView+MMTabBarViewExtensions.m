@@ -6,10 +6,10 @@
 //
 //
 
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
-#import "MMTabBarView.h"
-#import "MMTabBarButton.h"
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMTabBarButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

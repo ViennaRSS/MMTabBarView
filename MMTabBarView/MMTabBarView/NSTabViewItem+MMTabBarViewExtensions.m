@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 #endif
 
-#import "NSTabViewItem+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSTabViewItem+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

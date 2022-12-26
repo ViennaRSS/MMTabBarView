@@ -5,7 +5,7 @@
 //  Created by Michael Monscheuer on 9/8/12.
 //
 
-#import "MMRolloverButtonCell.h"
+#import <MMTabBarView/MMRolloverButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

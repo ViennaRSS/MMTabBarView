@@ -6,9 +6,9 @@
 //
 //
 
-#import "MMAttachedTabBarButtonCell.h"
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
 
-#import "MMAttachedTabBarButton.h"
+#import <MMTabBarView/MMAttachedTabBarButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -15,7 +15,7 @@
 #else
 #import <Cocoa/Cocoa.h>
 #endif
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMTabBarView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

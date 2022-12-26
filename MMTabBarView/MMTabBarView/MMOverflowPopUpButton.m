@@ -6,10 +6,10 @@
 //  Copyright 2005 Positive Spin Media. All rights reserved.
 //
 
-#import "MMOverflowPopUpButton.h"
+#import <MMTabBarView/MMOverflowPopUpButton.h>
 
-#import "MMOverflowPopUpButtonCell.h"
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/MMTabBarView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

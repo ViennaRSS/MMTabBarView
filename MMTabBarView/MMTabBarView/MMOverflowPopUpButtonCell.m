@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 Michael Monscheuer. All rights reserved.
 //
 
-#import "MMOverflowPopUpButtonCell.h"
-#import "NSCell+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/NSCell+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

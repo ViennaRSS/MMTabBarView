@@ -6,13 +6,13 @@
 //  Copyright 2006 Positive Spin Media. All rights reserved.
 //
 
-#import "MMAquaTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMTabBarView.h"
-#import "MMTabBarButtonCell.h"
-#import "MMOverflowPopUpButton.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMAquaTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

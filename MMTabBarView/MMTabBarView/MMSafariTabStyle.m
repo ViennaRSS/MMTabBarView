@@ -6,16 +6,16 @@
 //  Copyright 2011 Marrintech. All rights reserved.
 //
 
-#import "MMSafariTabStyle.h"
+#import <MMTabBarView/MMSafariTabStyle.h>
 
-#import "MMTabBarView.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMAttachedTabBarButtonCell.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "MMTabBarView.Private.h"
-#import "MMTabBarButtonCell.Private.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMOverflowPopUpButtonCell.h"
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
+#import <MMTabBarView/MMTabBarButtonCell.Private.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

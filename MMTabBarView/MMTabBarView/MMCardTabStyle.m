@@ -6,13 +6,13 @@
 //
 //
 
-#import "MMCardTabStyle.h"
+#import <MMTabBarView/MMCardTabStyle.h>
 
-#import "MMAttachedTabBarButton.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMTabBarView.Private.h"
-#import "MMOverflowPopUpButton.h"
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
 
 #define USE_DYNAMIC_APPEARANCE 1
 

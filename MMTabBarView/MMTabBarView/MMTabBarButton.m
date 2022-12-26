@@ -6,12 +6,12 @@
 //
 //
 
-#import "MMTabBarButton.h"
-#import "MMRolloverButton.h"
-#import "MMTabBarButtonCell.h"
-#import "MMTabBarView.h"
-#import "MMTabDragAssistant.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMTabBarButton.h>
+#import <MMTabBarView/MMRolloverButton.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

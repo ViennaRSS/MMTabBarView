@@ -5,8 +5,8 @@
 //  Created by Isaiah Carew on 4/19/17.
 //
 
-#import "MMSierraRolloverButton.h"
-#import "MMSierraRolloverButtonCell.h"
+#import <MMTabBarView/MMSierraRolloverButton.h>
+#import <MMTabBarView/MMSierraRolloverButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

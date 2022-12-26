@@ -6,12 +6,12 @@
 //
 //
 
-#import "MMAttachedTabBarButton.h"
+#import <MMTabBarView/MMAttachedTabBarButton.h>
 
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMTabDragAssistant.h"
-#import "MMTabStyle.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

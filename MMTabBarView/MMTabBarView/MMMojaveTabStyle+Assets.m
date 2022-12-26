@@ -8,7 +8,7 @@
 //
 
 #import "MMMojaveTabStyle+Assets.h"
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMTabBarView.h>
 #if __has_feature(modules)
 @import Darwin.Availability;
 #else

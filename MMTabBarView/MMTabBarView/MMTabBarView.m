@@ -7,29 +7,29 @@
 //
 
 
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMTabBarView.h>
 
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMOverflowPopUpButtonCell.h"
-#import "MMRolloverButton.h"
-#import "MMTabStyle.h"
-#import "MMMetalTabStyle.h"
-#import "MMAquaTabStyle.h"
-#import "MMUnifiedTabStyle.h"
-#import "MMAdiumTabStyle.h"
-#import "MMLiveChatTabStyle.h"
-#import "MMCardTabStyle.h"
-#import "MMSafariTabStyle.h"
-#import "MMYosemiteTabStyle.h"
-#import "MMSierraTabStyle.h"
-#import "MMTabDragAssistant.h"
-#import "MMTabBarController.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabPasteboardItem.h"
-#import "MMSlideButtonsAnimation.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "MMTabBarItem.h"
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/MMRolloverButton.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/MMMetalTabStyle.h>
+#import <MMTabBarView/MMAquaTabStyle.h>
+#import <MMTabBarView/MMUnifiedTabStyle.h>
+#import <MMTabBarView/MMAdiumTabStyle.h>
+#import <MMTabBarView/MMLiveChatTabStyle.h>
+#import <MMTabBarView/MMCardTabStyle.h>
+#import <MMTabBarView/MMSafariTabStyle.h>
+#import <MMTabBarView/MMYosemiteTabStyle.h>
+#import <MMTabBarView/MMSierraTabStyle.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMTabBarController.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabPasteboardItem.h>
+#import <MMTabBarView/MMSlideButtonsAnimation.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

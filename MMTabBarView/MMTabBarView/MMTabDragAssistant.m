@@ -6,16 +6,16 @@
 //  Copyright 2006 Positive Spin Media. All rights reserved.
 //
 
-#import "MMTabDragAssistant.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabStyle.h"
-#import "MMTabDragWindowController.h"
-#import "MMTabPasteboardItem.h"
-#import "MMSlideButtonsAnimation.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/MMTabDragWindowController.h>
+#import <MMTabBarView/MMTabPasteboardItem.h>
+#import <MMTabBarView/MMSlideButtonsAnimation.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
-#import "MMTabBarView.Private.h"
-#import "MMTabBarButton.Private.h"
+#import <MMTabBarView/MMTabBarView.Private.h>
+#import <MMTabBarView/MMTabBarButton.Private.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

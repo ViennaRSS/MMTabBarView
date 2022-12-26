@@ -6,8 +6,8 @@
 //  Copyright © 2017 Michael Monscheuer. All rights reserved.
 //
 
-#import "MMSierraCloseButtonCell.h"
-#import "MMSierraCloseButton.h"
+#import <MMTabBarView/MMSierraCloseButtonCell.h>
+#import <MMTabBarView/MMSierraCloseButton.h>
 
 @implementation MMSierraCloseButtonCell
 

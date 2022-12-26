@@ -18,7 +18,7 @@
 //  current and future color tints and to maintain resolution independence.
 //
 
-#import "MMMojaveTabStyle.h"
+#import <MMTabBarView/MMMojaveTabStyle.h>
 
 
 @interface MMMojaveTabStyle (Assets)

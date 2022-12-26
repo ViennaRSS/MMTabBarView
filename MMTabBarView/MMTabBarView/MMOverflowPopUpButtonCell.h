@@ -12,7 +12,7 @@
 #import <Cocoa/Cocoa.h>
 #endif
 
-#import "MMOverflowPopUpButton.h"
+#import <MMTabBarView/MMOverflowPopUpButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

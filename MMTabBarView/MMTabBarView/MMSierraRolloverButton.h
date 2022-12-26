@@ -11,8 +11,8 @@
 #import <Cocoa/Cocoa.h>
 #endif
 
-#import "MMRolloverButton.h"
-#import "MMSierraRolloverButtonCell.h"
+#import <MMTabBarView/MMRolloverButton.h>
+#import <MMTabBarView/MMSierraRolloverButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
