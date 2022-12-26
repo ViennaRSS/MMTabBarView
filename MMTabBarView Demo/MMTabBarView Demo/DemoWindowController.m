@@ -534,7 +534,7 @@
 }
 
 - (NSArray<NSPasteboardType> *)allowedDraggedTypesForTabView:(NSTabView *)aTabView {
-	return @[NSFilenamesPboardType, NSPasteboardTypeString];
+	return @[NSPasteboardTypeFileURL, NSPasteboardTypeString];
 }
 
 - (BOOL)tabView:(NSTabView *)aTabView acceptedDraggingInfo:(id <NSDraggingInfo>)draggingInfo onTabViewItem:(NSTabViewItem *)tabViewItem {

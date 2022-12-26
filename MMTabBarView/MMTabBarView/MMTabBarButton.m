@@ -66,19 +66,11 @@ static NSString *kMMTabBarButtonOberserverContext = @"MMTabBarView.MMTabBarButto
     return self.enclosingTabBarView;
 }
     
-- (void)resizeSubviewsWithOldSize:(NSSize)oldSize {
+- (void)layout {
+    [super layout];
 
-    [super resizeSubviewsWithOldSize:oldSize];
-    
-        // We do not call -calcSize before drawing (as documented).
-        // We only need to calculate size when resizing.
-    [self calcSize];
-}
-
-- (void)calcSize {
-
-        // Let cell update (invokes -calcDrawInfo:)
-        // Cell will update control's sub buttons too.
+    // Let cell update (invokes -calcDrawInfo:)
+    // Cell will update control's sub buttons too.
     [self.cell calcDrawInfo:self.bounds];
 }
 
