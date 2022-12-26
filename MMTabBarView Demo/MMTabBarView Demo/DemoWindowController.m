@@ -507,11 +507,13 @@
         if (tabViewItem == [self.tabBar.tabView.tabViewItems lastObject]) {
             return nil; //cannot select tab on the right if selected tab is rightmost one
         }
-        int indexToSelect = [tabBar.tabView.tabViewItems indexOfObject:tabBar.selectedTabViewItem] + 1;
+        NSTabViewItem * selectedTabViewItem = tabBar.selectedTabViewItem;
+        NSUInteger indexToSelect = selectedTabViewItem ? [tabBar.tabView.tabViewItems indexOfObject:selectedTabViewItem] + 1 : 1;
         return [tabBar.tabView.tabViewItems objectAtIndex:indexToSelect];
     } else if ([@"Random" isEqualToString:selection]) {
-        int currentlySelectedIndex = [tabBar.tabView.tabViewItems indexOfObject:tabBar.selectedTabViewItem] + 1;
-        int indexToSelect = arc4random_uniform([tabBar.tabView.tabViewItems count] - 1);
+        NSTabViewItem * selectedTabViewItem = tabBar.selectedTabViewItem;
+        NSUInteger currentlySelectedIndex = selectedTabViewItem ? [tabBar.tabView.tabViewItems indexOfObject:selectedTabViewItem] + 1 : 1;
+        NSUInteger indexToSelect = arc4random_uniform((uint32_t)[tabBar.tabView.tabViewItems count] - 1);
         if (indexToSelect >= currentlySelectedIndex) {
             indexToSelect += 1; //we cannot select the current tab as it is being closed
         }
