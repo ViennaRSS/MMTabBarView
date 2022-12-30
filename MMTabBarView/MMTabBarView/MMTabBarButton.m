@@ -6,12 +6,12 @@
 //
 //
 
-#import "MMTabBarButton.h"
-#import "MMRolloverButton.h"
-#import "MMTabBarButtonCell.h"
-#import "MMTabBarView.h"
-#import "MMTabDragAssistant.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMTabBarButton.h>
+#import <MMTabBarView/MMRolloverButton.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -66,19 +66,11 @@ static NSString *kMMTabBarButtonOberserverContext = @"MMTabBarView.MMTabBarButto
     return self.enclosingTabBarView;
 }
     
-- (void)resizeSubviewsWithOldSize:(NSSize)oldSize {
+- (void)layout {
+    [super layout];
 
-    [super resizeSubviewsWithOldSize:oldSize];
-    
-        // We do not call -calcSize before drawing (as documented).
-        // We only need to calculate size when resizing.
-    [self calcSize];
-}
-
-- (void)calcSize {
-
-        // Let cell update (invokes -calcDrawInfo:)
-        // Cell will update control's sub buttons too.
+    // Let cell update (invokes -calcDrawInfo:)
+    // Cell will update control's sub buttons too.
     [self.cell calcDrawInfo:self.bounds];
 }
 
@@ -325,9 +317,9 @@ static NSString *kMMTabBarButtonOberserverContext = @"MMTabBarView.MMTabBarButto
     }
 
     _indicator = [[MMProgressIndicator alloc] initWithFrame:NSMakeRect(0.0, 0.0, kMMTabBarIndicatorWidth, kMMTabBarIndicatorWidth)];
-    [_indicator setStyle:NSProgressIndicatorSpinningStyle];
+    [_indicator setStyle:NSProgressIndicatorStyleSpinning];
     [_indicator setAutoresizingMask:NSViewMinYMargin];
-    [_indicator setControlSize: NSSmallControlSize];
+    [_indicator setControlSize: NSControlSizeSmall];
     NSRect indicatorRect = [self _indicatorRectForBounds:self.bounds];
     [_indicator setFrame:indicatorRect];
     [self addSubview:_indicator];

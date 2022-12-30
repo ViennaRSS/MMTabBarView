@@ -7,29 +7,29 @@
 //
 
 
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMTabBarView.h>
 
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMOverflowPopUpButtonCell.h"
-#import "MMRolloverButton.h"
-#import "MMTabStyle.h"
-#import "MMMetalTabStyle.h"
-#import "MMAquaTabStyle.h"
-#import "MMUnifiedTabStyle.h"
-#import "MMAdiumTabStyle.h"
-#import "MMLiveChatTabStyle.h"
-#import "MMCardTabStyle.h"
-#import "MMSafariTabStyle.h"
-#import "MMYosemiteTabStyle.h"
-#import "MMSierraTabStyle.h"
-#import "MMTabDragAssistant.h"
-#import "MMTabBarController.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabPasteboardItem.h"
-#import "MMSlideButtonsAnimation.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "MMTabBarItem.h"
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/MMRolloverButton.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/MMMetalTabStyle.h>
+#import <MMTabBarView/MMAquaTabStyle.h>
+#import <MMTabBarView/MMUnifiedTabStyle.h>
+#import <MMTabBarView/MMAdiumTabStyle.h>
+#import <MMTabBarView/MMLiveChatTabStyle.h>
+#import <MMTabBarView/MMCardTabStyle.h>
+#import <MMTabBarView/MMSafariTabStyle.h>
+#import <MMTabBarView/MMYosemiteTabStyle.h>
+#import <MMTabBarView/MMSierraTabStyle.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMTabBarController.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabPasteboardItem.h>
+#import <MMTabBarView/MMSlideButtonsAnimation.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -57,7 +57,7 @@ CGFloat noIntrinsicMetric(void) {
         return NSViewNoIntrinsicMetric;
     }
     else {
-        return NSViewNoInstrinsicMetric;
+        return NSViewNoIntrinsicMetric;
     }
 }
 
@@ -445,6 +445,9 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 
 - (void)moveTabViewItem:(NSTabViewItem *)anItem toIndex:(NSUInteger)index {
 
+    if (_delegate && [_delegate respondsToSelector:@selector(tabView:willMoveTabViewItem:toIndex:)])
+        [_delegate tabView:_tabView willMoveTabViewItem:anItem toIndex:index];
+    
     [self setIsReorderingTabViewItems:YES];
     
     [_tabView removeTabViewItem:anItem];
@@ -693,7 +696,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     return [[self.subviews indexesOfObjectsPassingTest:
         ^BOOL(NSView *aView, NSUInteger idx, BOOL *stop) {
         
-            if ([aView isKindOfClass:MMAttachedTabBarButton.class] && [(MMAttachedTabBarButton *)aView state] == NSOnState)
+            if ([aView isKindOfClass:MMAttachedTabBarButton.class] && [(MMAttachedTabBarButton *)aView state] == NSControlStateValueOn)
                 return YES;
         
             return NO;
@@ -762,7 +765,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     MMTabStateMask prevButtonTabStateMask = prevButton.tabState;
     MMTabStateMask nextButtonTabStateMask = nextButton.tabState;
     
-    if (aButton.state == NSOnState) {
+    if (aButton.state == NSControlStateValueOn) {
         prevButtonTabStateMask |= MMTab_RightIsSelectedMask;
         nextButtonTabStateMask |= MMTab_LeftIsSelectedMask;
     } else {
@@ -850,9 +853,9 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 
         if (opts & MMAttachedButtonsEnumerationUpdateButtonState) {
             if ([aButton.tabViewItem isEqualTo:selectedTabViewItem])
-                [aButton setState:NSOnState];
+                [aButton setState:NSControlStateValueOn];
             else
-                [aButton setState:NSOffState];
+                [aButton setState:NSControlStateValueOff];
         }
             
         if (opts & MMAttachedButtonsEnumerationUpdateTabStateMask) {
@@ -2030,7 +2033,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 	if (tabViewItem == nil) {
 		return NO;
 	}
-	[sender setState:([tabViewItem isEqualTo:_tabView.selectedTabViewItem]) ? NSOnState : NSOffState];
+	[sender setState:([tabViewItem isEqualTo:_tabView.selectedTabViewItem]) ? NSControlStateValueOn : NSControlStateValueOff];
 
 	return [self.delegate respondsToSelector:@selector(tabView:validateOverflowMenuItem:forTabViewItem:)] ?
 		   [self.delegate tabView:self.tabView validateOverflowMenuItem:menuItem forTabViewItem:tabViewItem] : YES;
@@ -2457,7 +2460,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     NSUInteger selIndex = NSNotFound;
     NSUInteger i = 0;
     for (MMAttachedTabBarButton *aButton in buttons) {
-        if (aButton.state == NSOnState) {
+        if (aButton.state == NSControlStateValueOn) {
             selIndex = i;
             break;
         }
@@ -2501,7 +2504,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 		NSRange range = NSMakeRange(0, contents.length);
 		[attrStr addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0] range:range];
 		NSMutableParagraphStyle *centeredParagraphStyle = [NSParagraphStyle.defaultParagraphStyle mutableCopy];
-        [centeredParagraphStyle setAlignment:NSCenterTextAlignment];
+        [centeredParagraphStyle setAlignment:NSTextAlignmentCenter];
         
 		[attrStr addAttribute:NSParagraphStyleAttributeName value:centeredParagraphStyle range:range];
 		[attrStr drawInRect:labelRect];
@@ -2538,7 +2541,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 
 		if (window.showsResizeIndicator && NSIntersectsRect(self.frame, resizeWidgetFrame)) {
                 //the resize widgets are larger on metal windows
-			_resizeAreaCompensation = window.styleMask & NSTexturedBackgroundWindowMask ? 20 : 8;
+			_resizeAreaCompensation = window.styleMask & NSWindowStyleMaskTexturedBackground ? 20 : 8;
 		} else {
 			_resizeAreaCompensation = 0;
 		}
@@ -2662,11 +2665,11 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
         [aButton setTabState:aButton.tabState & ~(MMTab_RightIsSelectedMask|MMTab_LeftIsSelectedMask)];
         
         if (aButton == buttonToSelect) {
-            if (aButton.state != NSOnState)
-                [aButton setState:NSOnState];
+            if (aButton.state != NSControlStateValueOn)
+                [aButton setState:NSControlStateValueOn];
         } else {
-            if (aButton.state != NSOffState)
-                [aButton setState:NSOffState];
+            if (aButton.state != NSControlStateValueOff)
+                [aButton setState:NSControlStateValueOff];
         }
     }
     
@@ -2692,9 +2695,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 - (void)_beginResizingWithMouseDownEvent:(NSEvent *)theEvent {
 
     NSEvent *nextEvent = nil,
-            *firstEvent = nil,
-            *dragEvent = nil,
-            *mouseUp = nil;
+            *firstEvent = nil;
     NSDate *expiration = NSDate.distantFuture;
 
     if (self.orientation == MMTabBarHorizontalOrientation)
@@ -2705,15 +2706,13 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
     NSCursor *cursor = self.resizingMouseCursor;
     [cursor set];
             
-    while ((nextEvent = [self.window nextEventMatchingMask:NSLeftMouseUpMask | NSLeftMouseDraggedMask untilDate:expiration inMode:NSEventTrackingRunLoopMode dequeue:YES]) != nil) {
+    while ((nextEvent = [self.window nextEventMatchingMask:NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged untilDate:expiration inMode:NSEventTrackingRunLoopMode dequeue:YES]) != nil) {
 
         if (firstEvent == nil) {
             firstEvent = nextEvent;
         }
         
-        if (nextEvent.type == NSLeftMouseDragged) {
-            dragEvent = nextEvent;
-
+        if (nextEvent.type == NSEventTypeLeftMouseDragged) {
             NSPoint currentPoint = [self convertPoint:nextEvent.locationInWindow fromView:nil];
             NSRect frame = self.frame;
             CGFloat resizeAmount = nextEvent.deltaX;
@@ -2736,8 +2735,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
                 }
             }
                     
-        } else if (nextEvent.type == NSLeftMouseUp) {
-            mouseUp = nextEvent;
+        } else if (nextEvent.type == NSEventTypeLeftMouseUp) {
             break;
         }
         
@@ -2798,7 +2796,7 @@ StaticImage(AquaTabNewRollover)
     [_addTabButton setImagePosition:NSImageOnly];
     [_addTabButton setRolloverButtonType:MMRolloverActionButton];
     [_addTabButton setBordered:NO];
-    [_addTabButton setBezelStyle:NSShadowlessSquareBezelStyle];
+    [_addTabButton setBezelStyle:NSBezelStyleShadowlessSquare];
     
     if (_style && [_style respondsToSelector:@selector(updateAddButton:ofTabBarView:)])
         [_style updateAddButton:_addTabButton ofTabBarView:self];

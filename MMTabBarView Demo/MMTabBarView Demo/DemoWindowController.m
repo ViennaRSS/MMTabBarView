@@ -145,7 +145,7 @@
 - (IBAction)hasLargeImageAction:(id)sender {
     
 	DemoFakeModel* const tabBarItem = tabView.selectedTabViewItem.identifier;
-    if ([(NSButton*) sender state] == NSOnState) {
+    if ([(NSButton*) sender state] == NSControlStateValueOn) {
          [tabBarItem setValue:[NSImage imageNamed:@"largeImage"] forKeyPath:@"largeImage"];
     } else {
         [tabBarItem setValue:nil forKeyPath:@"largeImage"];
@@ -211,7 +211,7 @@
     NSSize intrinsicTabBarContentSize = tabBar.intrinsicContentSize;
 
 	if (newOrientation == MMTabBarHorizontalOrientation) {
-        if (intrinsicTabBarContentSize.height == NSViewNoInstrinsicMetric)
+        if (intrinsicTabBarContentSize.height == NSViewNoIntrinsicMetric)
             intrinsicTabBarContentSize.height = 22;
 		tabBarFrame.size.height = tabBar.isTabBarHidden ? 1 : intrinsicTabBarContentSize.height;
 		tabBarFrame.size.width = totalFrame.size.width;
@@ -507,11 +507,13 @@
         if (tabViewItem == [self.tabBar.tabView.tabViewItems lastObject]) {
             return nil; //cannot select tab on the right if selected tab is rightmost one
         }
-        int indexToSelect = [tabBar.tabView.tabViewItems indexOfObject:tabBar.selectedTabViewItem] + 1;
+        NSTabViewItem * selectedTabViewItem = tabBar.selectedTabViewItem;
+        NSUInteger indexToSelect = selectedTabViewItem ? [tabBar.tabView.tabViewItems indexOfObject:selectedTabViewItem] + 1 : 1;
         return [tabBar.tabView.tabViewItems objectAtIndex:indexToSelect];
     } else if ([@"Random" isEqualToString:selection]) {
-        int currentlySelectedIndex = [tabBar.tabView.tabViewItems indexOfObject:tabBar.selectedTabViewItem] + 1;
-        int indexToSelect = arc4random_uniform([tabBar.tabView.tabViewItems count] - 1);
+        NSTabViewItem * selectedTabViewItem = tabBar.selectedTabViewItem;
+        NSUInteger currentlySelectedIndex = selectedTabViewItem ? [tabBar.tabView.tabViewItems indexOfObject:selectedTabViewItem] + 1 : 1;
+        NSUInteger indexToSelect = arc4random_uniform((uint32_t)[tabBar.tabView.tabViewItems count] - 1);
         if (indexToSelect >= currentlySelectedIndex) {
             indexToSelect += 1; //we cannot select the current tab as it is being closed
         }
@@ -534,7 +536,7 @@
 }
 
 - (NSArray<NSPasteboardType> *)allowedDraggedTypesForTabView:(NSTabView *)aTabView {
-	return @[NSFilenamesPboardType, NSStringPboardType];
+	return @[NSPasteboardTypeFileURL, NSPasteboardTypeString];
 }
 
 - (BOOL)tabView:(NSTabView *)aTabView acceptedDraggingInfo:(id <NSDraggingInfo>)draggingInfo onTabViewItem:(NSTabViewItem *)tabViewItem {
@@ -577,18 +579,10 @@
 	// grabs whole window image
 	NSImage *viewImage = [[NSImage alloc] init];
 	NSBitmapImageRep *viewRep;
-	if (@available(macOS 10.14, *)) {
-		NSView *contentView=self.window.contentView;
-		NSRect rect=contentView.visibleRect;
-		viewRep=[contentView bitmapImageRepForCachingDisplayInRect:rect];
-		[contentView cacheDisplayInRect:rect toBitmapImageRep:viewRep];
-	}
-	else {
-		NSRect contentFrame = self.window.contentView.frame;
-		[self.window.contentView lockFocus];
-		viewRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:contentFrame];
-		[self.window.contentView unlockFocus];
-	}
+    NSView *contentView=self.window.contentView;
+    NSRect rect=contentView.visibleRect;
+    viewRep=[contentView bitmapImageRepForCachingDisplayInRect:rect];
+    [contentView cacheDisplayInRect:rect toBitmapImageRep:viewRep];
 	[viewImage addRepresentation:viewRep];
 
 	// grabs snapshot of dragged tabViewItem's view (represents content being dragged)
@@ -603,8 +597,8 @@
 	NSPoint tabOrigin = tabView.frame.origin;
 	tabOrigin.x += 10;
 	tabOrigin.y += 13;
-    [tabViewImage drawAtPoint:tabOrigin fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
-//	[tabViewImage compositeToPoint:tabOrigin operation:NSCompositeSourceOver];
+    [tabViewImage drawAtPoint:tabOrigin fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+//	[tabViewImage compositeToPoint:tabOrigin operation:NSCompositingOperationSourceOver];
 	[viewImage unlockFocus];
 
     MMTabBarView *tabBarView = (MMTabBarView *)aTabView.delegate;
@@ -634,7 +628,7 @@
 	}
 
 	if (styleMask) {
-		*styleMask = NSTitledWindowMask | NSTexturedBackgroundWindowMask;
+		*styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskTexturedBackground;
 	}
 
 	return viewImage;

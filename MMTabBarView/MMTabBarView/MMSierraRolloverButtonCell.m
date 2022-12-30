@@ -5,7 +5,7 @@
 //  Created by Isaiah Carew on 4/19/17.
 //
 
-#import "MMSierraRolloverButtonCell.h"
+#import <MMTabBarView/MMSierraRolloverButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
     }
 
-    [addImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+    [addImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:opacity respectFlipped:YES hints:nil];
 }
 
 - (NSRect)topBorderRectWithFrame:(NSRect)frame {

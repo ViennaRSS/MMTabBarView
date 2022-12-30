@@ -6,15 +6,15 @@
 //  Copyright 2006 Keith Blount. All rights reserved.
 //
 
-#import "MMLiveChatTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMTabBarView.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSCell+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMTabBarButtonCell.h"
-#import "MMOverflowPopUpButton.h"
+#import <MMTabBarView/MMLiveChatTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSCell+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -392,7 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
 	NSColor * lineColor = nil;
 	lineColor = [NSColor colorWithCalibratedWhite:0.576 alpha:1.0];
 
-	BOOL drawSelected = cell.state == NSOnState;
+	BOOL drawSelected = cell.state == NSControlStateValueOn;
 
     BOOL overflowMode = button.isOverflowButton;
     if (button.isSliding)
@@ -429,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 		// rollover
 		if (cell.mouseHovered) {
 			[[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-			NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+			NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
 		}
 
 		// frame
@@ -463,10 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
 		frame.size.height -= 1.0;
 	}
 
-	NSColor * lineColor = nil;
-	lineColor = [NSColor colorWithCalibratedWhite:0.576 alpha:1.0];
-
-	BOOL drawSelected = lastAttachedButtonCell.state == NSOnState;
+	BOOL drawSelected = lastAttachedButtonCell.state == NSControlStateValueOn;
     
 	if (!showsBaselineSeparator || drawSelected) {
 		// selected tab
@@ -505,7 +502,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     CGFloat radius = MIN(6.0, 0.5 * MIN(NSWidth(aRect), NSHeight(aRect)));
 
-	BOOL drawSelected = button.state == NSOnState;
+	BOOL drawSelected = button.state == NSControlStateValueOn;
     
     NSBezierPath *fillPath = [NSBezierPath bezierPathWithCardInRect:aRect radius:radius capMask:capMask|MMBezierShapeFillPath];
 

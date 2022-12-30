@@ -11,6 +11,9 @@
  */
 
 #if __has_feature(modules)
+#if __has_warning("-Watimport-in-framework-header")
+#pragma clang diagnostic ignored "-Watimport-in-framework-header"
+#endif
 @import Cocoa;
 #else
 #import <Cocoa/Cocoa.h>
@@ -24,34 +27,36 @@ FOUNDATION_EXPORT double MMTabBarViewVersionNumber;
 //! Project version string for GameworkSDK.
 FOUNDATION_EXPORT const unsigned char MMTabBarViewVersionString[];
 
-#import "MMTabBarView.Globals.h"
+#import <MMTabBarView/MMTabBarView.Globals.h>
 
-#import "MMTabBarItem.h"
+#import <MMTabBarView/MMTabBarItem.h>
 
-#import "MMTabBarButton.h"
-#import "MMTabBarButtonCell.h"
+#import <MMTabBarView/MMTabBarButton.h>
+#import <MMTabBarView/MMTabBarButtonCell.h>
 
-#import "MMAttachedTabBarButton.h"
-#import "MMAttachedTabBarButtonCell.h"
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
 
-#import "MMOverflowPopUpButton.h"
-#import "MMOverflowPopUpButtonCell.h"
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
 
-#import "MMAdiumTabStyle.h"
-#import "MMAquaTabStyle.h"
-#import "MMCardTabStyle.h"
-#import "MMLiveChatTabStyle.h"
-#import "MMMetalTabStyle.h"
-#import "MMMojaveTabStyle.h"
-#import "MMSafariTabStyle.h"
-#import "MMUnifiedTabStyle.h"
-#import "MMYosemiteTabStyle.h"
-#import "MMSierraTabStyle.h"
-#import "MMSierraRolloverButton.h"
-#import "MMSierraRolloverButtonCell.h"
+#import <MMTabBarView/MMAdiumTabStyle.h>
+#import <MMTabBarView/MMAquaTabStyle.h>
+#import <MMTabBarView/MMCardTabStyle.h>
+#import <MMTabBarView/MMLiveChatTabStyle.h>
+#import <MMTabBarView/MMMetalTabStyle.h>
+#import <MMTabBarView/MMMojaveTabStyle.h>
+#import <MMTabBarView/MMSafariTabStyle.h>
+#import <MMTabBarView/MMUnifiedTabStyle.h>
+#import <MMTabBarView/MMYosemiteTabStyle.h>
+#import <MMTabBarView/MMSierraTabStyle.h>
+#import <MMTabBarView/MMSierraRolloverButton.h>
+#import <MMTabBarView/MMSierraRolloverButtonCell.h>
+#import <MMTabBarView/MMSierraCloseButton.h>
+#import <MMTabBarView/MMSierraCloseButtonCell.h>
 
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "NSTabViewItem+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSTabViewItem+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -91,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Delegate
  */
-@property (weak)   IBOutlet id <MMTabBarViewDelegate> delegate;
+@property (nullable, weak) IBOutlet id <MMTabBarViewDelegate> delegate;
 
 #pragma mark Working with View's current state
 
@@ -624,6 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tabView:(NSTabView *)aTabView willCloseTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabView:(NSTabView *)aTabView didCloseTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabView:(NSTabView *)aTabView didDetachTabViewItem:(NSTabViewItem *)tabViewItem;
+- (void)tabView:(NSTabView *)aTabView willMoveTabViewItem:(NSTabViewItem *)tabViewItem toIndex:(NSUInteger)index;
 - (void)tabView:(NSTabView *)aTabView didMoveTabViewItem:(NSTabViewItem *)tabViewItem toIndex:(NSUInteger)index;
 
     // Informal tab bar visibility methods

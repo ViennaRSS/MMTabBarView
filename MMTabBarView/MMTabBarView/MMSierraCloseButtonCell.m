@@ -6,8 +6,8 @@
 //  Copyright © 2017 Michael Monscheuer. All rights reserved.
 //
 
-#import "MMSierraCloseButtonCell.h"
-#import "MMSierraCloseButton.h"
+#import <MMTabBarView/MMSierraCloseButtonCell.h>
+#import <MMTabBarView/MMSierraCloseButton.h>
 
 @implementation MMSierraCloseButtonCell
 
@@ -53,7 +53,7 @@
         }
     }
 
-    [customImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+    [customImage drawInRect:customFrame fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:opacity respectFlipped:YES hints:nil];
 }
 
 - (NSRect)topBorderRectWithFrame:(NSRect)frame {
@@ -75,7 +75,7 @@
     if (![tabButtonView isKindOfClass:NSButton.class]) return;
     NSButton *tabButton = (NSButton *)tabButtonView;
 
-    if (tabButton.state == NSOnState) {
+    if (tabButton.state == NSControlStateValueOn) {
         if (self.isHighlighted) {
             fillGradient = [MMSierraCloseButtonCell selectedMouseDownFillGradient];
         } else {

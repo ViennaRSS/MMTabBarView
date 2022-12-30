@@ -6,9 +6,9 @@
 //
 //
 
-#import "MMSlideButtonsAnimation.h"
+#import <MMTabBarView/MMSlideButtonsAnimation.h>
 
-#import "MMTabBarButton.h"
+#import <MMTabBarView/MMTabBarButton.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

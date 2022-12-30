@@ -6,12 +6,12 @@
 //  Copyright 2006 Kent Sutherland. All rights reserved.
 //
 
-#import "MMTabBarController.h"
-#import "MMTabBarView.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabStyle.h"
-#import "NSString+MMTabBarViewExtensions.h"
-#import "MMTabBarView.Private.h"
+#import <MMTabBarView/MMTabBarController.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/NSString+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -150,7 +150,7 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
 	for(i = 0; i < buttonCount; i++) {
 		currentButton = buttons[i];
 
-        BOOL displayCloseButton = _tabBarView.allowsBackgroundTabClosing || (currentButton.state == NSOnState);
+        BOOL displayCloseButton = _tabBarView.allowsBackgroundTabClosing || (currentButton.state == NSControlStateValueOn);
 
 		BOOL suppressCloseButton = (   (buttonCount == 1
 									    && [_tabBarView canCloseOnlyTab] == NO)
@@ -331,11 +331,6 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
                                 q ++;
                             }
 
-                            NSInteger tot = 0;
-                            for (NSNumber *newWidth in newWidths) {
-                                tot += newWidth.integerValue;
-                            }
-
                         }
 
                     // couldn't fit that last one...
@@ -403,11 +398,6 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
                                 }
                             }
 
-                            NSInteger tot = 0;
-                            for (NSNumber *newWidth in newWidths) {
-                                tot += newWidth.integerValue;
-                            }
-                            
                         }
 
                                             
@@ -586,16 +576,16 @@ static NSInteger potentialMinimumForArray(NSArray<NSNumber *> *array, NSInteger 
             [aButton setStackingFrame:buttonRect];
 
 			if ([[aButton tabViewItem] isEqualTo:selectedTabViewItem]) {
-				[aButton setState:NSOnState];
+				[aButton setState:NSControlStateValueOn];
 				// previous button
 				if (i > 0) {
 					[[buttons objectAtIndex:i - 1] setTabState:([(MMAttachedTabBarButton *)[buttons objectAtIndex:i - 1] tabState] | MMTab_RightIsSelectedMask)];
 				}
 				// next button - see below
 			} else {
-				[aButton setState:NSOffState];
+				[aButton setState:NSControlStateValueOff];
 				// see if prev button was selected
-				if ((i > 0) && ([[buttons objectAtIndex:i - 1] state] == NSOnState)) {
+				if ((i > 0) && ([[buttons objectAtIndex:i - 1] state] == NSControlStateValueOn)) {
 					tabState |= MMTab_LeftIsSelectedMask;
 				}
 			}

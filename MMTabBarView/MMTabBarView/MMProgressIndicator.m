@@ -6,8 +6,8 @@
 //  Copyright 2006 Positive Spin Media. All rights reserved.
 //
 
-#import "MMProgressIndicator.h"
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMProgressIndicator.h>
+#import <MMTabBarView/MMTabBarView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

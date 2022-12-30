@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 Michael Monscheuer. All rights reserved.
 //
 
-#import "NSString+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSString+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

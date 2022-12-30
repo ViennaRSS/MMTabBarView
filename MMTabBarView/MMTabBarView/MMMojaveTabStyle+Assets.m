@@ -8,8 +8,11 @@
 //
 
 #import "MMMojaveTabStyle+Assets.h"
-#import "MMTabBarView.h"
+#import <MMTabBarView/MMTabBarView.h>
 #if __has_feature(modules)
+#if __has_warning("-Watimport-in-framework-header")
+#pragma clang diagnostic ignored "-Watimport-in-framework-header"
+#endif
 @import Darwin.Availability;
 #else
 #import "Availability.h"
@@ -59,14 +62,14 @@ static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
     else
     {
 #endif
-		if ( @available(macos 10.10, *) ) {
-			if ( NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast )
-				mode = tabBarView.isWindowActive ? MMMappearanceAquaLightHighContrast : MMMappearanceAquaLightHighContrastInactive;
-			else
-				mode = tabBarView.isWindowActive ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
-		} else {
-			mode = (tabBarView.isWindowActive) ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
-		}
+        if ( NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast )
+        {
+            mode = tabBarView.isWindowActive ? MMMappearanceAquaLightHighContrast : MMMappearanceAquaLightHighContrastInactive;
+        }
+        else
+        {
+            mode = tabBarView.isWindowActive ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
+        }
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
     }
 #endif
@@ -77,12 +80,19 @@ static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
 inline static NSColor* labelColor(void)
 {
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
-	if ( @available(macos 10.10, *) )
-	{
-		return NSColor.labelColor;
-	}
-#endif
+    return NSColor.labelColor;
+#else
 	return NSColor.textColor;
+#endif
+}
+
+inline static NSColor* secondaryLabelColor(void)
+{
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+		return NSColor.secondaryLabelColor;
+#else
+	return NSColor.selectedTextBackgroundColor;
+#endif
 }
 
 - (NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *)assets
@@ -212,8 +222,8 @@ inline static NSColor* labelColor(void)
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.110 green:0.110 blue:0.110 alpha:1.0],
 
                      @(MMMtabSelectedFont)        : NSColor.textColor,
-                     @(MMMtabUnselectedFont)      : NSColor.disabledControlTextColor,
-                     @(MMMtabUnselectedHoverFont) : NSColor.textColor,
+                     @(MMMtabUnselectedFont)      : secondaryLabelColor(),
+                     @(MMMtabUnselectedHoverFont) : secondaryLabelColor(),
                      
                      @(MMMtabBarBackground)   : [NSColor colorWithSRGBRed:0.112 green:0.112 blue:0.112 alpha:1.0],
 
@@ -268,8 +278,8 @@ inline static NSColor* labelColor(void)
                      @(MMMtabUnselectedHover)     : [NSColor colorWithSRGBRed:0.110 green:0.110 blue:0.110 alpha:1.0],
 
                      @(MMMtabSelectedFont)        : NSColor.textColor,
-                     @(MMMtabUnselectedFont)      : NSColor.disabledControlTextColor,
-                     @(MMMtabUnselectedHoverFont) : NSColor.textColor,
+                     @(MMMtabUnselectedFont)      : secondaryLabelColor(),
+                     @(MMMtabUnselectedHoverFont) : secondaryLabelColor(),
                      
 					 @(MMMtabBarBackground)   : [NSColor colorWithSRGBRed:0.112 green:0.112 blue:0.112 alpha:1.0],
 

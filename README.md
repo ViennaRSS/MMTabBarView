@@ -9,7 +9,7 @@ This is the fork of MMTabBarView which is used to build [Vienna](https://github.
 
 We currently try to limit widening of divergences with [Michael Monscheuer's version](https://github.com/MiMo42/MMTabBarView), but at the time being, some noticeable changes remain:
 
-- while the original version requires 10.10+, Vienna's version is able to run on OS X 10.9
+- while the original version requires 10.10+, Vienna's version up to v/1.4.12 were able to run on OS X 10.9. Later versions are build on Xcode 14 and have macOS 10.13 as minimum development target. 
 - Vienna's version adds support of macOS Sierra style tabs (contributed by @yourhead)
 - we implement MMTabBarView's `delegate` property as weak, in order to avoid retain cycles
 - animations differ

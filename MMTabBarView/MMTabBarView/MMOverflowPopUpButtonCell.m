@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 Michael Monscheuer. All rights reserved.
 //
 
-#import "MMOverflowPopUpButtonCell.h"
-#import "NSCell+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMOverflowPopUpButtonCell.h>
+#import <MMTabBarView/NSCell+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     NSRect theRect = [self _imageRectForBounds:frame forImage:image];
     
-    [image drawInRect:theRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha respectFlipped:YES hints:nil];
+    [image drawInRect:theRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:alpha respectFlipped:YES hints:nil];
 }
 
 - (void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)controlView {

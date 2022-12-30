@@ -6,8 +6,8 @@
 //  Copyright 2006 Kent Sutherland. All rights reserved.
 //
 
-#import "MMTabDragWindow.h"
-#import "MMTabDragView.h"
+#import <MMTabBarView/MMTabDragWindow.h>
+#import <MMTabBarView/MMTabDragView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 		windowFrame.origin.y += windowFrame.size.height - size.height;
 		windowFrame.size = size;
 
-		if (styleMask | NSBorderlessWindowMask) {
+		if (styleMask | NSWindowStyleMaskBorderless) {
 			windowFrame.size.height += 22;
 		}
 

@@ -7,14 +7,17 @@
 //
 
 #if __has_feature(modules)
+#if __has_warning("-Watimport-in-framework-header")
+#pragma clang diagnostic ignored "-Watimport-in-framework-header"
+#endif
 @import Cocoa;
 #else
 #import <Cocoa/Cocoa.h>
 #endif
 
-#import "MMRolloverButtonCell.h"
+#import <MMTabBarView/MMRolloverButtonCell.h>
 
-#import "MMTabBarButton.Common.h"
+#import <MMTabBarView/MMTabBarButton.Common.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

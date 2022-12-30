@@ -6,7 +6,7 @@
 //  Copyright 2007 Kent Sutherland. All rights reserved.
 //
 
-#import "MMTabDragView.h"
+#import <MMTabBarView/MMTabDragView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 	srcRect.origin = NSZeroPoint;
 	srcRect.size = _image.size;
 
-	[_image drawInRect:self.bounds fromRect:srcRect operation:NSCompositeSourceOver fraction:primaryAlpha respectFlipped:YES hints:nil];
+	[_image drawInRect:self.bounds fromRect:srcRect operation:NSCompositingOperationSourceOver fraction:primaryAlpha respectFlipped:YES hints:nil];
 	srcRect.size = _alternateImage.size;
-	[_alternateImage drawInRect:self.bounds fromRect:srcRect operation:NSCompositeSourceOver fraction:alternateAlpha respectFlipped:YES hints:nil];
+	[_alternateImage drawInRect:self.bounds fromRect:srcRect operation:NSCompositingOperationSourceOver fraction:alternateAlpha respectFlipped:YES hints:nil];
 }
 
 @end

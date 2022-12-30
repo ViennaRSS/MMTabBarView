@@ -5,7 +5,7 @@
 //  Created by Michael Monscheuer on 9/8/12.
 //
 
-#import "MMRolloverButtonCell.h"
+#import <MMTabBarView/MMRolloverButtonCell.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     switch (_rolloverButtonType) {
         case MMRolloverActionButton:
-            [self setButtonType:NSMomentaryChangeButton];
+            [self setButtonType:NSButtonTypeMomentaryChange];
             [self setShowsStateBy:NSNoCellMask];
             [self setHighlightsBy:NSContentsCellMask];
             [self setImageDimsWhenDisabled:YES];
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)mouseEntered:(NSEvent *)event {
 
-    if (_simulateClickOnMouseHovered && event.modifierFlags & NSAlternateKeyMask) {
+    if (_simulateClickOnMouseHovered && event.modifierFlags & NSEventModifierFlagOption) {
         [self performClick:self];
         return;
     }
@@ -102,7 +102,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)mouseExited:(NSEvent *)event {
     _mouseHovered = NO;
-    [(NSControl *)self.controlView updateCell:self];
+    // Call this later or else MacOS 12.3 throws exception
+    [self.controlView performSelectorOnMainThread:@selector(updateCell:) withObject:self waitUntilDone:NO];
 }
 
 #pragma mark -

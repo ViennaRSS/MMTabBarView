@@ -6,12 +6,12 @@
 //
 //
 
-#import "MMAttachedTabBarButton.h"
+#import <MMTabBarView/MMAttachedTabBarButton.h>
 
-#import "MMAttachedTabBarButtonCell.h"
-#import "MMTabDragAssistant.h"
-#import "MMTabStyle.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMAttachedTabBarButtonCell.h>
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -140,8 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
         // select immediately
     if (tabBarView.selectsTabsOnMouseDown) {
         if (self != previousSelectedButton) {
-            [previousSelectedButton setState:NSOffState];
-            [self setState:NSOnState];
+            [previousSelectedButton setState:NSControlStateValueOff];
+            [self setState:NSControlStateValueOn];
             [self sendAction:self.action to:self.target];
         }
     }
@@ -162,8 +162,8 @@ NS_ASSUME_NONNULL_BEGIN
     if (NSMouseInRect(mousePt, self.bounds, self.isFlipped)) {
         if (!tabBarView.selectsTabsOnMouseDown) {
             MMAttachedTabBarButton *previousSelectedButton = self._selectedAttachedTabBarButton;
-            [previousSelectedButton setState:NSOffState];
-            [self setState:NSOnState];
+            [previousSelectedButton setState:NSControlStateValueOff];
+            [self setState:NSControlStateValueOn];
             [self sendAction:self.action to:self.target];
         }
     }
@@ -189,17 +189,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 inline static NSBitmapImageRep* imageForView(NSView* const inView, NSRect const inBounds) {
-	if (@available(macOS 10.14, *)) {
-		NSBitmapImageRep* const imageRep = [inView bitmapImageRepForCachingDisplayInRect:inView.visibleRect];
-		[inView cacheDisplayInRect:inBounds toBitmapImageRep:imageRep];
-		return imageRep;
-	} else {
-        [inView lockFocus];
-        [inView display];  // forces update to ensure that we get current state
-        NSBitmapImageRep* imageRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:inBounds];
-        [inView unlockFocus];
-        return imageRep;
-	}
+    NSBitmapImageRep* const imageRep = [inView bitmapImageRepForCachingDisplayInRect:inView.visibleRect];
+    [inView cacheDisplayInRect:inBounds toBitmapImageRep:imageRep];
+    return imageRep;
 }
 
 - (NSImage *)dragImage {
@@ -212,13 +204,13 @@ inline static NSBitmapImageRep* imageForView(NSView* const inView, NSRect const 
 	[image addRepresentation:imageRep];
 	NSImage* returnImage = [[NSImage alloc] initWithSize:imageRep.size];
 	[returnImage lockFocus];
-    [image drawAtPoint:NSMakePoint(0.0, 0.0) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+    [image drawAtPoint:NSMakePoint(0.0, 0.0) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 	[returnImage unlockFocus];
 	if (!self.indicator.isHidden) {
 		NSImage *pi = [MMTabBarView.bundle imageForResource:@"pi"];
 		[returnImage lockFocus];
 		NSPoint indicatorPoint = NSMakePoint(self.frame.size.width - MARGIN_X - kMMTabBarIndicatorWidth, MARGIN_Y);
-        [pi drawAtPoint:indicatorPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        [pi drawAtPoint:indicatorPoint fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 		[returnImage unlockFocus];
 	}
 	return returnImage;

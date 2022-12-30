@@ -7,13 +7,13 @@
 //  Copyright 2014 Ajin Man Tuladhar. All rights reserved.
 //
 
-#import "MMYosemiteTabStyle.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabBarView.h"
-#import "NSView+MMTabBarViewExtensions.h"
-#import "NSBezierPath+MMTabBarViewExtensions.h"
-#import "MMOverflowPopUpButton.h"
-#import "MMTabBarView.Private.h"
+#import <MMTabBarView/MMYosemiteTabStyle.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabBarView.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
+#import <MMTabBarView/MMOverflowPopUpButton.h>
+#import <MMTabBarView/MMTabBarView.Private.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -260,7 +260,7 @@ StaticImage(YosemiteTabNewPressed)
     NSBezierPath *fillPath = [NSBezierPath bezierPathWithCardInRect:aRect radius:radius capMask:capMask|MMBezierShapeFillPath];
 
     if (tabBarView.isWindowActive) {
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             [NSGraphicsContext.currentContext setShouldAntialias:NO];
             [self.selectedTabColor set];
             [fillPath fill];
@@ -271,7 +271,7 @@ StaticImage(YosemiteTabNewPressed)
         }
     } else {
         
-        if (button.state == NSOnState) {
+        if (button.state == NSControlStateValueOn) {
             [NSGraphicsContext.currentContext setShouldAntialias:NO];
             [[self.selectedTabColor blendedColorWithFraction:0.4 ofColor:NSColor.whiteColor] set];
             [fillPath fill];
@@ -304,15 +304,13 @@ StaticImage(YosemiteTabNewPressed)
 
 - (void)_drawBoxBezelInRect:(NSRect)aRect withCapMask:(MMBezierShapeCapMask)capMask usingStatesOfAttachedButton:(MMAttachedTabBarButton *)button ofTabBarView:(MMTabBarView *)tabBarView {
 
-    capMask &= ~MMBezierShapeFillPath;
-    
         // fill
-    if (button.state == NSOnState) {
+    if (button.state == NSControlStateValueOn) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);            
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     } else if (button.mouseHovered) {
         [[NSColor colorWithCalibratedWhite:0.0 alpha:0.1] set];
-        NSRectFillUsingOperation(aRect, NSCompositeSourceAtop);
+        NSRectFillUsingOperation(aRect, NSCompositingOperationSourceAtop);
     }
 }
 

@@ -11,8 +11,8 @@
  */
 
 
-#import "MMTabBarView.Globals.h"
-#import "MMTabBarButton.Common.h"
+#import <MMTabBarView/MMTabBarView.Globals.h>
+#import <MMTabBarView/MMTabBarButton.Common.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

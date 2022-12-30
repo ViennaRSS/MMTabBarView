@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 Michael Monscheuer. All rights reserved.
 //
 
-#import "NSBezierPath+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 
-#import "NSAffineTransform+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSAffineTransform+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

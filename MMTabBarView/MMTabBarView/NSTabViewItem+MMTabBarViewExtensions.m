@@ -7,12 +7,15 @@
 //
 
 #if __has_feature(modules)
+#if __has_warning("-Watimport-in-framework-header")
+#pragma clang diagnostic ignored "-Watimport-in-framework-header"
+#endif
 @import ObjectiveC.runtime;
 #else
 #import <objc/runtime.h>
 #endif
 
-#import "NSTabViewItem+MMTabBarViewExtensions.h"
+#import <MMTabBarView/NSTabViewItem+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

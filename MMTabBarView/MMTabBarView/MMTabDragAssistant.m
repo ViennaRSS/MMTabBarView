@@ -6,16 +6,16 @@
 //  Copyright 2006 Positive Spin Media. All rights reserved.
 //
 
-#import "MMTabDragAssistant.h"
-#import "MMAttachedTabBarButton.h"
-#import "MMTabStyle.h"
-#import "MMTabDragWindowController.h"
-#import "MMTabPasteboardItem.h"
-#import "MMSlideButtonsAnimation.h"
-#import "NSView+MMTabBarViewExtensions.h"
+#import <MMTabBarView/MMTabDragAssistant.h>
+#import <MMTabBarView/MMAttachedTabBarButton.h>
+#import <MMTabBarView/MMTabStyle.h>
+#import <MMTabBarView/MMTabDragWindowController.h>
+#import <MMTabBarView/MMTabPasteboardItem.h>
+#import <MMTabBarView/MMSlideButtonsAnimation.h>
+#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 
-#import "MMTabBarView.Private.h"
-#import "MMTabBarButton.Private.h"
+#import <MMTabBarView/MMTabBarView.Private.h>
+#import <MMTabBarView/MMTabBarButton.Private.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -584,7 +584,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
     NSImage *viewImage = nil;
 
 	if (outMask) {
-		*outMask = NSBorderlessWindowMask;
+		*outMask = NSWindowStyleMaskBorderless;
 	}
     
     id <MMTabBarViewDelegate> tabBarDelegate = tabBarView.delegate;
@@ -607,7 +607,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 			drawPoint.x += tabBarView.frame.size.width - tabImage.size.width;
 		}
 
-        [tabImage drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        [tabImage drawAtPoint:drawPoint fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 
 		[viewImage unlockFocus];
 	} else {
@@ -619,7 +619,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 		[viewImage unlockFocus];
 	}
 
-	if (outMask && (*outMask | NSBorderlessWindowMask)) {
+	if (outMask && (*outMask | NSWindowStyleMaskBorderless)) {
 		_dragWindowOffset.height += 22;
 	}
 
@@ -629,7 +629,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 - (NSImage *)_miniwindowImageOfWindow:(NSWindow *)window {
 	NSRect rect = window.frame;
 	NSImage *image = [[NSImage alloc] initWithSize:rect.size];
-	void* const graphicsPort = NSGraphicsContext.currentContext.graphicsPort;
+	void* const graphicsPort = NSGraphicsContext.currentContext.CGContext;
 	if (graphicsPort != nil) {
 		[image lockFocus];
 		rect.origin = NSZeroPoint;
@@ -653,8 +653,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 
     NSEvent *nextEvent = nil,
             *firstEvent = nil,
-            *dragEvent = nil,
-            *mouseUp = nil;
+            *dragEvent = nil;
     NSDate *expiration = NSDate.distantFuture;
     BOOL   continueDetached = NO;
 
@@ -691,13 +690,13 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
 
     [aButton orderFront];
                 
-    while ((nextEvent = [tabBarView.window nextEventMatchingMask:NSLeftMouseUpMask | NSLeftMouseDraggedMask untilDate:expiration inMode:NSEventTrackingRunLoopMode dequeue:YES]) != nil) {
+    while ((nextEvent = [tabBarView.window nextEventMatchingMask:NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged untilDate:expiration inMode:NSEventTrackingRunLoopMode dequeue:YES]) != nil) {
     
         if (firstEvent == nil) {
             firstEvent = nextEvent;
         }
         
-        if (nextEvent.type == NSLeftMouseDragged) {
+        if (nextEvent.type == NSEventTypeLeftMouseDragged) {
         
             dragEvent = nextEvent;
             
@@ -741,9 +740,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
                 }
             }
                                     
-        } else if (nextEvent.type == NSLeftMouseUp) {
-        
-            mouseUp = nextEvent;
+        } else if (nextEvent.type == NSEventTypeLeftMouseUp) {
 
             [self setIsSliding:NO];
             [aButton setIsInDraggedSlide:NO];
@@ -800,7 +797,7 @@ static MMTabDragAssistant *sharedDragAssistant = nil;
             
         // begin dragging session
     _currentTearOffStyle = tabBarView.tearOffStyle;
-    _draggedTab = [[MMTabDragWindowController alloc] initWithImage:dragImage styleMask:NSBorderlessWindowMask tearOffStyle:_currentTearOffStyle];
+    _draggedTab = [[MMTabDragWindowController alloc] initWithImage:dragImage styleMask:NSWindowStyleMaskBorderless tearOffStyle:_currentTearOffStyle];
 
     NSPoint location = aButton.frame.origin;
     
