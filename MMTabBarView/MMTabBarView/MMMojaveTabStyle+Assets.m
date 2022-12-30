@@ -59,14 +59,14 @@ static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
     else
     {
 #endif
-		if ( @available(macos 10.10, *) ) {
-			if ( NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast )
-				mode = tabBarView.isWindowActive ? MMMappearanceAquaLightHighContrast : MMMappearanceAquaLightHighContrastInactive;
-			else
-				mode = tabBarView.isWindowActive ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
-		} else {
-			mode = (tabBarView.isWindowActive) ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
-		}
+        if ( NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast )
+        {
+            mode = tabBarView.isWindowActive ? MMMappearanceAquaLightHighContrast : MMMappearanceAquaLightHighContrastInactive;
+        }
+        else
+        {
+            mode = tabBarView.isWindowActive ? MMMappearanceAquaLight : MMMappearanceAquaLightInactive;
+        }
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
     }
 #endif
@@ -77,23 +77,19 @@ static NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *assets = nil;
 inline static NSColor* labelColor(void)
 {
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
-	if ( @available(macos 10.10, *) )
-	{
-		return NSColor.labelColor;
-	}
-#endif
+    return NSColor.labelColor;
+#else
 	return NSColor.textColor;
+#endif
 }
 
 inline static NSColor* secondaryLabelColor(void)
 {
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
-	if ( @available(macos 10.10, *) )
-	{
 		return NSColor.secondaryLabelColor;
-	}
-#endif
+#else
 	return NSColor.selectedTextBackgroundColor;
+#endif
 }
 
 - (NSDictionary<NSNumber*, NSDictionary<NSNumber*, id>*> *)assets

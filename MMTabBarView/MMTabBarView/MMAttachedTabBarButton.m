@@ -189,17 +189,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 inline static NSBitmapImageRep* imageForView(NSView* const inView, NSRect const inBounds) {
-	if (@available(macOS 10.14, *)) {
-		NSBitmapImageRep* const imageRep = [inView bitmapImageRepForCachingDisplayInRect:inView.visibleRect];
-		[inView cacheDisplayInRect:inBounds toBitmapImageRep:imageRep];
-		return imageRep;
-	} else {
-        [inView lockFocus];
-        [inView display];  // forces update to ensure that we get current state
-        NSBitmapImageRep* imageRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:inBounds];
-        [inView unlockFocus];
-        return imageRep;
-	}
+    NSBitmapImageRep* const imageRep = [inView bitmapImageRepForCachingDisplayInRect:inView.visibleRect];
+    [inView cacheDisplayInRect:inBounds toBitmapImageRep:imageRep];
+    return imageRep;
 }
 
 - (NSImage *)dragImage {
