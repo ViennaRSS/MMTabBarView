@@ -3,18 +3,18 @@ name: Build and analyse
 on: pull_request
 
 jobs:
-  run:
+  build:
     strategy:
       matrix:
-        os: [macos-12, macos-11]
-    name: Run on ${{ matrix.os }}
+        os: [macos-12, macos-13]
+    name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
 
     steps:
     - name: Set up Git repository
       uses: actions/checkout@v3
-    - name: Build Xcode scheme
-      run: xcodebuild build -workspace default.xcworkspace -scheme MMTabBarView | xcpretty && exit ${PIPESTATUS[0]}
-    - name: Analyse Xcode scheme
+    - name: Build and analyse framework with Xcode
       run: xcodebuild analyze -workspace default.xcworkspace -scheme MMTabBarView | xcpretty && exit ${PIPESTATUS[0]}
+    - name: Build framework with Swift Package Manager
+      run: swift build && exit ${PIPESTATUS[0]}
