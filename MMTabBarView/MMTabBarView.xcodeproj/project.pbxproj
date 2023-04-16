@@ -197,6 +197,7 @@
 		D0103C8E210FE7C8001D2CC6 /* MMMojaveTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D0103C8C210FE7C8001D2CC6 /* MMMojaveTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0103C8F210FE7C8001D2CC6 /* MMMojaveTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0103C8D210FE7C8001D2CC6 /* MMMojaveTabStyle.m */; };
 		D09FB6CC2110923D008C3E23 /* MMMojaveTabStyle+Assets.m in Sources */ = {isa = PBXBuildFile; fileRef = D09FB6CA2110923D008C3E23 /* MMMojaveTabStyle+Assets.m */; };
+		F665E74729EC4B75000E5E52 /* MMMojaveTabStyle+Assets.h in Headers */ = {isa = PBXBuildFile; fileRef = D09FB6C821108F4C008C3E23 /* MMMojaveTabStyle+Assets.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -825,6 +826,7 @@
 				06AE02341B10A6F500C65A84 /* MMTabBarView.Private.h in Headers */,
 				0634F01C1609FC7F00A6C86A /* MMTabDragView.h in Headers */,
 				06C9569F1C984932000AAF9D /* MMYosemiteTabStyle.h in Headers */,
+				F665E74729EC4B75000E5E52 /* MMMojaveTabStyle+Assets.h in Headers */,
 				0634F01E1609FC7F00A6C86A /* MMTabDragWindow.h in Headers */,
 				00FB622D1EAD6A5800EF54E7 /* MMSierraCloseButton.h in Headers */,
 				0634F0201609FC7F00A6C86A /* MMTabDragWindowController.h in Headers */,
