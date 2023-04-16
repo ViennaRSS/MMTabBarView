@@ -7,7 +7,8 @@
 //
 
 #import <MMTabBarView/MMOverflowPopUpButtonCell.h>
-#import <MMTabBarView/NSCell+MMTabBarViewExtensions.h>
+
+#import <NSCell+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

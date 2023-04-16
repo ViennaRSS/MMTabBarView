@@ -9,10 +9,11 @@
 #import <MMTabBarView/MMUnifiedTabStyle.h>
 #import <MMTabBarView/MMAttachedTabBarButton.h>
 #import <MMTabBarView/MMTabBarView.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 #import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 #import <MMTabBarView/MMTabBarButtonCell.h>
 #import <MMTabBarView/MMOverflowPopUpButton.h>
+
+#import <NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

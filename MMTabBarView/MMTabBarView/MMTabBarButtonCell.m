@@ -11,8 +11,9 @@
 #import <MMTabBarView/MMTabBarButton.h>
 #import <MMTabBarView/MMTabBarView.h>
 #import <MMTabBarView/MMTabStyle.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
-#import <MMTabBarView/NSCell+MMTabBarViewExtensions.h>
+
+#import <NSCell+MMTabBarViewExtensions.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

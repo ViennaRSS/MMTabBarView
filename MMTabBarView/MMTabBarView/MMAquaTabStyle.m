@@ -7,12 +7,14 @@
 //
 
 #import <MMTabBarView/MMAquaTabStyle.h>
+
 #import <MMTabBarView/MMAttachedTabBarButton.h>
 #import <MMTabBarView/MMAttachedTabBarButtonCell.h>
 #import <MMTabBarView/MMTabBarView.h>
 #import <MMTabBarView/MMTabBarButtonCell.h>
 #import <MMTabBarView/MMOverflowPopUpButton.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+
+#import <NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,7 +6,7 @@
 //
 //
 
-#import <MMTabBarView/MMSlideButtonsAnimation.h>
+#import <MMSlideButtonsAnimation.h>
 
 #import <MMTabBarView/MMTabBarButton.h>
 

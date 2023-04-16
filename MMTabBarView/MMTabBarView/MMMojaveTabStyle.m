@@ -8,13 +8,14 @@
 //
 
 #import <MMTabBarView/MMMojaveTabStyle.h>
-#import "MMMojaveTabStyle+Assets.h"
 #import <MMTabBarView/MMAttachedTabBarButton.h>
 #import <MMTabBarView/MMTabBarView.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 #import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 #import <MMTabBarView/MMOverflowPopUpButton.h>
-#import <MMTabBarView/MMTabBarView.Private.h>
+
+#import <MMMojaveTabStyle+Assets.h>
+#import <MMTabBarView.Private.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
