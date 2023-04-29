@@ -6,12 +6,14 @@
 //  Copyright 2006 Kent Sutherland. All rights reserved.
 //
 
-#import <MMTabBarView/MMTabBarController.h>
+#import <MMTabBarController.h>
+
 #import <MMTabBarView/MMTabBarView.h>
 #import <MMTabBarView/MMAttachedTabBarButton.h>
 #import <MMTabBarView/MMTabStyle.h>
-#import <MMTabBarView/NSString+MMTabBarViewExtensions.h>
-#import <MMTabBarView/MMTabBarView.Private.h>
+
+#import <MMTabBarView.Private.h>
+#import <NSString+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

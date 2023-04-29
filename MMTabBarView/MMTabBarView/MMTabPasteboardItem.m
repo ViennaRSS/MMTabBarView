@@ -6,7 +6,7 @@
 //
 //
 
-#import <MMTabBarView/MMTabPasteboardItem.h>
+#import <MMTabPasteboardItem.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

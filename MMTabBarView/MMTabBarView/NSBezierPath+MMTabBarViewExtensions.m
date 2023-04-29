@@ -8,7 +8,7 @@
 
 #import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 
-#import <MMTabBarView/NSAffineTransform+MMTabBarViewExtensions.h>
+#import <NSAffineTransform+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

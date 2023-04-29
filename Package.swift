@@ -26,8 +26,9 @@ let package = Package(
                 .process("Sierra.xcassets"),
                 .process("Yosemite.xcassets"),
             ],
+            publicHeadersPath: "include",
             cSettings: [
-                .headerSearchPath(".")
+                .headerSearchPath("."),
             ])
     ]
 )

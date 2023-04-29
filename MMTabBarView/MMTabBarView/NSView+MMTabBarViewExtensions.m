@@ -6,7 +6,7 @@
 //
 //
 
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 #import <MMTabBarView/MMTabBarView.h>
 #import <MMTabBarView/MMTabBarButton.h>

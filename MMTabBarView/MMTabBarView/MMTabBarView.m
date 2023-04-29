@@ -23,13 +23,14 @@
 #import <MMTabBarView/MMSafariTabStyle.h>
 #import <MMTabBarView/MMYosemiteTabStyle.h>
 #import <MMTabBarView/MMSierraTabStyle.h>
-#import <MMTabBarView/MMTabDragAssistant.h>
-#import <MMTabBarView/MMTabBarController.h>
 #import <MMTabBarView/MMAttachedTabBarButton.h>
-#import <MMTabBarView/MMTabPasteboardItem.h>
-#import <MMTabBarView/MMSlideButtonsAnimation.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 #import <MMTabBarView/MMTabBarItem.h>
+
+#import <MMSlideButtonsAnimation.h>
+#import <MMTabBarController.h>
+#import <MMTabDragAssistant.h>
+#import <MMTabPasteboardItem.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

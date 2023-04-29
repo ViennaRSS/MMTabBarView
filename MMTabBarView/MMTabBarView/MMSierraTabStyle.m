@@ -8,15 +8,17 @@
 //
 
 #import <MMTabBarView/MMSierraTabStyle.h>
+
 #import <MMTabBarView/MMAttachedTabBarButton.h>
 #import <MMTabBarView/MMTabBarView.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 #import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
 #import <MMTabBarView/MMOverflowPopUpButton.h>
 #import <MMTabBarView/MMOverflowPopUpButtonCell.h>
-#import <MMTabBarView/MMTabBarView.Private.h>
 #import <MMTabBarView/MMSierraRolloverButton.h>
 #import <MMTabBarView/MMSierraCloseButton.h>
+
+#import <MMTabBarView.Private.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 @interface MMSierraTabStyle()
 // fill gradients

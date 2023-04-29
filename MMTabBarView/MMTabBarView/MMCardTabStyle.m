@@ -9,10 +9,11 @@
 #import <MMTabBarView/MMCardTabStyle.h>
 
 #import <MMTabBarView/MMAttachedTabBarButton.h>
-#import <MMTabBarView/NSView+MMTabBarViewExtensions.h>
 #import <MMTabBarView/NSBezierPath+MMTabBarViewExtensions.h>
-#import <MMTabBarView/MMTabBarView.Private.h>
 #import <MMTabBarView/MMOverflowPopUpButton.h>
+
+#import <MMTabBarView.Private.h>
+#import <NSView+MMTabBarViewExtensions.h>
 
 #define USE_DYNAMIC_APPEARANCE 1
 
