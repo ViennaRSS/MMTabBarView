@@ -288,6 +288,22 @@ NS_ASSUME_NONNULL_BEGIN
     [self _drawCardBezelInRect:aRect withCapMask:MMBezierShapeFlippedVertically usingStatesOfAttachedButton:button ofTabBarView:tabBarView];
 }
 
+- (void)updateOverflowPopUpButton:(MMOverflowPopUpButton *)aButton ofTabBarView:(MMTabBarView *)tabBarView {
+    static NSImage *overflowImage = nil;
+    if (!overflowImage) {
+        overflowImage = [[MMTabBarView bundle] imageForResource:@"MMSierraOverflow"];
+        overflowImage.template = YES;
+    }
+
+    aButton.image = overflowImage;
+    aButton.alternateImage = overflowImage;
+    aButton.autoresizingMask = (NSViewNotSizable);
+    aButton.preferredEdge = 0;
+
+    MMOverflowPopUpButtonCell *cell = aButton.cell;
+    cell.centerImage = YES;
+
+}
 
 -(void)drawBezelOfOverflowButton:(MMOverflowPopUpButton *)overflowButton ofTabBarView:(MMTabBarView *)tabBarView inRect:(NSRect)rect
 {

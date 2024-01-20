@@ -685,8 +685,6 @@
 		[item setPaletteLabel:@"Tab Label"];
 		[item setLabel:@"Tab Label"];
 		[item setView:tabField];
-		[item setMinSize:NSMakeSize(100, tabField.frame.size.height)];
-		[item setMaxSize:NSMakeSize(500, tabField.frame.size.height)];
 	} else if ([itemIdentifier isEqualToString:@"DrawerItem"]) {
 		[item setPaletteLabel:@"Configuration"];
 		[item setLabel:@"Configuration"];
