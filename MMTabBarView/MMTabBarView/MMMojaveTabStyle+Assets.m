@@ -9,15 +9,6 @@
 
 #import "MMMojaveTabStyle+Assets.h"
 #import <MMTabBarView/MMTabBarView.h>
-#if __has_feature(modules)
-#if __has_warning("-Watimport-in-framework-header")
-#pragma clang diagnostic ignored "-Watimport-in-framework-header"
-#endif
-@import Darwin.Availability;
-#else
-#import "Availability.h"
-#endif
-
 
 @implementation MMMojaveTabStyle (Assets)
 
