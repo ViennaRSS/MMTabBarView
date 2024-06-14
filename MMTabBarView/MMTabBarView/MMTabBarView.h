@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MMTabStyle;
 @protocol MMTabBarViewDelegate;
 
-@interface MMTabBarView : NSView <NSDraggingSource, NSDraggingDestination, NSAnimationDelegate>
+@interface MMTabBarView : NSView <NSDraggingSource, NSDraggingDestination, NSAnimationDelegate, NSMenuItemValidation>
 
 #pragma mark Basics
 
