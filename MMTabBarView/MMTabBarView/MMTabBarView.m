@@ -2025,8 +2025,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 #pragma mark -
 #pragma mark Menu Validation
 
-- (BOOL)validateMenuItem:(NSMenuItem *)sender {
-	NSMenuItem* const menuItem = sender;
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
 	if (menuItem == nil) {
 		return NO;
 	}
@@ -2034,7 +2033,7 @@ static NSMutableDictionary<NSString*, Class <MMTabStyle>> *registeredStyleClasse
 	if (tabViewItem == nil) {
 		return NO;
 	}
-	[sender setState:([tabViewItem isEqualTo:_tabView.selectedTabViewItem]) ? NSControlStateValueOn : NSControlStateValueOff];
+	menuItem.state = ([tabViewItem isEqualTo:_tabView.selectedTabViewItem]) ? NSControlStateValueOn : NSControlStateValueOff;
 
 	return [self.delegate respondsToSelector:@selector(tabView:validateOverflowMenuItem:forTabViewItem:)] ?
 		   [self.delegate tabView:self.tabView validateOverflowMenuItem:menuItem forTabViewItem:tabViewItem] : YES;
